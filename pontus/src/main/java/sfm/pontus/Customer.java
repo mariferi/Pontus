@@ -6,6 +6,6 @@ public class Customer {
     private int customer_wallet;//Ft
     private String customer_name;
     private String password;
-    //private ? cart;
+    private List<Product> cart;
     
 }
