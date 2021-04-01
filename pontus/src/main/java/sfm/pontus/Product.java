@@ -102,20 +102,20 @@ import java.sql.SQLException;
     public static void add( String code, String name,BigDecimal price,String size){
 
         Product p = new Product(code, name,price,size);
-        ResultSet rs = Main.executeQueryforRS("SELECT * FROM products");
+        ResultSet rs =App.executeQueryforRS("SELECT * FROM products");
         try {
             p.id = rs.getString("id2");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         getListFromDB().add(p);
-        Main.executeQueryforUpdate("INSERT INTO products ( code, name, price, size) VALUES ('" +code+"','"+name+"','"+price+"','"+size+"')");
+        App.executeQueryforUpdate("INSERT INTO products ( code, name, price, size) VALUES ('" +code+"','"+name+"','"+price+"','"+size+"')");
 
 
     }
     public static void removeFromDB(Product product){
         String id = product.id;
-        Main.executeQueryforUpdate(" DELETE FROM products WHERE id2="+"'"+id+"';");
+        App.executeQueryforUpdate(" DELETE FROM products WHERE id2="+"'"+id+"';");
 
         getListFromDB().remove(product);
 

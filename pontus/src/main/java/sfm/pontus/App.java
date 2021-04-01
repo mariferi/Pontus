@@ -79,7 +79,7 @@ public class App extends Application {
     }
 
 
-    public static void main(String[] args){launch(args);}
+    public static void App(String[] args){launch(args);}
 
 
 
@@ -88,7 +88,7 @@ public class App extends Application {
         Statement st;
         ResultSet rs = null;
         try {
-            connection = Main.connectDB();
+            connection = App.connectDB();
             st = connection.createStatement();
             rs = st.executeQuery(statement);
 
@@ -103,7 +103,7 @@ public class App extends Application {
         Connection connection;
         Statement st;
         try {
-            connection = Main.connectDB();
+            connection = App.connectDB();
             st = connection.createStatement();
             st.executeUpdate(statement);
 
