@@ -92,7 +92,7 @@ public class Purchase {
     //This method returns an observable list of purchases stored in the database
     public static ObservableList<Cart> getListFromDB() {
         ObservableList<Cart> purchases = FXCollections.observableArrayList();
-        ResultSet rs = Main.executeQueryforRS("SELECT * FROM purchase");//Getting data from database
+        ResultSet rs = App.executeQueryforRS("SELECT * FROM purchase");//Getting data from database
         Cart cart;
         try {
             while (rs.next()) {
@@ -112,7 +112,7 @@ public class Purchase {
     }
 public static ObservableList<Cart>getListFromDB(boolean date,String day ){
           ObservableList<Cart> purchases = FXCollections.observableArrayList();
-          ResultSet rs = Main.executeQueryforRS("SELECT * FROM purchase WHERE date  LIKE '%" + day + "%'");
+          ResultSet rs = App.executeQueryforRS("SELECT * FROM purchase WHERE date  LIKE '%" + day + "%'");
           Cart cart;
           try {
               while (rs.next()) {
