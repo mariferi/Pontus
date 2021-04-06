@@ -122,7 +122,7 @@ public class Cart {
 
     public  void checkout() {
             Cart c = this;
-            Main.executeQueryforUpdate("INSERT INTO purchase ( id, customerID, date, price) VALUES ('"
+            App.executeQueryforUpdate("INSERT INTO purchase ( id, customerID, date, price) VALUES ('"
                     +c.getId()+"','"+c.getCartName()+"','"+c.getDate()+"','"+c.getPrice()+"')");
 
         }

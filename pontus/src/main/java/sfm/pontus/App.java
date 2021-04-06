@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import java.sql.*
+import java.sql.*;
 /**
  * JavaFX App
  */
@@ -48,12 +48,12 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         //loading the source from the login fxml file
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLs/login.fxml"));
-        primaryStage.setTitle("Jeff's Fishing shack");
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLs/Login.fxml"));
+        primaryStage.setTitle("Pontus műszaki üzlet ");
         //Setting the stage style undecorated to use custom buttons
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root));
-        primaryStage.getIcons().add(new Image("Store/productPics/logo.jpg"));
+        primaryStage.getIcons().add(new Image("Store/Képek/bejelentkező.jpg"));
         primaryStage.setResizable(false);
         primaryStage.show();
 
@@ -61,7 +61,7 @@ public class App extends Application {
 
 
 //
-    private  static final String CONN = "jdbc:mysql://localhost/fishing shack";
+    private  static final String CONN = "jdbc:mysql://localhost/pontus";
       private static final String USERNAME="root";
       private static final String PASSWORD="";
 
