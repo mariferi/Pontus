@@ -10,5 +10,5 @@ package sfm.pontus;
  * @author Tibi
  */
 public class Controller {
-    
+    int probahello = 0;
 }
