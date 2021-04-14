@@ -8,7 +8,7 @@ package sfm.pontus;
 
 import javafx.beans.property.SimpleStringProperty;
 
-import java.sql.*;
+//import java.sql.*;
 
 abstract public class Account {
 
@@ -61,7 +61,7 @@ abstract public class Account {
 private static Customer customer ;
 
 
-
+/*
 public static String validateLogin(String username, String password) {
         String table;
 if(username.isEmpty()||password.isEmpty()){
@@ -102,5 +102,8 @@ if(username.isEmpty()||password.isEmpty()){
 
         return "Invalid Credentials !, If the problem persist check your connection and contact a staff";
         }
-
+*/
+       
+        
 }
+

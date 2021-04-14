@@ -11,8 +11,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.math.BigDecimal;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -91,7 +91,7 @@ public class Purchase {
 
     //This method returns an observable list of purchases stored in the database
     public static ObservableList<Cart> getListFromDB() {
-        ObservableList<Cart> purchases = FXCollections.observableArrayList();
+       /* ObservableList<Cart> purchases = FXCollections.observableArrayList();
         ResultSet rs = App.executeQueryforRS("SELECT * FROM purchase");//Getting data from database
         Cart cart;
         try {
@@ -108,10 +108,11 @@ public class Purchase {
             e.printStackTrace();
         }
 
-        return purchases;
+        return purchases;*/
+        return null;
     }
 public static ObservableList<Cart>getListFromDB(boolean date,String day ){
-          ObservableList<Cart> purchases = FXCollections.observableArrayList();
+        /*  ObservableList<Cart> purchases = FXCollections.observableArrayList();
           ResultSet rs = App.executeQueryforRS("SELECT * FROM purchase WHERE date  LIKE '%" + day + "%'");
           Cart cart;
           try {
@@ -128,11 +129,13 @@ public static ObservableList<Cart>getListFromDB(boolean date,String day ){
               e.printStackTrace();
           }
 
-    return purchases;
+    return purchases;*/
+        return null;
+      
 }
 
     public static ObservableList<Cart> getListFromDB(String customerID) {
-        ObservableList<Cart> fullList = getListFromDB();//Getting all the data from database & storing it
+        /*ObservableList<Cart> fullList = getListFromDB();//Getting all the data from database & storing it
 
         //handling when admin enters a date separated by a '/' to return the purchases made on that specific date
         if (customerID.contains("/")) {
@@ -183,6 +186,7 @@ public static ObservableList<Cart>getListFromDB(boolean date,String day ){
             }
             return newList; //returning the new list containing only the keys
         }
+    }*/
+        return null;
     }
-
 }

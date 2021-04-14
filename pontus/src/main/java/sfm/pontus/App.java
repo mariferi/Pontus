@@ -15,12 +15,12 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import java.sql.*;
+//import java.sql.*;
 /**
  * JavaFX App
  */
 public class App extends Application {
-
+/*
     private static Scene scene;
 
     @Override
@@ -43,7 +43,7 @@ public class App extends Application {
         launch(args);
     }
 
-    
+*/    
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -61,6 +61,7 @@ public class App extends Application {
 
 
 //
+    /*
     private  static final String CONN = "jdbc:mysql://localhost/pontus";
       private static final String USERNAME="root";
       private static final String PASSWORD="";
@@ -113,6 +114,6 @@ public class App extends Application {
 
 
     }
-
+*/
     
 }

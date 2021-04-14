@@ -13,8 +13,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.math.BigDecimal;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
 
 
  class Product {
@@ -78,9 +78,9 @@ import java.sql.SQLException;
     }
 
     public static ObservableList<Product> getListFromDB() {
-
+/*
         ObservableList<Product> productList = FXCollections.observableArrayList();
-        ResultSet rs = Main.executeQueryforRS("SELECT * FROM products");
+        ResultSet rs = App.executeQueryforRS("SELECT * FROM products");
 
         Product product;
         try {
@@ -95,12 +95,12 @@ import java.sql.SQLException;
         }
 
 
-        return productList;
+        return productList;*/return null;
     }
 
 
     public static void add( String code, String name,BigDecimal price,String size){
-
+/*
         Product p = new Product(code, name,price,size);
         ResultSet rs =App.executeQueryforRS("SELECT * FROM products");
         try {
@@ -111,16 +111,15 @@ import java.sql.SQLException;
         getListFromDB().add(p);
         App.executeQueryforUpdate("INSERT INTO products ( code, name, price, size) VALUES ('" +code+"','"+name+"','"+price+"','"+size+"')");
 
-
+*/
     }
     public static void removeFromDB(Product product){
-        String id = product.id;
+        /*String id = product.id;
         App.executeQueryforUpdate(" DELETE FROM products WHERE id2="+"'"+id+"';");
 
         getListFromDB().remove(product);
 
     }
-
-
-
-}
+*/
+    }
+ }
