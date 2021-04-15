@@ -1,6 +1,7 @@
 package sfm.pontus;
 
 import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,10 +20,20 @@ public class Application {
             cDAO.saveCustomer(customer2);
         }
 
-        /*
+
         Product prod =new Product();
-        prod.setName("Televízió");
-        */
+        prod.setName("Samsung Galaxy S8");
+
+        try (ProductDAO pDAO= new JpaProductDAO();){
+            pDAO.saveProduct(prod);
+            List<Product> all_products=pDAO.getProducts();
+            Stock Raktar=new Stock("Fő Raktár");
+            Raktar.setId(1);
+            Raktar.getProducts().addAll(all_products);
+            pDAO.saveStock(Raktar);
+        }
+
+
 
 
         System.out.println("Open your browser and navigate to http://localhost:8082/");
