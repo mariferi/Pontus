@@ -8,23 +8,22 @@ import org.h2.tools.Server;
 
 public class Application {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws Exception {
         startDatabase();
 
-        final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
-        final EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Customer customer2 = new Customer();
+        customer2.setFirstName("Kiss");
+        customer2.setLastName("Pista");
 
-        Customer customer = new Customer();
-        customer.setFirstName("Dennys");
-        customer.setLastName("Fredericci");
+        try (CustomerDAO cDAO= new JpaCustomerDAO();){
+            cDAO.saveCustomer(customer2);
+        }
 
+        /*
         Product prod =new Product();
         prod.setName("Televízió");
+        */
 
-        entityManager.getTransaction().begin();
-        entityManager.persist(customer);
-        entityManager.persist(prod);
-        entityManager.getTransaction().commit();
 
         System.out.println("Open your browser and navigate to http://localhost:8082/");
         System.out.println("JDBC URL: jdbc:h2:file:./src\\main\\resources\\mydb");
