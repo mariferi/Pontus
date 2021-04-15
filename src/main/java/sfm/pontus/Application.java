@@ -27,8 +27,7 @@ public class Application {
         try (ProductDAO pDAO= new JpaProductDAO();){
             pDAO.saveProduct(prod);
             List<Product> all_products=pDAO.getProducts();
-            Stock Raktar=new Stock("Fő Raktár");
-            Raktar.setId(1);
+            Stock Raktar=new Stock("Fő Raktár");//csak egyszer fut le aztán error mert már  létezik
             Raktar.getProducts().addAll(all_products);
             pDAO.saveStock(Raktar);
         }
@@ -42,13 +41,6 @@ public class Application {
         System.out.println("Password: ");
 
     }
-    /*
-    public  void addCustomer(Customer customer){
-        entityManager.getTransaction().begin();
-        entityManager.persist(customer);
-        entityManager.getTransaction().commit();
-    }
-*/
     private static void startDatabase() throws SQLException {
         new Server().runTool("-tcp", "-web", "-ifNotExists");
     }
