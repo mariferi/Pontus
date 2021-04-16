@@ -8,4 +8,5 @@ public interface ProductDAO extends AutoCloseable{
     public void deleteProduct (Product product);
     public void updateProduct (Product product);
     public List<Product> getProducts();
+    void saveProducts(List<Product> products);
 }

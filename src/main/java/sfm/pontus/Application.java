@@ -14,37 +14,29 @@ public class Application {
         List<Product> all_products;
         List<Customer> all_customers;
 
-        Customer customer2 = new Customer();
-        customer2.setFirstName("Kiss");
-        customer2.setLastName("Pista");
 
-        try (CustomerDAO cDAO= new JpaCustomerDAO();){//customer db
+        ////////////////  AdatBázis  Beolvasás   ////////////////////////
+        try (CustomerDAO cDAO= new JpaCustomerDAO();){//customer beolvasás
             all_customers=cDAO.getCustomers();
-            cDAO.saveCustomer(customer2);
         }
+        try (ProductDAO pDAO= new JpaProductDAO();){//product beolvasás
+            all_products=pDAO.getProducts();
 
-
-        Product product1 =new Product();
-        product1.setName("Samsung Galaxy S8");
-
-        try (ProductDAO pDAO= new JpaProductDAO();){//product db
-            pDAO.saveProduct(product1);
-           all_products=pDAO.getProducts();
-           //Stock Raktar=new Stock("Fő Raktár");//csak egyszer fut le aztán error mert már  létezik eza raktár
-           //Raktar.getProducts().addAll(all_products);
-           //pDAO.saveStock(Raktar);
         }
+        //////////////////////////////////////////////////////////////////
 
+        Product product =new Product();
+        product.setName("Alma");
+        all_products.add(product);
 
-
-        for (Customer cust : all_customers){
-            System.out.println(cust);
+        ////////////////  AdatBázis  Mentés  //////////////////////
+        try (CustomerDAO cDAO= new JpaCustomerDAO();){//customer mentés
+            cDAO.saveCustomers(all_customers);
         }
-
-        for (Product prod : all_products){
-            System.out.println(prod);
+        try (ProductDAO pDAO= new JpaProductDAO();){//product mentés
+           pDAO.saveProducts(all_products);
         }
-
+        //////////////////////////////////////////////////////////////////
 
         System.out.println("Open your browser and navigate to http://localhost:8082/");
         System.out.println("JDBC URL: jdbc:h2:file:./src\\main\\resources\\mydb");

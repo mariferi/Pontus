@@ -1,9 +1,6 @@
 package sfm.pontus;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 public class JpaCustomerDAO implements CustomerDAO{
@@ -35,6 +32,18 @@ public class JpaCustomerDAO implements CustomerDAO{
         TypedQuery<Customer> query=entityManager.createQuery("SELECT customer FROM Customer customer",Customer.class);
         List<Customer> customers =query.getResultList();
         return customers;
+    }
+
+    @Override
+    public void saveCustomers(List<Customer> customers) {
+
+        List<Customer> old_customers=getCustomers();
+        for (Customer customer:old_customers){
+            deleteCustomer(customer);//régi törlése
+        }
+        for (Customer customer:customers){
+            saveCustomer(customer);//új mentése
+        }
     }
 
     @Override

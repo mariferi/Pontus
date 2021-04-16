@@ -45,6 +45,16 @@ public class JpaProductDAO implements ProductDAO {
     }
 
     @Override
+    public void saveProducts(List<Product> products) {
+        for (Product product:getProducts()){
+            deleteProduct(product);//régi törlése
+        }
+        for (Product product:products){
+            saveProduct(product);//új mentése
+        }
+    }
+
+    @Override
     public void close() throws Exception {
         entityManager.close();
         entityManagerFactory.close();
