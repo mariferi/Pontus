@@ -141,8 +141,8 @@ public class Customer extends Account {
 
     public static void add(String username, String password, String address, String name) {
 
-        // App.executeQueryforUpdate("INSERT INTO customer (userName, password,address,name) VALUES ('"
-        //         + username + "', '" + password + "','" + address + "','" + name + "')");
+        Application.executeQueryforUpdate("INSERT INTO customer (userName, password,address,name) VALUES ('"
+                 + username + "', '" + password + "','" + address + "','" + name + "')");
 
 
     }
@@ -157,9 +157,9 @@ public class Customer extends Account {
     }
 
     public static ObservableList<Customer> getListFromDB() {
-/*
+
         ObservableList<Customer> customerList = FXCollections.observableArrayList();
-        ResultSet rs = App.executeQueryforRS("SELECT * FROM customer");
+        ResultSet rs = Application.executeQueryforRS("SELECT * FROM customer");
         Customer customer;
         try {
             while (rs.next()) {
@@ -173,25 +173,7 @@ public class Customer extends Account {
             e.printStackTrace();
         }
 
-        return customerList;*/return null;
-
-/*
-        ObservableList<Customer> customerList = FXCollections.observableArrayList();
-        ResultSet rs = App.executeQueryforRS("SELECT * FROM customer");
-        Customer customer;
-        try {
-            while (rs.next()) {
-                customer = new Customer(rs.getString("userName"), rs.getString("password"),
-                                         rs.getString("name"), rs.getString("address"));
-                customer.id = rs.getInt("id");
-                customerList.add(customer);
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return customerList;*/
+        return customerList;
     }
 
     @Override

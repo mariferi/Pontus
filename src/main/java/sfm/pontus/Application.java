@@ -44,8 +44,7 @@ public class Application {
 
 */
 package sfm.pontus;
-
-import javafx.application.Application;
+import java.sql.SQLException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -55,17 +54,19 @@ import java.io.IOException;
 //Tibi importjai
 import javafx.scene.image.Image;
 import javafx.stage.StageStyle;
-import java.sql.*;
+import org.jetbrains.annotations.NotNull;
 
+import java.sql.*;
+import java.sql.Connection;
 
 public class Application extends javafx.application.Application {
-
-        private static Scene scene;
-    private Stage primaryLogin;
+/*
+    private static Scene scene;
+    private Stage login;
 
     @Override
         public void start(Stage Login) throws IOException {
-            scene = new Scene(loadFXML("Login"), 640, 480);
+        scene = new Scene(loadFXML("Login"), 640, 480);
             Login.setScene(scene);
             Login.show();
         }
@@ -84,6 +85,7 @@ public class Application extends javafx.application.Application {
         }
 
 
+*/
     @Override
     public void start(Stage primaryLogin) throws Exception {
 
@@ -110,8 +112,7 @@ public class Application extends javafx.application.Application {
 
     public static Connection connectDB() {
         try {
-            Connection con = DriverManager.getConnection(CONN, USERNAME, PASSWORD);
-            return con;
+            return DriverManager.getConnection(CONN, USERNAME, PASSWORD);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -129,7 +130,8 @@ public class Application extends javafx.application.Application {
         Statement st;
         ResultSet rs = null;
         try {
-            connection = Application.connectDB();
+            try (Connection connection1 = connection = Application.connectDB()) {
+            }
             st = connection.createStatement();
             rs = st.executeQuery(statement);
 
