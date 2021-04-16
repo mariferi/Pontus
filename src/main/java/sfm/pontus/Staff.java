@@ -28,11 +28,11 @@ public class Staff extends Account  {
 
 
 
-/*
+
     public static ObservableList<Cart> viewTransaction(String customerID) {
         ObservableList ob = Purchase.getListFromDB(customerID);
         return ob;
     }
 
-*/
+
 }
