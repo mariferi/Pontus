@@ -44,25 +44,22 @@ public class Application {
 
 */
 package sfm.pontus;
-import java.sql.SQLException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import java.io.IOException;
 
-//Tibi importjai
-import javafx.scene.image.Image;
-import javafx.stage.StageStyle;
-
 import java.sql.*;
-import java.sql.Connection;
 
 public class Application extends javafx.application.Application {
-/*
+
     private static Scene scene;
     private Stage login;
-
+/*
     @Override
         public void start(Stage Login) throws IOException {
         scene = new Scene(loadFXML("Login"), 640, 480);
@@ -121,7 +118,7 @@ public class Application extends javafx.application.Application {
         return fxmlLoader.load();
     }
 */
-    public static void main(String[] args) {
+    public static void Application(String[] args) {
         launch();
     }
 
@@ -143,12 +140,7 @@ public class Application extends javafx.application.Application {
         }
     }
 
-
-    public static void App(String[] args){launch(args);}
-
-
-
-    public static ResultSet executeQueryforRS(String statement){
+       public static ResultSet executeQueryforRS(String statement){
         Connection connection;
         Statement st;
         ResultSet rs = null;
