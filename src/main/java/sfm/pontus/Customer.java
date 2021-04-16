@@ -14,6 +14,15 @@ public class Customer {
     private String firstName;
     private String lastName;
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

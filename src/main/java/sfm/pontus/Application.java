@@ -11,28 +11,39 @@ public class Application {
 
     public static void main(String[] args) throws Exception {
         startDatabase();
+        List<Product> all_products;
+        List<Customer> all_customers;
 
         Customer customer2 = new Customer();
         customer2.setFirstName("Kiss");
         customer2.setLastName("Pista");
 
-        try (CustomerDAO cDAO= new JpaCustomerDAO();){
+        try (CustomerDAO cDAO= new JpaCustomerDAO();){//customer db
+            all_customers=cDAO.getCustomers();
             cDAO.saveCustomer(customer2);
         }
 
 
-        Product prod =new Product();
-        prod.setName("Samsung Galaxy S8");
+        Product product1 =new Product();
+        product1.setName("Samsung Galaxy S8");
 
-        try (ProductDAO pDAO= new JpaProductDAO();){
-            pDAO.saveProduct(prod);
-            List<Product> all_products=pDAO.getProducts();
-            Stock Raktar=new Stock("Fő Raktár");//csak egyszer fut le aztán error mert már  létezik
-            Raktar.getProducts().addAll(all_products);
-            pDAO.saveStock(Raktar);
+        try (ProductDAO pDAO= new JpaProductDAO();){//product db
+            pDAO.saveProduct(product1);
+           all_products=pDAO.getProducts();
+           //Stock Raktar=new Stock("Fő Raktár");//csak egyszer fut le aztán error mert már  létezik eza raktár
+           //Raktar.getProducts().addAll(all_products);
+           //pDAO.saveStock(Raktar);
         }
 
 
+
+        for (Customer cust : all_customers){
+            System.out.println(cust);
+        }
+
+        for (Product prod : all_products){
+            System.out.println(prod);
+        }
 
 
         System.out.println("Open your browser and navigate to http://localhost:8082/");

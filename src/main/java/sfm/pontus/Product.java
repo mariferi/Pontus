@@ -13,6 +13,14 @@ public class Product {
     private Integer id;
     private String Name;
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", Name='" + Name + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
