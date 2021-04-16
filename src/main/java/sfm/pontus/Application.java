@@ -54,7 +54,6 @@ import java.io.IOException;
 //Tibi importjai
 import javafx.scene.image.Image;
 import javafx.stage.StageStyle;
-import org.jetbrains.annotations.NotNull;
 
 import java.sql.*;
 import java.sql.Connection;
