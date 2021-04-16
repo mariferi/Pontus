@@ -84,8 +84,8 @@ public class Application extends javafx.application.Application {
             launch(args);
         }
 
-
 */
+
     @Override
     public void start(Stage primaryLogin) throws Exception {
 
@@ -101,6 +101,30 @@ public class Application extends javafx.application.Application {
 
     }
 
+
+/*
+    private static Scene scene;
+
+
+    public void start(Stage stage) throws IOException {
+        scene = new Scene(loadFXML("Login"));
+        stage.setTitle("Pontus műszaki üzlet ");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
+    }
+
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
+    }
+*/
+    public static void main(String[] args) {
+        launch();
+    }
 
 //
 

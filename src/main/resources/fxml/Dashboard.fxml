@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="540.0" prefWidth="734.0" style="-fx-background-color: #d7dcdd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Store.DashboardController">
+<AnchorPane prefHeight="540.0" prefWidth="734.0" style="-fx-background-color: #d7dcdd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sfm.pontus.DashboardController">
    <children>
       <Label layoutX="164.0" layoutY="28.0" prefHeight="62.0" prefWidth="422.0" text="Pontus műszaki shop" textFill="#727272">
          <font>

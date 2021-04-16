@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="678.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Store.PaymentController">
+<AnchorPane prefHeight="400.0" prefWidth="678.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sfm.pontus.PaymentController">
    <children>
       <Button layoutX="33.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleConfirmButton" prefHeight="33.0" prefWidth="123.0" style="-fx-background-color: #7f8c8d;" text="Confirm" textFill="WHITE">
          <font>
