@@ -12,18 +12,12 @@ public class Application {
     public static void main(String[] args) throws Exception {
         startDatabase();
         ////////////////  AdatBázis   ////////////////////////
-        try (//CustomerDAO cDAO= new JpaCustomerDAO();
+        try (CustomerDAO cDAO= new JpaCustomerDAO();
              ProductDAO pDAO= new JpaProductDAO();){
             //all_customers=cDAO.getCustomers();
             //all_products=pDAO.getAllProducts();
         //////////////////////////////////////////////////////////////////
 
-            //Customer jön
-        Product product =new Product();
-        product.setName("Füge");
-        pDAO.saveProduct(product);
-
-        System.out.println(pDAO.getproductbyID(product.getId()).toString());
 
         }
         //////////////////////////////////////////////////////////////////

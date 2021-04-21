@@ -33,7 +33,7 @@ public class JpaProductDAO implements ProductDAO {
     }
 
     @Override
-    public List<Product> getAllProducts() {
+    public List<Product> getProductsAll() {
         String sqlstr="SELECT product FROM Product product";
         TypedQuery<Product> query=entityManager.createQuery(sqlstr,Product.class);
         return query.getResultList();
@@ -48,7 +48,7 @@ public class JpaProductDAO implements ProductDAO {
 
 
     @Override
-    public Product getproductbyID(int id){
+    public Product getProductbyID(int id){
         String sqlstr="SELECT product FROM Product product WHERE ID="+id;
         TypedQuery<Product> query=entityManager.createQuery(sqlstr,Product.class);
         return query.getSingleResult();

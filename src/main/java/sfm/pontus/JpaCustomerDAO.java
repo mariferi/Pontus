@@ -28,23 +28,26 @@ public class JpaCustomerDAO implements CustomerDAO{
     }
 
     @Override
-    public List<Customer> getCustomers() {
-        TypedQuery<Customer> query=entityManager.createQuery("SELECT customer FROM Customer customer",Customer.class);
-        List<Customer> customers =query.getResultList();
-        return customers;
+    public List<Customer> getCustomersAll() {
+        String sqlstr="SELECT customer FROM Customer customer";
+        TypedQuery<Customer> query=entityManager.createQuery(sqlstr,Customer.class);
+        return query.getResultList();
     }
 
     @Override
-    public void saveCustomers(List<Customer> customers) {
-
-        List<Customer> old_customers=getCustomers();
-        for (Customer customer:old_customers){
-            deleteCustomer(customer);//régi törlése
-        }
-        for (Customer customer:customers){
-            saveCustomer(customer);//új mentése
-        }
+    public List<Customer> getCustomersbyName(String name) {
+        String sqlstr="SELECT customer FROM Customer customer WHERE NAME="+"'"+name+"'";
+        TypedQuery<Customer> query=entityManager.createQuery(sqlstr,Customer.class);
+        return query.getResultList();
     }
+
+    @Override
+    public Customer getCustomerbyID(int id) {
+        String sqlstr="SELECT customer FROM Customer customer WHERE ID="+id;
+        TypedQuery<Customer> query=entityManager.createQuery(sqlstr,Customer.class);
+        return query.getSingleResult();
+    }
+
 
     @Override
     public void close() throws Exception {

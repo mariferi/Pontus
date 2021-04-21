@@ -6,7 +6,7 @@ public interface ProductDAO extends AutoCloseable{
     public void saveProduct (Product product);
     public void deleteProduct (Product product);
     public void updateProduct (Product product);
-    public List<Product> getAllProducts();
+    public List<Product> getProductsAll();
     public List<Product> getProductsbyName(String name);
-    public Product getproductbyID(int id);
+    public Product getProductbyID(int id);
 }
