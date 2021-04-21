@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JpaProductDAO implements ProductDAO {
@@ -18,12 +19,6 @@ public class JpaProductDAO implements ProductDAO {
         entityManager.getTransaction().commit();
     }
 
-    @Override
-    public void saveStock(Stock stock) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(stock);
-        entityManager.getTransaction().commit();
-    }
 
     @Override
     public void deleteProduct(Product product) {
@@ -38,20 +33,25 @@ public class JpaProductDAO implements ProductDAO {
     }
 
     @Override
-    public List<Product> getProducts() {
-        TypedQuery<Product> query=entityManager.createQuery("SELECT product FROM Product product",Product.class);
-        List<Product> products =query.getResultList();
-        return products;
+    public List<Product> getAllProducts() {
+        String sqlstr="SELECT product FROM Product product";
+        TypedQuery<Product> query=entityManager.createQuery(sqlstr,Product.class);
+        return query.getResultList();
     }
 
     @Override
-    public void saveProducts(List<Product> products) {
-        for (Product product:getProducts()){
-            deleteProduct(product);//régi törlése
-        }
-        for (Product product:products){
-            saveProduct(product);//új mentése
-        }
+    public List<Product> getProductsbyName(String name) {
+        String sqlstr="SELECT product FROM Product product WHERE NAME="+"'"+name+"'";
+        TypedQuery<Product> query=entityManager.createQuery(sqlstr,Product.class);
+        return query.getResultList();
+    }
+
+
+    @Override
+    public Product getproductbyID(int id){
+        String sqlstr="SELECT product FROM Product product WHERE ID="+id;
+        TypedQuery<Product> query=entityManager.createQuery(sqlstr,Product.class);
+        return query.getSingleResult();
     }
 
     @Override

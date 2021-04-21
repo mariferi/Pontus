@@ -11,30 +11,20 @@ public class Application {
 
     public static void main(String[] args) throws Exception {
         startDatabase();
-        List<Product> all_products;
-        List<Customer> all_customers;
-
-
-        ////////////////  AdatBázis  Beolvasás   ////////////////////////
-        try (CustomerDAO cDAO= new JpaCustomerDAO();){//customer beolvasás
-            all_customers=cDAO.getCustomers();
-        }
-        try (ProductDAO pDAO= new JpaProductDAO();){//product beolvasás
-            all_products=pDAO.getProducts();
-
-        }
+        ////////////////  AdatBázis   ////////////////////////
+        try (//CustomerDAO cDAO= new JpaCustomerDAO();
+             ProductDAO pDAO= new JpaProductDAO();){
+            //all_customers=cDAO.getCustomers();
+            //all_products=pDAO.getAllProducts();
         //////////////////////////////////////////////////////////////////
 
+            //Customer jön
         Product product =new Product();
-        product.setName("Alma");
-        all_products.add(product);
+        product.setName("Füge");
+        pDAO.saveProduct(product);
 
-        ////////////////  AdatBázis  Mentés  //////////////////////
-        try (CustomerDAO cDAO= new JpaCustomerDAO();){//customer mentés
-            cDAO.saveCustomers(all_customers);
-        }
-        try (ProductDAO pDAO= new JpaProductDAO();){//product mentés
-           pDAO.saveProducts(all_products);
+        System.out.println(pDAO.getproductbyID(product.getId()).toString());
+
         }
         //////////////////////////////////////////////////////////////////
 
