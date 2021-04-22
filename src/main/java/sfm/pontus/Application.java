@@ -14,8 +14,8 @@ public class Application {
         ////////////////  AdatBázis   ////////////////////////
         try (CustomerDAO cDAO= new JpaCustomerDAO();
              ProductDAO pDAO= new JpaProductDAO();){
-            //all_customers=cDAO.getCustomers();
-            //all_products=pDAO.getAllProducts();
+            //all_customers=cDAO.getCustomersAll();
+            //all_products=pDAO.getProductsAll();
         //////////////////////////////////////////////////////////////////
 
 

@@ -6,21 +6,39 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Customer {
+public class Customer extends Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    private String firstName;
-    private String lastName;
+    private static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
+    private static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
+    private String address;
+    private String name;
 
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", name='" + name + '\'' +
                 '}';
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getId() {
@@ -31,20 +49,29 @@ public class Customer {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Customer(String userName, String password, String name, String address) {
+        super(userName, password);
+        this.name = name;
+        this.address = address;
+
     }
 
-    public void setFirstName(final String firstName) {
-        this.firstName = firstName;
+    public static boolean validateEmail(String email) {
+        String pattern = VALID_EMAIL_REGEX;
+
+        if (email.matches(pattern)) {
+            return true;
+        } else
+            return false;
+    }
+    public static boolean validatePassword(String password) {
+        String pattern = VALID_PASSWORD_REGEX;
+
+        if (password.matches(pattern)) {
+            return true;
+        } else
+            return false;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(final String lastName) {
-        this.lastName = lastName;
-    }
 
 }

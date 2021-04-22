@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 public class Product {
@@ -11,14 +12,53 @@ public class Product {
     @Id
     @GeneratedValue
     private Integer id;
-    private String Name;
+    private String code;
+    private String name;
+    private BigDecimal price;
 
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", Name='" + Name + '\'' +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", size='" + size + '\'' +
                 '}';
+    }
+
+    private String size;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public Integer getId() {
@@ -29,12 +69,11 @@ public class Product {
         this.id = id;
     }
 
-
-    public String getName() {
-        return Name;
+    public Product( String code,String name, BigDecimal price,String size){
+        this.name = name;
+        this.price = price;
+        this.size = size;
+        this.code = code;
     }
 
-    public void setName(String name) {
-        Name = name;
-    }
 }
