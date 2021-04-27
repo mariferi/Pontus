@@ -7,10 +7,12 @@
     <persistence-unit name="br.com.fredericci.pu">
         <description>Hibernate EntityManager Demo</description>
         <class>com.mycompany.mavenproject4.Customer</class>
+        <class>com.mycompany.mavenproject3.Product</class>
+        <class>com.com.mycompany.mavenproject3.Stock</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:my_database"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>

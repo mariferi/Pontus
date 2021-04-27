@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Customer extends Account {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
