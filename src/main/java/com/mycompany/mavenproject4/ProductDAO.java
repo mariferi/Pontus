@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject3;
+package com.mycompany.mavenproject4;
 
 import java.util.List;
 

@@ -34,8 +34,8 @@ public class Application {
     public static void main(String[] args) throws SQLException {
         startDatabase();
         ////////////////  AdatBázis   ////////////////////////
-        try (CustomerDAO cDAO= new JpaCustomerDAO();
-             ProductDAO pDAO= new JpaProductDAO();){
+        try (CustomerDAO cDAO = new JpaCustomerDAO();
+             ProductDAO pDAO = new JpaProductDAO();){
             //all_customers=cDAO.getCustomersAll();
             //all_products=pDAO.getProductsAll();
         //////////////////////////////////////////////////////////////////

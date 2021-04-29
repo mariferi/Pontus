@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject3;
+package com.mycompany.mavenproject4;
 
 import javax.persistence.*;
 import java.util.HashSet;

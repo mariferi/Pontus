@@ -7,8 +7,8 @@
     <persistence-unit name="br.com.fredericci.pu">
         <description>Hibernate EntityManager Demo</description>
         <class>com.mycompany.mavenproject4.Customer</class>
-        <class>com.mycompany.mavenproject3.Product</class>
-        <class>com.com.mycompany.mavenproject3.Stock</class>
+        <class>com.mycompany.mavenproject4.Product</class>
+        <class>com.com.mycompany.mavenproject4.Stock</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
