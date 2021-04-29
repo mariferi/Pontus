@@ -17,6 +17,8 @@ public class Admin extends Staff {
 	public Admin(String userName, String password){
 		super(userName, password);
 	}
+	private static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
+	private static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
 
 	public static ObservableList<Cart> viewTransaction(String customerID) {
 		return Purchase.getListFromDB(customerID);
@@ -69,6 +71,25 @@ public class Admin extends Staff {
 
 
 		return staffList;
+	}
+
+	public static boolean validateEmail(String email) {
+		return email.matches(VALID_EMAIL_REGEX);
+	}
+	public static boolean validatePassword(String password) {
+		return password.matches(VALID_PASSWORD_REGEX);
+	}
+
+	public static String validateLogin(String username, String password) throws Exception {
+		try (AdminDAO aDAO= new JpaAdminDAO()) {
+			Admin Test = aDAO.getAdminbyName(username);
+
+			if (username.isEmpty() || password.isEmpty()) {
+				return "Enter username AND password";
+			} else if (Test.getUserName().equals(username) && Test.getPassword().equals(password)) {
+				return "Username AND Password OK";
+			} else return "Wrong Username OR Password";
+		}
 	}
 
 }

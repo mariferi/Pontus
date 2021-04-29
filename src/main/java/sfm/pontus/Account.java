@@ -41,15 +41,4 @@ abstract public class Account {
 		this.password = new String(password);
 
 	}
-
-
-	public static String validateLogin(String username, String password) {
-		Account Test= getAccbyname(username);
-		if (username.isEmpty() || password.isEmpty()) {
-			return "Enter username AND password";
-		} else if (Test.getUserName().equals(username) && Test.getPassword().equals(password)) {
-			return "Username and Password OK";
-		}
-		else return "Wrong Username or Password";
-	}
 }

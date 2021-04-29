@@ -40,6 +40,12 @@ public class JpaCustomerDAO implements CustomerDAO{
         TypedQuery<Customer> query=entityManager.createQuery(sqlstr,Customer.class);
         return query.getResultList();
     }
+    @Override
+    public Customer getCustomerbyName(String name) {//Veszélyes
+        String sqlstr="SELECT customer FROM Customer customer WHERE NAME="+"'"+name+"'";
+        TypedQuery<Customer> query=entityManager.createQuery(sqlstr,Customer.class);
+        return query.getSingleResult();
+    }
 
     @Override
     public Customer getCustomerbyID(int id) {

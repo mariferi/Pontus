@@ -54,5 +54,17 @@ public class Customer extends Account {
         return password.matches(VALID_PASSWORD_REGEX);
     }
 
+    public static String validateLogin(String username, String password) throws Exception {
+        try (CustomerDAO cDAO= new JpaCustomerDAO()) {
+            Customer Test = cDAO.getCustomerbyName(username);
+
+            if (username.isEmpty() || password.isEmpty()) {
+                return "Enter username AND password";
+            } else if (Test.getUserName().equals(username) && Test.getPassword().equals(password)) {
+                return "Username AND Password OK";
+            } else return "Wrong Username OR Password";
+        }
+    }
+
 
 }
