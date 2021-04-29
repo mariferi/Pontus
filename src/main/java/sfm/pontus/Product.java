@@ -16,6 +16,10 @@ public class Product {
     private String name;
     private BigDecimal price;
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     @Override
     public String toString() {
         return "Product{" +

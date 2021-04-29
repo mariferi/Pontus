@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane focusTraversable="true" prefHeight="631.0" prefWidth="897.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sfm.pontus.CustomerDashboardController">
+<AnchorPane focusTraversable="true" prefHeight="631.0" prefWidth="897.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject3.CostumerDashboardController">
    <children>
       <AnchorPane fx:id="enquiry_pane" layoutX="10.0" layoutY="48.0" prefHeight="601.0" prefWidth="903.0" style="-fx-background-color: #8F1D21;" />
       <AnchorPane layoutY="-6.0" prefHeight="54.0" prefWidth="916.0" style="-fx-background-color: #00a5ff;">
@@ -82,17 +82,17 @@
                </cursor></Button>
             <ImageView disable="true" fitHeight="28.0" fitWidth="32.0" layoutX="12.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/ikon/Shop-Store-Icon-5.png" />
+                  <Image url="@../../../../../Képek/ikon/Shop-Store-Icon-5.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="38.0" fitWidth="52.0" layoutX="104.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/ikon/his.png" />
+                  <Image url="@../../../../../Képek/ikon/his.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="236.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/ikon/62667.png" />
+                  <Image url="@../../../../../Képek/ikon/62667.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -100,17 +100,17 @@
             </ImageView>
             <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="355.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/ikon/img_568657.png" />
+                  <Image url="@../../../../../Képek/ikon/img_568657.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="802.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/ikon/18183.png" />
+                  <Image url="@../../../../../Képek/ikon/18183.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="485.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/ikon/photo.png" />
+                  <Image url="@../../../../../Képek/ikon/photo.png" />
                </image>
             </ImageView>
          </children>
@@ -156,7 +156,7 @@
                </effect></Button>
             <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="574.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/ikon/question-mark-1750942_960_720.png" />
+                  <Image url="@../../../../../Képek/ikon/question-mark-1750942_960_720.png" />
                </image>
             </ImageView>
          </children>
@@ -232,7 +232,7 @@
             </Label>
             <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/pc.jpg" />
+                  <Image url="@../../../../../Képek/pc.jpg" />
                </image>
             </ImageView>
          </children>
@@ -248,7 +248,7 @@
             </TableView>
             <ImageView fitHeight="145.0" fitWidth="28.0" layoutX="861.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Képek/ikon/question-mark-1750942_960_720.png" />
+                  <Image url="@../../../../../Képek/ikon/question-mark-1750942_960_720.png" />
                </image>
             </ImageView>
          </children>
@@ -270,7 +270,7 @@
                      </effect></Button>
                   <ImageView fx:id="mainImg" fitHeight="232.0" fitWidth="203.0" layoutX="37.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/pc.jpg" />
+                        <Image url="@../../../../../Képek/pc.jpg" />
                      </image>
                      <effect>
                         <InnerShadow />
@@ -351,7 +351,7 @@
                      </font></Label>
                   <ImageView fx:id="img1" fitHeight="188.0" fitWidth="160.0" layoutX="1.0" layoutY="21.0" onMouseClicked="#handleImg1" onMousePressed="#handleImg1" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/pc.jpg" />
+                        <Image url="@../../../../../Képek/pc.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -359,7 +359,7 @@
                   </ImageView>
                   <ImageView fx:id="2" fitHeight="178.0" fitWidth="145.0" layoutX="417.0" layoutY="21.0" onMousePressed="#handleImg3" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/laptop.jpg" />
+                        <Image url="@../../../../../Képek/laptop.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -367,7 +367,7 @@
                   </ImageView>
                   <ImageView fitHeight="146.0" fitWidth="172.0" layoutX="203.0" layoutY="21.0" onMousePressed="#handleImg2" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/tv.jpg" />
+                        <Image url="@../../../../../Képek/tv.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -375,7 +375,7 @@
                   </ImageView>
                   <ImageView fitHeight="151.0" fitWidth="149.0" layoutX="417.0" layoutY="250.0" onMouseReleased="#handleImg5" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/porsziv.jpg" />
+                        <Image url="@../../../../../Képek/porsziv.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -383,7 +383,7 @@
                   </ImageView>
                   <ImageView fitHeight="178.0" fitWidth="148.0" layoutX="58.0" layoutY="438.0" onMousePressed="#handleImg7" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/rádio.jpg" />
+                        <Image url="@../../../../../Képek/rádio.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -391,7 +391,7 @@
                   </ImageView>
                   <ImageView fitHeight="188.0" fitWidth="160.0" layoutX="216.0" layoutY="261.0" onMousePressed="#handleImg6" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/mikró.jpg" />
+                        <Image url="@../../../../../Képek/mikró.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -399,7 +399,7 @@
                   </ImageView>
                   <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="1.0" layoutY="234.0" onMouseReleased="#handleImg4" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/mosógép.jpg" />
+                        <Image url="@../../../../../Képek/mosógép.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -407,7 +407,7 @@
                   </ImageView>
                   <ImageView fitHeight="121.0" fitWidth="200.0" layoutX="393.0" layoutY="437.0" onMousePressed="#handleImg9" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/ikon/hzN9VJ4qBW5N.gif" />
+                        <Image url="@../../../../../Képek/ikon/hzN9VJ4qBW5N.gif" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -427,7 +427,7 @@
                      </font></Label>
                   <ImageView fitHeight="195.0" fitWidth="160.0" layoutX="237.0" layoutY="424.0" onMousePressed="#handleImg8" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                      <image>
-                        <Image url="@../Képek/hűtő.jpg" />
+                        <Image url="@../../../../../Képek/hűtő.jpg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
