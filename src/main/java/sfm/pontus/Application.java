@@ -18,7 +18,11 @@ public class Application {
             //all_products=pDAO.getProductsAll();
         //////////////////////////////////////////////////////////////////
 
+<<<<<<< Updated upstream
 
+=======
+            Customer Pista = new Customer("Pista", "alma", "Dabrecen");
+>>>>>>> Stashed changes
         }
         //////////////////////////////////////////////////////////////////
 

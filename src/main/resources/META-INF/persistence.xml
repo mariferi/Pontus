@@ -8,7 +8,12 @@
         <description>Hibernate EntityManager Demo</description>
         <class>sfm.pontus.Customer</class>
         <class>sfm.pontus.Product</class>
+<<<<<<< Updated upstream
         <class>sfm.pontus.Stock</class>
+=======
+        <class>sfm.pontus.Staff</class>
+        <class>sfm.pontus.Admin</class>
+>>>>>>> Stashed changes
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
