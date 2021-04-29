@@ -8,7 +8,6 @@
         <description>Hibernate EntityManager Demo</description>
         <class>sfm.pontus.Customer</class>
         <class>sfm.pontus.Product</class>
-        <class>sfm.pontus.Stock</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
