@@ -19,6 +19,7 @@ public class Application {
         //////////////////////////////////////////////////////////////////
 
             Customer Pista = new Customer("Pista", "alma", "Dabrecen");
+            Admin Joska=new Admin("Jóska","körte");
         }
         //////////////////////////////////////////////////////////////////
 

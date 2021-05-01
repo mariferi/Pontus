@@ -13,8 +13,6 @@ public class Customer extends Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;//name/passwd in Account
-    private static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
-    private static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
     private String address;
 
     @Override

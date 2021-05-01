@@ -12,6 +12,8 @@ abstract public class Account {
 	protected String userName;
 	protected String password;
 
+	public static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
+	public static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
 	abstract public void setId(Integer id);
 	public Integer getId() {
 		return this.id;

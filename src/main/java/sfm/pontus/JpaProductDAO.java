@@ -46,6 +46,13 @@ public class JpaProductDAO implements ProductDAO {
         return query.getResultList();
     }
 
+    @Override
+    public List<Product> getProductsbyCategory(String category) {
+        String sqlstr="SELECT product FROM Product product WHERE CATEGORY="+"'"+category+"'";
+        TypedQuery<Product> query=entityManager.createQuery(sqlstr,Product.class);
+        return query.getResultList();
+    }
+
 
     @Override
     public Product getProductbyID(int id){

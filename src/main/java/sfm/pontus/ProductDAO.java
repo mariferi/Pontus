@@ -8,5 +8,6 @@ public interface ProductDAO extends AutoCloseable{
     public void updateProduct (Product product);
     public List<Product> getProductsAll();
     public List<Product> getProductsbyName(String name);
+    public List<Product> getProductsbyCategory(String category);
     public Product getProductbyID(int id);
 }
