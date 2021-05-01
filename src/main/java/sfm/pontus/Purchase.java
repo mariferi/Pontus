@@ -61,21 +61,6 @@ public class Purchase {
 
 
 
-
-	//public String nameProperty(){
-	//        return this.name;
-	//}
-	public String getInvoice() {
-		//This will return relevant invoice detail
-		return String.valueOf(this.purchaseAmount);
-	}
-
-	public String getReceipt() {
-		//This will return relevant receipt details
-		return "Receipt";
-	}
-
-
 	public String getDate() {
 		return date;
 	}

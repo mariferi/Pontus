@@ -1,12 +1,5 @@
 package sfm.pontus;
 
-import javafx.beans.property.SimpleStringProperty;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 abstract public class Account {
 	protected Integer id;
 	protected String userName;
@@ -35,6 +28,7 @@ abstract public class Account {
 		this.password=password;
 	}
 
+	public  abstract String getUser();
 
 
 	public Account(String userName, String password) {

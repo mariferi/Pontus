@@ -36,6 +36,11 @@ public class Customer extends Account {
         return id;
     }
 
+    @Override
+    public static String getUser() {
+        return "customer";
+    }
+
     public void setId(final Integer id) {
         this.id = id;
     }

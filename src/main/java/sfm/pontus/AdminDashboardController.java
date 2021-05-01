@@ -66,7 +66,7 @@ public class AdminDashboardController {
 
 	public void handleDatePicker(){
 		LocalDate date = datePicker.getValue();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY/MM/dd");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		String day = formatter.format(date);
 		customerID.setText(day);
 		handleViewTransactionButton();
@@ -97,10 +97,17 @@ public class AdminDashboardController {
 		window.show();
 	}
 	public void handleStaffAddButton(){
-		Admin.addStaff(addUserText.getText(),addPassText.getText());
-		addUserText.clear();
-		addPassText.clear();
-		handleStaffUpdateButton();
+		try (AdminDAO aDAO=new JpaAdminDAO();){
+			Admin tmp=new Admin(addUserText.getText(),addPassText.getText());
+			aDAO.saveAdmin(tmp);
+
+			addUserText.clear();
+			addPassText.clear();
+			handleStaffUpdateButton();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void initialize(){
