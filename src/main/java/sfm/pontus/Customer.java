@@ -1,5 +1,7 @@
 package sfm.pontus;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,18 +12,15 @@ public class Customer extends Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
-    private static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
-    private static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
+    private Integer id;//name/passwd in Account
     private String address;
-    private String name;
 
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
                 ", address='" + address + '\'' +
-                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
                 '}';
     }
 
@@ -33,14 +32,6 @@ public class Customer extends Account {
         this.address = address;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -49,28 +40,28 @@ public class Customer extends Account {
         this.id = id;
     }
 
-    public Customer(String userName, String password, String name, String address) {
+    public Customer(String userName, String password, String address) {
         super(userName, password);
-        this.name = name;
         this.address = address;
-
     }
 
     public static boolean validateEmail(String email) {
-        String pattern = VALID_EMAIL_REGEX;
-
-        if (email.matches(pattern)) {
-            return true;
-        } else
-            return false;
+        return email.matches(VALID_EMAIL_REGEX);
     }
     public static boolean validatePassword(String password) {
-        String pattern = VALID_PASSWORD_REGEX;
+        return password.matches(VALID_PASSWORD_REGEX);
+    }
 
-        if (password.matches(pattern)) {
-            return true;
-        } else
-            return false;
+    public static String validateLogin(String username, String password) throws Exception {
+        try (CustomerDAO cDAO= new JpaCustomerDAO()) {
+            Customer Test = cDAO.getCustomerbyName(username);
+
+            if (username.isEmpty() || password.isEmpty()) {
+                return "Enter username AND password";
+            } else if (Test.getUserName().equals(username) && Test.getPassword().equals(password)) {
+                return "Username AND Password OK";
+            } else return "Wrong Username OR Password";
+        }
     }
 
 

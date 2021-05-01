@@ -198,7 +198,11 @@ class CustomerDashboardController {
 	}
 	public void setAccountPane(){
 		customerIDLabel.setText(Customer.getCustomer().getId()+"");
+<<<<<<< HEAD
 		modifyName.setText(Customer.getCustomer().getName());
+=======
+		modifyName.setText(Customer.getCustomer().getUserName());
+>>>>>>> feri
 		modifyAddress.setText(Customer.getCustomer().getAddress());
 		modifyEmail.setText(Customer.getCustomer().getUserName());
 		modifyNameLabel.setText(modifyName.getText());

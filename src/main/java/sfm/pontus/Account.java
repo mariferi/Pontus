@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 abstract public class Account {
+<<<<<<< HEAD
 	abstract public void setId(Integer id);
 
 	public static Customer getCustomer() {
@@ -99,3 +100,41 @@ abstract public class Account {
 		return "Invalid Credentials !, If the problem persist check your connection and contact a staff";
 	}
 }
+=======
+	protected Integer id;
+	protected String userName;
+	protected String password;
+
+	public static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
+	public static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
+	abstract public void setId(Integer id);
+	public Integer getId() {
+		return this.id;
+	}
+
+	public String getUserName() {
+		return this.userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName=userName;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password=password;
+	}
+
+
+
+	public Account(String userName, String password) {
+
+		this.userName = new String(userName);
+		this.password = new String(password);
+
+	}
+}
+>>>>>>> feri

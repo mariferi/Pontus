@@ -23,7 +23,12 @@ public class Application extends javafx.application.Application{
             //all_products=pDAO.getProductsAll();
         //////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
             Customer Pista = new Customer("Pista", "alma", "Pista", "asd");
+=======
+            Customer Pista = new Customer("Pista", "alma", "Dabrecen");
+            Admin Joska=new Admin("Jóska","körte");
+>>>>>>> feri
         }
         //////////////////////////////////////////////////////////////////
 

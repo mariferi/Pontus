@@ -8,6 +8,10 @@
         <description>Hibernate EntityManager Demo</description>
         <class>sfm.pontus.Customer</class>
         <class>sfm.pontus.Product</class>
+<<<<<<< HEAD
+=======
+        <class>sfm.pontus.Admin</class>
+>>>>>>> feri
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
