@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 
 class CustomerDashboardController {
@@ -91,7 +92,7 @@ class CustomerDashboardController {
 		purchaseHistory.setItems(Purchase.getListFromDB(Customer.getCustomer().getId()+""));
 	}
 
-	public void initialize(){
+	public void initialize() throws Exception {
 		setTable();
 
 		removeBtn.setDisable(true);
@@ -105,9 +106,13 @@ class CustomerDashboardController {
 		productQty.setValueFactory(valueFactory);
 	}
 
-	private void getItems(){
+	private void getItems() throws Exception {
 		List<String> list = new ArrayList<>();
-		List<Product> l = Product.getListFromDB();
+		List<Product> l ;
+		try (ProductDAO pDAO= new JpaProductDAO();)
+		{
+			l=pDAO.getProductsAll();
+		}
 		for (Product p : l) {
 			list.add(p.getName());//adding  product object to list
 		}
@@ -184,7 +189,7 @@ class CustomerDashboardController {
 		cart.setCartName(""+Customer.getCustomer().getId());
 		cart.checkout();
 
-		Parent dashboard = FXMLLoader.load(getClass().getResource("Payment.fxml"));
+		Parent dashboard = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Payment.fxml")));
 		Scene checkout = new Scene(dashboard);
 		Stage window = new Stage();
 		window.setScene(checkout);
@@ -198,11 +203,7 @@ class CustomerDashboardController {
 	}
 	public void setAccountPane(){
 		customerIDLabel.setText(Customer.getCustomer().getId()+"");
-<<<<<<< HEAD
-		modifyName.setText(Customer.getCustomer().getName());
-=======
 		modifyName.setText(Customer.getCustomer().getUserName());
->>>>>>> feri
 		modifyAddress.setText(Customer.getCustomer().getAddress());
 		modifyEmail.setText(Customer.getCustomer().getUserName());
 		modifyNameLabel.setText(modifyName.getText());
@@ -295,7 +296,7 @@ class CustomerDashboardController {
 	}
 	public void handleHomeLink(ActionEvent event) throws IOException {
 
-		Parent register = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		Parent register = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
 		Scene registerScene = new Scene(register);
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(registerScene);

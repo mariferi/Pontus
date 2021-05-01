@@ -1,6 +1,7 @@
 package sfm.pontus;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -18,17 +19,16 @@ public class Application extends javafx.application.Application{
         startDatabase();
         ////////////////  AdatBázis   ////////////////////////
         try (CustomerDAO cDAO= new JpaCustomerDAO();
-             ProductDAO pDAO= new JpaProductDAO();){
+             ProductDAO pDAO= new JpaProductDAO();
+             AdminDAO aDAO=new JpaAdminDAO();){
             //all_customers=cDAO.getCustomersAll();
             //all_products=pDAO.getProductsAll();
         //////////////////////////////////////////////////////////////////
 
-<<<<<<< HEAD
-            Customer Pista = new Customer("Pista", "alma", "Pista", "asd");
-=======
             Customer Pista = new Customer("Pista", "alma", "Dabrecen");
             Admin Joska=new Admin("Jóska","körte");
->>>>>>> feri
+            Product Alma=new Product("1221","Alma",new BigDecimal(50),"a");
+
         }
         //////////////////////////////////////////////////////////////////
 
