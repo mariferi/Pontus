@@ -122,7 +122,7 @@ public class AdminDashboardController {
 		staffIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		staffUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
 		staffPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
-		staffTableView.setItems(Admin.getStaffListFromDB());
+		staffTableView.setItems(Admin.getStaffListFromDB());//getall
 
 
 		customerAddCol.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -130,13 +130,13 @@ public class AdminDashboardController {
 		customerUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
 		customerPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
 		customerIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-		customerTableView.setItems(Customer.getListFromDB());
+		customerTableView.setItems(Customer.getListFromDB());//getall
 
 		purchaseDateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
 		purchaseIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		purchasePriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 		purchaseNameCol.setCellValueFactory(new PropertyValueFactory<>("cartName"));
-		purchaseTableView.setItems(Purchase.getListFromDB());
+		purchaseTableView.setItems(Purchase.getListFromDB());//getall
 
 
 		productCodeCol.setCellValueFactory(new PropertyValueFactory<>("code"));
@@ -144,7 +144,7 @@ public class AdminDashboardController {
 		productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 		productPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 		productSizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
-		productTableView.setItems(Product.getListFromDB());
+		productTableView.setItems(Product.getListFromDB());//getall
 
 
 
