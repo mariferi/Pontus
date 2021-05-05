@@ -120,10 +120,12 @@ public class Cart {
 	}
 
 	public  void checkout() {
+
 		Cart c = this;
+		/*
 		Application.executeQueryforUpdate("INSERT INTO purchase ( id, customerID, date, price) VALUES ('"
 				+c.getId()+"','"+c.getCartName()+"','"+c.getDate()+"','"+c.getPrice()+"')");
-
+*/
 	}
 
 }

@@ -1,101 +1,43 @@
 package sfm.pontus;
 
-import javafx.beans.property.SimpleStringProperty;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 abstract public class Account {
-	abstract public void setId(Integer id);
+	protected Integer id;
+	protected String userName;
+	protected String password;
 
-	public static Customer getCustomer() {
-		return customer;
+	public static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
+	public static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
+	abstract public void setId(Integer id);
+	public Integer getId() {
+		return this.id;
 	}
 
 	public String getUserName() {
-		return userName.get();
+		return this.userName;
 	}
 
-
-
 	public void setUserName(String userName) {
-		this.userName.set(userName);
+		this.userName=userName;
 	}
 
 	public String getPassword() {
-		return password.get();
+		return this.password;
 	}
-
 
 	public void setPassword(String password) {
-		this.password.set(password);
-	}
-
-	public Integer getId() {
-		return id;
+		this.password=password;
 	}
 
 
 
-	protected SimpleStringProperty userName, password;
-	protected Integer id;
-	private static String user = "";
+	public Account(String userName, String password) {
 
-
-	public Account(String userName, String password){
-
-		this.userName = new SimpleStringProperty(userName);
-		this.password = new SimpleStringProperty(password);
+		this.userName = new String(userName);
+		this.password = new String(password);
 
 	}
-	public static String getUser(){
-		return user;
-	}
 
-	private static Customer customer ;
-
-
-
-	public static String validateLogin(String username, String password) {
-		String table;
-		if(username.isEmpty()||password.isEmpty()){
-			return "Enter username AND password";
-		}else
-		if(username.contains("@")){
-			table = "customer";
-
-		}else {
-			table = "staff";
-
-		}
-
-		try (Connection con = Application.connectDB();
-			 Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			 ResultSet rs = st.executeQuery("SELECT * FROM "+ table +" WHERE userName ='" + username + "' AND password = '" + password + "'");) {
-
-
-			if (rs.next()) {
-				user = rs.getString("userName");
-
-				for (Customer c :Customer.getListFromDB()) {
-					if(user.equals(c.userName.getValue())) {
-						customer = c;
-						user = c.getName();
-						break;
-
-					}
-				}
-
-				return table;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println(e);
-
-		}
-
-		return "Invalid Credentials !, If the problem persist check your connection and contact a staff";
+	public static String validateLogin(String username, String password) throws Exception {
+		return null;
 	}
 }

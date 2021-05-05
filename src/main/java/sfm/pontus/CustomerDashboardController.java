@@ -105,6 +105,7 @@ public class CustomerDashboardController {
 	}
 */
 	private void getItems(){
+		/*
 		List<String> list = new ArrayList<>();
 		List<Product> l = Product.getListFromDB();
 		for (Product p : l) {
@@ -118,12 +119,13 @@ public class CustomerDashboardController {
 		productNameChoice.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue)->{
 			getItemChoice(productNameChoice);
 		});
-
+*/
 	}
 
 
 
 	public void getItemChoice(ChoiceBox<String> productNameChoice) {
+		/*
 		String name = productNameChoice.getValue();
 		List<Product> productList = Product.getListFromDB();
 
@@ -133,14 +135,14 @@ public class CustomerDashboardController {
 				productSizeChoice.getItems().add(p.getSize());
 			}
 		}
-
+*/
 	}
 
 
 
 	private Cart cart = new Cart();
 	public void handleAddToCart(){
-
+/*
 		checkoutBtn.setDisable(false);
 		removeBtn.setDisable(false);
 		List<Product> inventory = Product.getListFromDB();
@@ -153,6 +155,8 @@ public class CustomerDashboardController {
 		}
 		totalLabel.setText(""+cart.getCartTotal());
 		//setTable();
+
+ */
 	}
 	public static String getTotal() {
 		return total;
@@ -175,14 +179,14 @@ public class CustomerDashboardController {
 	}
 
 	public void handleCheckout() throws IOException {
-
+/*
 		total=totalLabel.getText();
 		cart.setPrice(total);
 		cart.setDate(cart.getDate());
 		cart.setId("00"+ Customer.getCustomer().getId());
 		cart.setCartName(""+Customer.getCustomer().getId());
 		cart.checkout();
-
+*/
 		Parent dashboard = FXMLLoader.load(getClass().getResource("Payment.fxml"));
 		Scene checkout = new Scene(dashboard);
 		Stage window = new Stage();
@@ -196,6 +200,7 @@ public class CustomerDashboardController {
 	public void handleUpdateDetailsButton(){
 	}
 	public void setAccountPane(){
+		/*
 		customerIDLabel.setText(Customer.getCustomer().getId()+"");
 		modifyName.setText(Customer.getCustomer().getName());
 		modifyAddress.setText(Customer.getCustomer().getAddress());
@@ -203,9 +208,11 @@ public class CustomerDashboardController {
 		modifyNameLabel.setText(modifyName.getText());
 		modifyEmailLabel.setText(Customer.getCustomer().getUserName());
 		modifyAddressLabel.setText(modifyAddress.getText());
-
+*/
 	}
+
 	public void modifyAccount(){
+		/*
 		String name = modifyName.getText();
 		String address = modifyAddress.getText();
 		String email = modifyEmail.getText();
@@ -215,11 +222,12 @@ public class CustomerDashboardController {
 		modifyNameLabel.setText(modifyName.getText());
 		modifyEmailLabel.setText(Customer.getCustomer().getUserName());
 		modifyAddressLabel.setText(modifyAddress.getText());
-
+*/
 
 	}
 
 	public void changePassword(){
+		/*
 		if(oldPassword.getText().equals(Customer.getCustomer().getPassword())){
 			String pswrd = newPassword.getText();
 			if(Customer.validatePassword(pswrd)){
@@ -246,6 +254,8 @@ public class CustomerDashboardController {
 			oldPassword.setText("");
 			newPassword.setText("");
 		}
+
+		 */
 	}
 
 	public void handleImg1(){

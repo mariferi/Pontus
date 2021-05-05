@@ -19,6 +19,7 @@ public class Purchase {
 
 	private Product item;
 	private String date;
+	private String name;
 	public Purchase(Product item, int quantity) {
 		this.item = item;
 		this.quantity = quantity;
@@ -26,9 +27,6 @@ public class Purchase {
 		this.date = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
 	}
 
-
-
-	private SimpleStringProperty name;
 
 
 	public BigDecimal getPrice() {
@@ -63,27 +61,13 @@ public class Purchase {
 
 
 
-
-	//public String nameProperty(){
-	//        return this.name;
-	//}
-	public String getInvoice() {
-		//This will return relevant invoice detail
-		return String.valueOf(this.purchaseAmount);
-	}
-
-	public String getReceipt() {
-		//This will return relevant receipt details
-		return "Receipt";
-	}
-
-
 	public String getDate() {
 		return date;
 	}
 
 
 	//This method returns an observable list of purchases stored in the database
+	/*
 	public static ObservableList<Cart> getListFromDB() {
 		ObservableList<Cart> purchases = FXCollections.observableArrayList();
 		ResultSet rs = Application.executeQueryforRS("SELECT * FROM purchase");//Getting data from database
@@ -104,7 +88,9 @@ public class Purchase {
 
 		return purchases;
 	}
+
 	public static ObservableList<Cart>getListFromDB(boolean date,String day ){
+
 		ObservableList<Cart> purchases = FXCollections.observableArrayList();
 		ResultSet rs = Application.executeQueryforRS("SELECT * FROM purchase WHERE date  LIKE '%" + day + "%'");
 		Cart cart;
@@ -123,6 +109,8 @@ public class Purchase {
 		}
 
 		return purchases;
+
+
 	}
 
 	public static ObservableList<Cart> getListFromDB(String customerID) {
@@ -144,16 +132,16 @@ public class Purchase {
 			Cart temp; //temporary variable to store selected variable when sorting
 			for (int i = 0; i < fullList.size(); i++) {
 				//setting the minimum value to the i element's id
-				int minValue  = Integer.valueOf(fullList.get(i).getId());
+				int minValue  = Integer.parseInt(fullList.get(i).getId());
 				int minIndex = i;
 				for (int j = i; j < fullList.size(); j++) {
-					if (Integer.valueOf(fullList.get(j).getId()) < minValue) {
-						minValue = Integer.valueOf(fullList.get(j).getId());
+					if (Integer.parseInt(fullList.get(j).getId()) < minValue) {
+						minValue = Integer.parseInt(fullList.get(j).getId());
 						minIndex = j;
 					}
 				}
 				//Completing the sorting by swapping the objects in the list
-				if(minValue<Integer.valueOf(fullList.get(i).getId())){
+				if(minValue<Integer.parseInt(fullList.get(i).getId())){
 					temp = (fullList.get(i));
 					fullList.set(i,fullList.get(minIndex));
 					fullList.set(minIndex,temp);
@@ -169,7 +157,7 @@ public class Purchase {
 				if (c.getCartName().equals(customerID)) {
 					newList.add(c); //if the object of that customer id is found adding it a new list
 
-				} else if (Integer.valueOf(c.getId()) < Integer.valueOf(c.getId())) {
+				} else if (Integer.parseInt(c.getId()) < Integer.parseInt(c.getId())) {
 					right = mid - 1;
 				} else {
 					left = mid + 1;
@@ -178,5 +166,5 @@ public class Purchase {
 			return newList; //returning the new list containing only the keys
 		}
 	}
-
+*/
 }

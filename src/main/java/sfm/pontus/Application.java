@@ -57,6 +57,9 @@ import java.io.IOException;
 //Tibi importjai
 import javafx.scene.image.Image;
 import javafx.stage.StageStyle;
+import org.h2.tools.Server;
+
+import java.math.BigDecimal;
 import java.sql.*;
 
 
@@ -68,7 +71,7 @@ public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage Login) throws IOException {
-        scene = new Scene(loadFXML("Login"), 720, 480);
+        scene = new Scene(loadFXML("Login"));
         //Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
         Login.initStyle(StageStyle.UNDECORATED);		//saját stilusu bezáró X gomb
@@ -92,60 +95,34 @@ public class Application extends javafx.application.Application {
 
 
 
-	public static void main(String[] args) {
-		launch(args);
+	public static void main(String[] args) throws Exception {
+        startDatabase();
+        launch(args);
+        ////////////////  AdatBázis   ////////////////////////
+        try (CustomerDAO cDAO= new JpaCustomerDAO();
+             ProductDAO pDAO= new JpaProductDAO();
+             AdminDAO aDAO=new JpaAdminDAO();){
+            //all_customers=cDAO.getCustomersAll();
+            //all_products=pDAO.getProductsAll();
+            //////////////////////////////////////////////////////////////////
+
+            Customer Pista = new Customer("Pista", "alma", "Dabrecen");
+            Admin Joska=new Admin("Jóska","körte");
+            Product Alma=new Product("1221","Alma",new BigDecimal(50),"a");
+
+        }
+        //////////////////////////////////////////////////////////////////
+
+        System.out.println("Open your browser and navigate to http://localhost:8082/");
+        System.out.println("JDBC URL: jdbc:h2:file:./src\\main\\resources\\mydb");
+        System.out.println("User Name: sa");
+        System.out.println("Password: ");
+
 	}
-
-	//
-
-    private  static final String CONN = "jdbc:h2:mem:my_database";
-    private static final String USERNAME="sa";
-    private static final String PASSWORD="sa";
-
-    //
-
-    public static Connection connectDB() {
-        try {
-            Connection con = DriverManager.getConnection(CONN, USERNAME, PASSWORD);
-            return con;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
+    private static void startDatabase() throws SQLException {
+        new Server().runTool("-tcp", "-web", "-ifNotExists");
     }
 
-
-    public static ResultSet executeQueryforRS(String statement){
-        Connection connection;
-        Statement st;
-        ResultSet rs = null;
-        try {
-            connection = Application.connectDB();
-            st = connection.createStatement();
-            rs = st.executeQuery(statement);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return rs;
-
-    }
-    //***************ÁTÍRNI SASÁT ADATBÁZISRA**********************************
-    public static void executeQueryforUpdate(String statement){
-        Connection connection;
-        Statement st;
-        try {
-            connection = Application.connectDB();
-            st = connection.createStatement();
-            st.executeUpdate(statement);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
 
 }

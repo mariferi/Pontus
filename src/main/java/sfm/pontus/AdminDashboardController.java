@@ -26,7 +26,6 @@ public class AdminDashboardController {
 	@FXML private TextField customerID;
 
 	@FXML private Label usernameLabel;
-	@FXML private TableView<Staff> staffTableView;
 	@FXML private TableView<Customer> customerTableView;
 	@FXML private TableView<Product> productTableView;
 
@@ -40,11 +39,6 @@ public class AdminDashboardController {
 	@FXML private TextField productSize;
 	@FXML private TextField productPrice;
 
-	@FXML private TableColumn<Staff,String> customerUserNameCol;
-	@FXML private TableColumn<Staff,String> customerNameCol;
-	@FXML private TableColumn<Staff,String> customerPassCol;
-	@FXML private TableColumn<Staff,Integer> customerIdCol;
-	@FXML private TableColumn<Staff,String> customerAddCol;
 
 	@FXML private TableColumn<Cart,String> purchaseIDCol;
 	@FXML private TableColumn<Cart,String> purchaseNameCol;
@@ -53,10 +47,6 @@ public class AdminDashboardController {
 	@FXML private TableView<Cart> purchaseTableView;
 
 
-
-	@FXML private TableColumn<Staff,String> staffUserNameCol;
-	@FXML private TableColumn<Staff,String> staffPassCol;
-	@FXML private TableColumn<Staff,Integer> staffIdCol;
 	@FXML private TextField addUserText;
 	@FXML private TextField addPassText;
 
@@ -77,21 +67,11 @@ public class AdminDashboardController {
 
 	}
 
-	public void staffLogin(){
 
-		usernameLabel.setText(Account.getUser());
-		viewAll.setDisable(true);
-		datePicker.setDisable(true);
-		customerTab.setDisable(true);
-		staffTab.setDisable(true);
-		productsTab.setDisable(true);
-		purchaseTableView.setItems(null);
-
-	}
 
 	public void handleStaffUpdateButton(){
 
-		staffTableView.setItems(Admin.getStaffListFromDB());
+		//staffTableView.setItems(Admin.getStaffListFromDB());
 	}
 	public void handleHomeButton(ActionEvent event) throws IOException {
 		Parent register = FXMLLoader.load(getClass().getResource("Login.fxml"));
@@ -101,17 +81,15 @@ public class AdminDashboardController {
 		window.show();
 	}
 	public void handleStaffAddButton(){
-		Admin.addStaff(addUserText.getText(),addPassText.getText());
+		//Admin.addStaff(addUserText.getText(),addPassText.getText());
 		addUserText.clear();
 		addPassText.clear();
 		handleStaffUpdateButton();
 	}
 
 	public void initialize(){
-		//initializeTables();
-		if(!Account.getUser().equals("admin")) {
-			staffLogin();
-		}
+
+
 
 	}
 /*
@@ -147,50 +125,33 @@ public class AdminDashboardController {
 
  */
 	public void handleProductDelButton(){
-		ObservableList<Product> selectedProducts, allProducts;
-		allProducts = productTableView.getItems();
-		selectedProducts = productTableView.getSelectionModel().getSelectedItems();
-		for (Product p: selectedProducts) {
-			Product.removeFromDB(p);
-		}
-
-		selectedProducts.forEach(allProducts::remove);
-
 
 	}
 	public void handleViewTransactionButton(){
 
-		purchaseTableView.setItems(Staff.viewTransaction(customerID.getText()));
+		//purchaseTableView.setItems(Staff.viewTransaction(customerID.getText()));
 	}
 
 	public void handleViewReport() throws IOException {
-		Admin.viewReport(customerID.getText());
+		//Admin.viewReport(customerID.getText());
 	}
 	public void handleProductUpdateButton(){
-		productTableView.setItems(Product.getListFromDB());
+		//productTableView.setItems(Product.getListFromDB());
 
 	}
 	public void handleViewAllButton(){
-		purchaseTableView.setItems(Purchase.getListFromDB("all"));
+		//purchaseTableView.setItems(Purchase.getListFromDB("all"));
 
 	}
 	public void handleProductAddButton(){
-		Product.add(productCode.getText(),productName.getText(),new BigDecimal(productPrice.getText()),productSize.getText());
-		productTableView.setItems(Product.getListFromDB());
-
+		/*
+		Product product = new Product();
+		JpaProductDAO productDAO = new JpaProductDAO();
+		productDAO.saveProduct(product);
+		*/
 	}
 
 	public void handleDeleteButton(){
-		ObservableList<Staff> selectedStaffs, allStaffs;
-		allStaffs = staffTableView.getItems();
-		selectedStaffs = staffTableView.getSelectionModel().getSelectedItems();
-		for (Staff s: selectedStaffs) {
-			Admin.removeStaffFromDB(s);
-		}
-
-
-		selectedStaffs.forEach(allStaffs::remove);
-
 
 	}
 }
