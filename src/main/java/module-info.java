@@ -1,9 +1,9 @@
-module controllers {
+module sfm.pontus {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
 	requires java.desktop;
 
-	opens controllers to javafx.fxml;
-    exports controllers;
+	opens sfm.pontus to javafx.fxml;
+    exports sfm.pontus;
 }
