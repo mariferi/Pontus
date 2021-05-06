@@ -1,7 +1,8 @@
-package pontus;
+package sfm.pontus;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -120,12 +121,10 @@ public class Cart {
 	}
 
 	public  void checkout() {
-
 		Cart c = this;
-		/*
 		Application.executeQueryforUpdate("INSERT INTO purchase ( id, customerID, date, price) VALUES ('"
 				+c.getId()+"','"+c.getCartName()+"','"+c.getDate()+"','"+c.getPrice()+"')");
-*/
+
 	}
 
 }

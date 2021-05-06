@@ -1,4 +1,4 @@
-package pontus;
+package sfm.pontus;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class LoginController {
 
@@ -41,7 +42,7 @@ public class LoginController {
 	}
 
 	public void changeScene(ActionEvent event, String fxml) throws IOException {
-		Parent dashboard = FXMLLoader.load(getClass().getResource(fxml));
+		Parent dashboard = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
 		Scene dashboardScene = new Scene(dashboard);
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		window.setScene(dashboardScene);
@@ -49,20 +50,12 @@ public class LoginController {
 	}
 
 	@FXML private ImageView loginIcon;
-	public void handleLoginButton(ActionEvent event) throws IOException {
-		//loginIcon.setVisible(true);
+	public void handleLoginButton(ActionEvent event) throws Exception {
+		loginIcon.setVisible(true);
 
 		String userName = this.userName.getText();
 		String pass = this.pass.getText();
-		System.out.println("User name: " + userName);
-		System.out.println("Password: " + pass);
-		if(userName.equals("customer")) {
-			changeScene(event,"CustomerDashboard.fxml");
-		}
-		else if(userName.equals("admin")) {
-			changeScene(event,"AdminDashboard.fxml");
-		}
-		/*
+
 		String validation =  Account.validateLogin(userName,pass);
 		switch (validation) {
 			case "staff":{
@@ -80,8 +73,6 @@ public class LoginController {
 				alert.showAndWait();
 				break;
 		}
-
-		 */
 
 	}
 

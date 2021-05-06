@@ -1,4 +1,4 @@
-package pontus;
+package sfm.pontus;
 
 import javax.persistence.*;
 import java.util.List;

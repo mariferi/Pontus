@@ -1,5 +1,4 @@
-package pontus;
-
+package sfm.pontus;
 import javax.persistence.Id;
 import java.util.List;
 

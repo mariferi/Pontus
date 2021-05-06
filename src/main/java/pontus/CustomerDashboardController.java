@@ -1,4 +1,4 @@
-package pontus;
+package sfm.pontus;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,14 +13,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 
-public class CustomerDashboardController {
+class CustomerDashboardController {
 
 	@FXML private ImageView mainImg;
 	@FXML private ChoiceBox<String> productNameChoice;
@@ -72,7 +74,7 @@ public class CustomerDashboardController {
 		}
 	}
 
-/*
+
 	public void setTable(){
 
 
@@ -90,7 +92,7 @@ public class CustomerDashboardController {
 		purchaseHistory.setItems(Purchase.getListFromDB(Customer.getCustomer().getId()+""));
 	}
 
-	public void initialize(){
+	public void initialize() throws Exception {
 		setTable();
 
 		removeBtn.setDisable(true);
@@ -103,11 +105,14 @@ public class CustomerDashboardController {
 		SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
 		productQty.setValueFactory(valueFactory);
 	}
-*/
-	private void getItems(){
-		/*
+
+	private void getItems() throws Exception {
 		List<String> list = new ArrayList<>();
-		List<Product> l = Product.getListFromDB();
+		List<Product> l ;
+		try (ProductDAO pDAO= new JpaProductDAO();)
+		{
+			l=pDAO.getProductsAll();
+		}
 		for (Product p : l) {
 			list.add(p.getName());//adding  product object to list
 		}
@@ -119,13 +124,12 @@ public class CustomerDashboardController {
 		productNameChoice.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue)->{
 			getItemChoice(productNameChoice);
 		});
-*/
+
 	}
 
 
 
 	public void getItemChoice(ChoiceBox<String> productNameChoice) {
-		/*
 		String name = productNameChoice.getValue();
 		List<Product> productList = Product.getListFromDB();
 
@@ -135,14 +139,14 @@ public class CustomerDashboardController {
 				productSizeChoice.getItems().add(p.getSize());
 			}
 		}
-*/
+
 	}
 
 
 
 	private Cart cart = new Cart();
 	public void handleAddToCart(){
-/*
+
 		checkoutBtn.setDisable(false);
 		removeBtn.setDisable(false);
 		List<Product> inventory = Product.getListFromDB();
@@ -154,9 +158,7 @@ public class CustomerDashboardController {
 			}
 		}
 		totalLabel.setText(""+cart.getCartTotal());
-		//setTable();
-
- */
+		setTable();
 	}
 	public static String getTotal() {
 		return total;
@@ -169,7 +171,7 @@ public class CustomerDashboardController {
 			return;
 		}
 		cart.removeFromCart(cartTable.getSelectionModel().getSelectedIndex());
-		//setTable();
+		setTable();
 		totalLabel.setText(""+cart.getCartTotal());
 		if(cart.getCartTotal().equals(new BigDecimal("0"))){
 			checkoutBtn.setDisable(true);
@@ -179,15 +181,15 @@ public class CustomerDashboardController {
 	}
 
 	public void handleCheckout() throws IOException {
-/*
+
 		total=totalLabel.getText();
 		cart.setPrice(total);
 		cart.setDate(cart.getDate());
 		cart.setId("00"+ Customer.getCustomer().getId());
 		cart.setCartName(""+Customer.getCustomer().getId());
 		cart.checkout();
-*/
-		Parent dashboard = FXMLLoader.load(getClass().getResource("Payment.fxml"));
+
+		Parent dashboard = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Payment.fxml")));
 		Scene checkout = new Scene(dashboard);
 		Stage window = new Stage();
 		window.setScene(checkout);
@@ -200,19 +202,16 @@ public class CustomerDashboardController {
 	public void handleUpdateDetailsButton(){
 	}
 	public void setAccountPane(){
-		/*
 		customerIDLabel.setText(Customer.getCustomer().getId()+"");
-		modifyName.setText(Customer.getCustomer().getName());
+		modifyName.setText(Customer.getCustomer().getUserName());
 		modifyAddress.setText(Customer.getCustomer().getAddress());
 		modifyEmail.setText(Customer.getCustomer().getUserName());
 		modifyNameLabel.setText(modifyName.getText());
 		modifyEmailLabel.setText(Customer.getCustomer().getUserName());
 		modifyAddressLabel.setText(modifyAddress.getText());
-*/
-	}
 
+	}
 	public void modifyAccount(){
-		/*
 		String name = modifyName.getText();
 		String address = modifyAddress.getText();
 		String email = modifyEmail.getText();
@@ -222,12 +221,11 @@ public class CustomerDashboardController {
 		modifyNameLabel.setText(modifyName.getText());
 		modifyEmailLabel.setText(Customer.getCustomer().getUserName());
 		modifyAddressLabel.setText(modifyAddress.getText());
-*/
+
 
 	}
 
 	public void changePassword(){
-		/*
 		if(oldPassword.getText().equals(Customer.getCustomer().getPassword())){
 			String pswrd = newPassword.getText();
 			if(Customer.validatePassword(pswrd)){
@@ -254,8 +252,6 @@ public class CustomerDashboardController {
 			oldPassword.setText("");
 			newPassword.setText("");
 		}
-
-		 */
 	}
 
 	public void handleImg1(){
@@ -300,7 +296,7 @@ public class CustomerDashboardController {
 	}
 	public void handleHomeLink(ActionEvent event) throws IOException {
 
-		Parent register = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		Parent register = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
 		Scene registerScene = new Scene(register);
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(registerScene);

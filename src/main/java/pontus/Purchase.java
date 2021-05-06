@@ -1,4 +1,4 @@
-package pontus;
+package sfm.pontus;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -67,7 +67,6 @@ public class Purchase {
 
 
 	//This method returns an observable list of purchases stored in the database
-	/*
 	public static ObservableList<Cart> getListFromDB() {
 		ObservableList<Cart> purchases = FXCollections.observableArrayList();
 		ResultSet rs = Application.executeQueryforRS("SELECT * FROM purchase");//Getting data from database
@@ -88,9 +87,7 @@ public class Purchase {
 
 		return purchases;
 	}
-
 	public static ObservableList<Cart>getListFromDB(boolean date,String day ){
-
 		ObservableList<Cart> purchases = FXCollections.observableArrayList();
 		ResultSet rs = Application.executeQueryforRS("SELECT * FROM purchase WHERE date  LIKE '%" + day + "%'");
 		Cart cart;
@@ -109,8 +106,6 @@ public class Purchase {
 		}
 
 		return purchases;
-
-
 	}
 
 	public static ObservableList<Cart> getListFromDB(String customerID) {
@@ -166,5 +161,5 @@ public class Purchase {
 			return newList; //returning the new list containing only the keys
 		}
 	}
-*/
+
 }
