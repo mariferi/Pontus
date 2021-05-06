@@ -1,4 +1,4 @@
-package sfm.pontus;
+package pontus;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,10 +37,7 @@ public class Admin extends Account {
 		super(userName, password);
 	}
 
-	@Override
-	public static String getUser() {
-		return "admin";
-	}
+
 
 	public static boolean validateEmail(String email) {
 		return email.matches(VALID_EMAIL_REGEX);

@@ -1,4 +1,4 @@
-package sfm.pontus;
+package pontus;
 
 abstract public class Account {
 	protected Integer id;
@@ -28,7 +28,6 @@ abstract public class Account {
 		this.password=password;
 	}
 
-	public  abstract String getUser();
 
 
 	public Account(String userName, String password) {

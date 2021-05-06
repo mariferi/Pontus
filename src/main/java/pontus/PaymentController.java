@@ -1,15 +1,17 @@
-package sfm.pontus;
+package pontus;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+
 import java.awt.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -46,7 +48,7 @@ public class PaymentController{
 		if(validateCard()){
 			invalid.setVisible(false);
 			Desktop desktop = Desktop.getDesktop();
-			String fileName = "C:\\Users\\gyurc\\IdeaProjects\\Pontus\\src\\main\\resources\\JF0010202.pdf";
+			String fileName = "..\\Pontus\\src\\main\\resources\\JF0010202.pdf";
 			//Email.sendInvoice(Customer.getCustomer().userName.get(),fileName);
 			File file = new File(fileName);
 			Alert alert = new Alert(Alert.AlertType.INFORMATION,"Payment Successful, Click to continue to the invoice");
@@ -73,7 +75,7 @@ public class PaymentController{
 		amountCol.setCellValueFactory(new PropertyValueFactory<>("purchaseAmount"));
 		sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
 		cartTable.setItems(Cart.getCartList());
-		totalLabel.setText(sfm.pontus.CustomerDashboardController.getTotal());
+		totalLabel.setText(CustomerDashboardController.getTotal());
 	}
 
 	public void initialize(){

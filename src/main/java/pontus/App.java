@@ -45,7 +45,7 @@ public class App extends Application {
         //////////////////////////////////////////////////////////////////
 
         System.out.println("Open your browser and navigate to http://localhost:8082/");
-        System.out.println("JDBC URL: jdbc:h2:file:./src\\main\\resources\\mydb");
+        System.out.println("JDBC URL: jdbc:h2:mem:my_database");
         System.out.println("User Name: sa");
         System.out.println("Password: ");
         //stopDatabase();
