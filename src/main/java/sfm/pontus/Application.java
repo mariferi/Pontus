@@ -75,7 +75,7 @@ public class Application extends javafx.application.Application {
         //Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
         Login.initStyle(StageStyle.UNDECORATED);		//saját stilusu bezáró X gomb
-		Login.getIcons().add(new Image(new FileInputStream("..\\Pontus\\src\\main\\resources\\Képek\\bejelentkező.jpg")));
+		Login.getIcons().add(new Image(new FileInputStream("./src\\main\\resources\\Képek\\bejelentkező.jpg")));
 
 		Login.setTitle("Pontus műszaki üzlet");
 		Login.setScene(scene);
