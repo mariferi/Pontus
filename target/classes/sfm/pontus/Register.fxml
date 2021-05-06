@@ -44,21 +44,12 @@
             <font>
                 <Font name="Open Sans Semibold" size="12.0" />
             </font></CheckBox>
-        <CheckBox fx:id="weeklyNews" layoutX="362.0" layoutY="58.0" mnemonicParsing="false" text="Heti" textFill="WHITE">
-            <font>
-                <Font name="Open Sans Semibold" size="12.0" />
-            </font></CheckBox>
-        <CheckBox disable="true" layoutX="361.0" layoutY="90.0" mnemonicParsing="false" selected="true" text="Havi" textFill="WHITE" />
-        <CheckBox fx:id="yearlyNews" layoutX="361.0" layoutY="125.0" mnemonicParsing="false" text="Éves" textFill="WHITE">
-            <font>
-                <Font name="Open Sans Semibold" size="12.0" />
-            </font></CheckBox>
-        <Label layoutX="357.0" layoutY="29.0" text="Feliratkozás a hírlevelünkre" textFill="WHITE">
+        <Label layoutX="357.0" layoutY="29.0" text="Kövess minket a közösségi média felületeinken!" textFill="WHITE">
             <font>
                 <Font name="Open Sans Semibold" size="12.0" />
             </font></Label>
-        <Separator layoutX="357.0" layoutY="172.0" prefHeight="5.0" prefWidth="237.0" />
-        <ImageView fitHeight="125.0" fitWidth="120.0" layoutX="476.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+        <Separator layoutX="358.0" layoutY="182.0" prefHeight="5.0" prefWidth="237.0" />
+        <ImageView fitHeight="125.0" fitWidth="120.0" layoutX="416.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Képek/ikon/110912-font-awesome.png" />
             </image>

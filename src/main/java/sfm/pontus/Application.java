@@ -66,7 +66,7 @@ import java.sql.*;
 public class Application extends javafx.application.Application {
 
 	private static Scene scene;
-	private Stage primaryLogin;
+	//private Stage primaryLogin;
 
 
     @Override
@@ -98,6 +98,7 @@ public class Application extends javafx.application.Application {
 	public static void main(String[] args) throws Exception {
         startDatabase();
         launch(args);
+
         ////////////////  AdatBázis   ////////////////////////
         try (CustomerDAO cDAO= new JpaCustomerDAO();
              ProductDAO pDAO= new JpaProductDAO();
@@ -117,7 +118,6 @@ public class Application extends javafx.application.Application {
         System.out.println("JDBC URL: jdbc:h2:file:./src\\main\\resources\\mydb");
         System.out.println("User Name: sa");
         System.out.println("Password: ");
-
 	}
     private static void startDatabase() throws SQLException {
         new Server().runTool("-tcp", "-web", "-ifNotExists");

@@ -129,21 +129,21 @@
                     <effect>
                         <DropShadow blurType="TWO_PASS_BOX" height="56.58" radius="28.5325" width="59.55" />
                     </effect></TextArea>
-                <Text fill="WHITE" layoutX="65.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject">
+                <Text fill="WHITE" layoutX="65.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tárgy:">
                     <font>
                         <Font name="Open Sans Semibold" size="16.0" />
                     </font>
                     <effect>
                         <DropShadow height="50.41" radius="35.082499999999996" spread="0.01" width="91.92" />
                     </effect></Text>
-                <Text fill="WHITE" layoutX="69.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone">
+                <Text fill="WHITE" layoutX="69.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonszám:">
                     <font>
                         <Font name="Open Sans Semibold" size="16.0" />
                     </font>
                     <effect>
                         <DropShadow />
                     </effect></Text>
-                <Text fill="WHITE" layoutX="69.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comments">
+                <Text fill="WHITE" layoutX="69.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Üzenet:">
                     <font>
                         <Font name="Open Sans Semibold" size="16.0" />
                     </font>
@@ -159,38 +159,32 @@
         </AnchorPane>
         <AnchorPane fx:id="account_pane" layoutY="45.0" prefHeight="613.0" prefWidth="913.0" style="-fx-background-color: #1F3A93;">
             <children>
-                <TextField fx:id="modifyName" layoutX="541.0" layoutY="69.0" prefHeight="25.0" prefWidth="200.0" promptText="New Name" />
-                <Label layoutX="198.0" layoutY="70.0" text="First Name" textFill="WHITE">
+                <TextField fx:id="modifyName" layoutX="541.0" layoutY="69.0" prefHeight="25.0" prefWidth="200.0" promptText="Új felhasználónév beállitása" />
+                <Label layoutX="198.0" layoutY="70.0" text="Felhasználónév:" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="127.0" layoutY="231.0" prefHeight="28.0" prefWidth="179.0" text="Secondary Email" textFill="WHITE">
+                <Label layoutX="130.0" layoutY="272.0" text="Lakcím:" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="130.0" layoutY="272.0" text="Address" textFill="WHITE">
+                <TextArea fx:id="modifyAddress" layoutX="542.0" layoutY="192.0" prefHeight="134.0" prefWidth="200.0" promptText="Új cím beállitása" />
+                <Label layoutX="127.0" layoutY="349.0" text="Jelszó:" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <TextArea fx:id="modifyAddress" layoutX="542.0" layoutY="192.0" prefHeight="134.0" prefWidth="200.0" promptText="New Address" />
-                <Label layoutX="127.0" layoutY="349.0" text="Password" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <PasswordField fx:id="oldPassword" layoutX="337.0" layoutY="349.0" prefHeight="25.0" prefWidth="203.0" promptText="Enter Your old password" />
-                <Button layoutX="586.0" layoutY="472.0" mnemonicParsing="false" onAction="#modifyAccount" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #00b894;" text="Update Details" textFill="WHITE" />
-                <Button layoutX="338.0" layoutY="472.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #00b894;" text="Change Password" textFill="WHITE" />
+                <PasswordField fx:id="oldPassword" layoutX="337.0" layoutY="349.0" prefHeight="25.0" prefWidth="203.0" promptText="Adja meg a régi jelszavát" />
+                <Button layoutX="586.0" layoutY="472.0" mnemonicParsing="false" onAction="#modifyAccount" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #00b894;" text="Adatok frissitése" textFill="WHITE" />
+                <Button layoutX="338.0" layoutY="472.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #00b894;" text="Jelszó módosítás" textFill="WHITE" />
                 <Label fx:id="modifyNameLabel" layoutX="358.0" layoutY="70.0" text="YourName" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <TextField fx:id="modifyEmail" disable="true" layoutX="541.0" layoutY="118.0" prefHeight="25.0" prefWidth="200.0" promptText="New Email" />
-                <Label layoutX="198.0" layoutY="28.0" text="Customer ID : " textFill="WHITE">
+                <Label layoutX="198.0" layoutY="28.0" text="Felhasználó ID : " textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
@@ -210,7 +204,7 @@
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="127.0" layoutY="193.0" prefHeight="28.0" prefWidth="179.0" text="Primary Email" textFill="WHITE">
+                <Label layoutX="127.0" layoutY="193.0" prefHeight="28.0" prefWidth="179.0" text="Email:" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
@@ -220,8 +214,8 @@
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <PasswordField fx:id="newPassword" layoutX="338.0" layoutY="412.0" prefHeight="25.0" prefWidth="203.0" promptText="Enter new password" />
-                <Label layoutX="127.0" layoutY="411.0" text="New Password" textFill="WHITE">
+                <PasswordField fx:id="newPassword" layoutX="338.0" layoutY="412.0" prefHeight="25.0" prefWidth="203.0" promptText="Adja meg az új jelszót" />
+                <Label layoutX="127.0" layoutY="411.0" text="Új jelszó:" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
