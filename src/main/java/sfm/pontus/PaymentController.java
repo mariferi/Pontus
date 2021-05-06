@@ -48,7 +48,7 @@ public class PaymentController{
 		if(validateCard()){
 			invalid.setVisible(false);
 			Desktop desktop = Desktop.getDesktop();
-			String fileName = "C:\\Users\\gyurc\\IdeaProjects\\Pontus\\src\\main\\resources\\JF0010202.pdf";
+			String fileName = "..\\Pontus\\src\\main\\resources\\JF0010202.pdf";
 			//Email.sendInvoice(Customer.getCustomer().userName.get(),fileName);
 			File file = new File(fileName);
 			Alert alert = new Alert(Alert.AlertType.INFORMATION,"Payment Successful, Click to continue to the invoice");
