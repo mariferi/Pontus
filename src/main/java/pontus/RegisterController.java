@@ -72,26 +72,20 @@ public class RegisterController {
 		}
 		if (password.getText().isEmpty()) {
 			invalidPassword.setVisible(true);
-		}
-                /*
-		else if (!Customer.validateEmail(userName.getText())) {
+		} else if (!Customer.validateEmail(userName.getText())) {
 			invalidEmail.setText("Invalid Email Address");
 			invalidEmail.setVisible(true);
 
-		}
-		else if (!Customer.validatePassword(password.getText())) {
+		} else if (!Customer.validatePassword(password.getText())) {
 			invalidPassword.setText("Invalid Password");
 			invalidPassword.setVisible(true);
 			Alert alert = new Alert(Alert.AlertType.ERROR,
 					" • Password must contain at least 2 non-alphabetic characters\n" +
 							" • Password must be at least 8 characters long");
 			alert.showAndWait();
-		}
-
-		else if (!password.getText().equals(verifyPassword.getText())) {
+		} else if (!password.getText().equals(verifyPassword.getText())) {
 			invalidMatch.setVisible(true);
-		}
-		else {
+		} else {
 			invalidName.setVisible(false);
 			invalidAddress.setVisible(false);
 			invalidEmail.setVisible(false);
@@ -101,8 +95,7 @@ public class RegisterController {
 			if (!policy.isSelected()) {
 				Alert alert = new Alert(Alert.AlertType.WARNING, "Agree to our terms and conditions to continue");
 				alert.showAndWait();
-			}
-			else {
+			} else {
 				Customer.add(userName.getText(), verifyPassword.getText(), address.getText(), name.getText());
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setHeaderText("You have been succesfully registered to Pontus.\n" + "Thank you!");
@@ -110,8 +103,9 @@ public class RegisterController {
 
 			}
 
-*/
+
 		}
+	}
 }
 
 

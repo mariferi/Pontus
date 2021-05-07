@@ -57,10 +57,10 @@ public class LoginController {
 		System.out.println("User name: " + userName);
 		System.out.println("Password: " + pass);
 		if(userName.equals("customer")) {
-			changeScene(event,"CustomerDashboard.fxml");
+			changeScene(event,"/fxml/CustomerDashboard.fxml");
 		}
 		else if(userName.equals("admin")) {
-			changeScene(event,"AdminDashboard.fxml");
+			changeScene(event,"/fxml/AdminDashboard.fxml");
 		}
 		/*
 		String validation =  Account.validateLogin(userName,pass);

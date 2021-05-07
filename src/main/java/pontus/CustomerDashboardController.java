@@ -187,7 +187,7 @@ public class CustomerDashboardController {
 		cart.setCartName(""+Customer.getCustomer().getId());
 		cart.checkout();
 */
-		Parent dashboard = FXMLLoader.load(getClass().getResource("Payment.fxml"));
+		Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/Payment.fxml"));
 		Scene checkout = new Scene(dashboard);
 		Stage window = new Stage();
 		window.setScene(checkout);
@@ -300,7 +300,7 @@ public class CustomerDashboardController {
 	}
 	public void handleHomeLink(ActionEvent event) throws IOException {
 
-		Parent register = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		Parent register = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
 		Scene registerScene = new Scene(register);
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(registerScene);

@@ -13,8 +13,18 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	private String address;
-	String userName;
-    String password;
+	private String userName;
+    private String password;
+    private String email;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
 	public static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
 
@@ -23,6 +33,11 @@ public class Customer {
 		this.password=password;
 		this.address = address;
 	}
+
+	public Customer() {
+
+	}
+
 	@Override
 	public String toString() {
 		return "Customer{" +
@@ -85,13 +100,12 @@ public class Customer {
 			} else return "Wrong Username OR Password";
 		}
 	}
-	/*
 	//*******************MÓDÓSÍTANI KELL HOGY MEGHÍVJA A SAJÁT ADATBÁZIS METÓDUST***************************
 	public static void add(String username, String password, String address, String name) {
-		
+		/*
 		Application.executeQueryforUpdate("INSERT INTO customer (userName, password,address,name) VALUES ('"
 				+ username + "', '" + password + "','" + address + "','" + name + "')");
-		
+		*/
 		System.out.println("A regisztrált adatok:");
 		System.out.println("Név: " + name);
 		System.out.println("Felhasználónév: " + username);
@@ -99,6 +113,6 @@ public class Customer {
 		System.out.println("Postázási cím: " + address);
 	}
 	//**************************************************************************************************
-*/
+
 
 }

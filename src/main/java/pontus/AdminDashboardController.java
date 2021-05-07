@@ -74,7 +74,7 @@ public class AdminDashboardController {
 		//staffTableView.setItems(Admin.getStaffListFromDB());
 	}
 	public void handleHomeButton(ActionEvent event) throws IOException {
-		Parent register = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		Parent register = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
 		Scene registerScene = new Scene(register);
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(registerScene);

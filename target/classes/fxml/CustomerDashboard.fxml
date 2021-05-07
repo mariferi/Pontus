@@ -266,7 +266,7 @@
                             </effect></Button>
                         <ImageView fx:id="mainImg" fitHeight="232.0" fitWidth="203.0" layoutX="37.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
-                                <Image url="@../../Képek/pc.jpg" />
+                                <Image url="@../Képek/pc.jpg" />
                             </image>
                             <effect>
                                 <InnerShadow />
@@ -347,7 +347,7 @@
                             </font></Label>
                         <ImageView fx:id="img1" fitHeight="188.0" fitWidth="160.0" layoutX="1.0" layoutY="21.0" onMouseClicked="#handleImg1" onMousePressed="#handleImg1" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
-                                <Image url="@../../Képek/pc.jpg" />
+                                <Image url="@../Képek/pc.jpg" />
                             </image>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -379,7 +379,7 @@
                         </ImageView>
                         <ImageView fitHeight="178.0" fitWidth="148.0" layoutX="58.0" layoutY="438.0" onMousePressed="#handleImg7" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
-                                <Image url="@../../Képek/rádio.jpg" />
+                                <Image url="@../Képek/rádio.jpg" />
                             </image>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -387,7 +387,7 @@
                         </ImageView>
                         <ImageView fitHeight="188.0" fitWidth="160.0" layoutX="216.0" layoutY="261.0" onMousePressed="#handleImg6" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
-                                <Image url="@../../Képek/mikró.jpg" />
+                                <Image url="@../Képek/mikró.jpg" />
                             </image>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
