@@ -102,10 +102,6 @@ public class Customer {
 	}
 	//*******************MÓDÓSÍTANI KELL HOGY MEGHÍVJA A SAJÁT ADATBÁZIS METÓDUST***************************
 	public static void add(String username, String password, String address, String name) {
-		/*
-		Application.executeQueryforUpdate("INSERT INTO customer (userName, password,address,name) VALUES ('"
-				+ username + "', '" + password + "','" + address + "','" + name + "')");
-		*/
 		System.out.println("A regisztrált adatok:");
 		System.out.println("Név: " + name);
 		System.out.println("Felhasználónév: " + username);

@@ -2,7 +2,9 @@ package pontus;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -47,12 +49,8 @@ public class RegisterController {
 	@FXML
 	private Label invalidMatch;
 
-	@FXML
-	void handleBackButton(ActionEvent event) throws IOException {
-            
-	}
 
-	public void handleAddButton() {
+	public void handleAddButton(ActionEvent event) {
 		invalidName.setVisible(false);
 		invalidAddress.setVisible(false);
 		invalidEmail.setVisible(false);
@@ -100,7 +98,8 @@ public class RegisterController {
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setHeaderText("You have been succesfully registered to Pontus.\n" + "Thank you!");
 				alert.showAndWait();
-
+				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				stage.close();
 			}
 
 
