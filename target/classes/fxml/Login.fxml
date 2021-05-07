@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="394.0" maxWidth="700.0" minHeight="393.0" minWidth="694.0" prefHeight="393.0" prefWidth="694.0" style="-fx-background-color: #082656;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.LoginController">
+<AnchorPane maxHeight="394.0" maxWidth="700.0" minHeight="393.0" minWidth="694.0" prefHeight="393.0" prefWidth="694.0" style="-fx-background-color: #082656;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pontus.LoginController">
     <children>
         <AnchorPane fx:id="ap" maxHeight="394.0" maxWidth="700.0" minHeight="384.0" minWidth="687.0" prefHeight="384.0" prefWidth="687.0" style="-fx-background-color: #082656;">
             <children>
@@ -35,7 +35,7 @@
                 </AnchorPane>
                 <ImageView fitHeight="240.0" fitWidth="398.0" layoutX="35.0" layoutY="77.0" opacity="0.51" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../Képek/bejelentkező.jpg" />
+                        <Image url="@../Képek/bejelentkező.jpg" />
                     </image>
                 </ImageView>
                 <Button fx:id="register" layoutX="144.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="72.0" prefWidth="142.0" style="-fx-background-color: #2777f7;" text="Regisztrálció" textFill="WHITE">

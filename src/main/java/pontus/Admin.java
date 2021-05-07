@@ -9,11 +9,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Admin extends Account {
+public class Admin {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;//name/passwd in Account
+	private Integer id;
+	String userName;
+	String password;
+	public static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
+	public static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
+
+	public Admin(String userName, String password) {
+		this.userName = userName;
+		this.password = password;
+	}
 
 	@Override
 	public String toString() {
@@ -24,17 +33,27 @@ public class Admin extends Account {
 				'}';
 	}
 
+	public void setId(Integer id){
+		this.id=id;
+	}
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
-	public void setId(final Integer id) {
-		this.id = id;
+	public String getUserName() {
+		return this.userName;
 	}
 
+	public void setUserName(String userName) {
+		this.userName=userName;
+	}
 
-	public Admin(String userName, String password){
-		super(userName, password);
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password=password;
 	}
 
 

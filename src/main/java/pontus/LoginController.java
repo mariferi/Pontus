@@ -88,7 +88,7 @@ public class LoginController {
 
 	@FXML
 	public void handleRegisterButton(ActionEvent event) throws IOException {
-		Parent register = FXMLLoader.load(getClass().getResource("Register.fxml"));
+		Parent register = FXMLLoader.load(getClass().getResource("/fxml/Register.fxml"));
 		Scene registerScene = new Scene(register);
 		Stage window = new Stage();
 		window.setScene(registerScene);

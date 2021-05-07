@@ -73,6 +73,7 @@ public class RegisterController {
 		if (password.getText().isEmpty()) {
 			invalidPassword.setVisible(true);
 		}
+                /*
 		else if (!Customer.validateEmail(userName.getText())) {
 			invalidEmail.setText("Invalid Email Address");
 			invalidEmail.setVisible(true);
@@ -86,6 +87,7 @@ public class RegisterController {
 							" • Password must be at least 8 characters long");
 			alert.showAndWait();
 		}
+
 		else if (!password.getText().equals(verifyPassword.getText())) {
 			invalidMatch.setVisible(true);
 		}
@@ -108,8 +110,8 @@ public class RegisterController {
 
 			}
 
-
+*/
 		}
-	}
-
 }
+
+

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="428.0" prefWidth="622.0" style="-fx-background-color: #0f3e89;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sfm.pontus.RegisterController">
+<AnchorPane prefHeight="428.0" prefWidth="622.0" style="-fx-background-color: #0f3e89;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pontus.RegisterController">
     <children>
         <Button layoutX="104.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="37.0" prefWidth="139.0" style="    -fx-background-color:         #090a0c,         linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),         linear-gradient(#20262b, #191d22),         radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));     -fx-background-radius: 5,4,3,5;     -fx-background-insets: 0,1,2,0;     -fx-text-fill: white;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Regisztrálció" textFill="WHITE" />
         <TextField fx:id="name" layoutX="157.0" layoutY="34.0" promptText="Példa" />
@@ -51,12 +51,12 @@
         <Separator layoutX="358.0" layoutY="182.0" prefHeight="5.0" prefWidth="237.0" />
         <ImageView fitHeight="125.0" fitWidth="120.0" layoutX="416.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../Képek/ikon/110912-font-awesome.png" />
+                <Image url="@../Képek/ikon/110912-font-awesome.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="190.0" fitWidth="209.0" layoutX="371.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../Képek/ikon/dancing_icon.gif" />
+                <Image url="@../Képek/ikon/dancing_icon.gif" />
             </image>
         </ImageView>
         <Label fx:id="invalidName" layoutX="157.0" layoutY="14.0" text="This field is required*" textFill="#ee0000" visible="false" />

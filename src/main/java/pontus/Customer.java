@@ -1,21 +1,28 @@
 package pontus;
 
 
-import javafx.beans.property.SimpleStringProperty;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Customer extends Account {
+public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;//name/passwd in Account
+	private Integer id;
 	private String address;
+	String userName;
+    String password;
+	public static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
+	public static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
 
+	public Customer(String userName, String password, String address) {
+		this.userName=userName;
+		this.password=password;
+		this.address = address;
+	}
 	@Override
 	public String toString() {
 		return "Customer{" +
@@ -32,20 +39,33 @@ public class Customer extends Account {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+        public String userName() {
+		return userName;
+	}
 
+	public void setId(Integer id){
+		this.id=id;
+	}
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
-
-	public void setId(final Integer id) {
-		this.id = id;
+	public String getUserName() {
+		return this.userName;
 	}
 
-	public Customer(String userName, String password, String address) {
-		super(userName, password);
-		this.address = address;
+	public void setUserName(String userName) {
+		this.userName=userName;
 	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password=password;
+	}
+
 
 	public static boolean validateEmail(String email) {
 		return email.matches(VALID_EMAIL_REGEX);
@@ -65,12 +85,13 @@ public class Customer extends Account {
 			} else return "Wrong Username OR Password";
 		}
 	}
+	/*
 	//*******************MÓDÓSÍTANI KELL HOGY MEGHÍVJA A SAJÁT ADATBÁZIS METÓDUST***************************
 	public static void add(String username, String password, String address, String name) {
-		/*
+		
 		Application.executeQueryforUpdate("INSERT INTO customer (userName, password,address,name) VALUES ('"
 				+ username + "', '" + password + "','" + address + "','" + name + "')");
-		*/
+		
 		System.out.println("A regisztrált adatok:");
 		System.out.println("Név: " + name);
 		System.out.println("Felhasználónév: " + username);
@@ -78,6 +99,6 @@ public class Customer extends Account {
 		System.out.println("Postázási cím: " + address);
 	}
 	//**************************************************************************************************
-
+*/
 
 }
