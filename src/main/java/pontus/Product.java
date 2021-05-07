@@ -1,4 +1,4 @@
-package sfm.pontus;
+package pontus;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
