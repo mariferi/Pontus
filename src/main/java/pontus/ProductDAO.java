@@ -1,4 +1,4 @@
-package sfm.pontus;
+package pontus;
 
 import java.util.List;
 
