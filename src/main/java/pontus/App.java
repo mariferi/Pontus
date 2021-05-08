@@ -31,7 +31,7 @@ public class App extends Application {
             //all_customers=cDAO.getCustomersAll();
             //all_products=pDAO.getProductsAll();
         //////////////////////////////////////////////////////////////////
-            //Admin Joska=new Admin("Joskaadmin","korte234");
+            //Admin Joska=new Admin("admin","admin");
             //aDAO.saveAdmin(Joska);
         /*Customer Pista = new Customer("Teszt Pista", "pistikerulez", "Nagyfalva");
         Admin Joska=new Admin("Jóska_baba83","körte234");

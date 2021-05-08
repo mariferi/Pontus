@@ -1,5 +1,6 @@
 package pontus;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,8 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AdminDashboardController {
@@ -38,6 +41,22 @@ public class AdminDashboardController {
 	@FXML private TextField productCode;
 	@FXML private TextField productSize;
 	@FXML private TextField productPrice;
+
+
+	@FXML
+	private TableColumn<?, ?> customerIdCol;
+
+	@FXML
+	private TableColumn<?, ?> customerEmailCol;
+
+	@FXML
+	private TableColumn<?, ?> customerAddCol;
+
+	@FXML
+	private TableColumn<?, ?> customerUserNameCol;
+
+	@FXML
+	private TableColumn<?, ?> customerPassCol;
 
 
 	@FXML private TableColumn<Cart,String> purchaseIDCol;
@@ -80,32 +99,45 @@ public class AdminDashboardController {
 		window.setScene(registerScene);
 		window.show();
 	}
-	public void handleStaffAddButton(){
-		//Admin.addStaff(addUserText.getText(),addPassText.getText());
+	public void handleStaffAddButton() throws Exception {
+		Admin tmp = new Admin(addUserText.getText(),addPassText.getText());
+		try(AdminDAO aDAO = new JpaAdminDAO();){
+			aDAO.saveAdmin(tmp);
+		}
 		addUserText.clear();
 		addPassText.clear();
 		handleStaffUpdateButton();
 	}
 
-	public void initialize(){
-
-
+	public void initialize() throws Exception {
 
 	}
-/*
-	private void initializeTables(){
+
+	private void initializeTables() throws Exception {
+		/*
 		staffIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		staffUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
 		staffPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
 		staffTableView.setItems(Admin.getStaffListFromDB());
 
 
-		customerAddCol.setCellValueFactory(new PropertyValueFactory<>("address"));
-		customerNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-		customerUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
-		customerPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
-		customerIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-		customerTableView.setItems(Customer.getListFromDB());
+	 */
+		try (CustomerDAO cDAO = new JpaCustomerDAO();) {
+			List<Customer> customers = new ArrayList<>();
+			customers = cDAO.getCustomersAll();
+			//FXCollections.observableArrayList(customers);
+
+			//new PropertyValueFactory<Customer, String>("name");
+			customerAddCol.setCellValueFactory(new PropertyValueFactory<>("address"));
+			customerEmailCol.setCellValueFactory(new PropertyValueFactory<>("userEmail"));
+			customerUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
+			customerPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
+			customerIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+			customerTableView.setItems(FXCollections.observableArrayList(customers));
+
+			/*
+		}
+/*
 
 		purchaseDateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
 		purchaseIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -121,9 +153,16 @@ public class AdminDashboardController {
 		productSizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
 		productTableView.setItems(Product.getListFromDB());
 
+ */
+
+		}
 	}
 
- */
+	@FXML
+	void refreshCustormers(ActionEvent event) throws Exception {
+		initializeTables();
+	}
+
 	public void handleProductDelButton(){
 
 	}

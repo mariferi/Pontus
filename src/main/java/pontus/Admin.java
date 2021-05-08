@@ -23,6 +23,7 @@ public class Admin {
 		this.userName = userName;
 		this.password = password;
 	}
+        
         public Admin() {
 	}
 
