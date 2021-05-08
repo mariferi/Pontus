@@ -15,27 +15,30 @@ public class Customer {
 	private String address;
 	private String userName;
     private String password;
-    private String email;
+    private String userEmail;
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 	public static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
 	public static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
 
-	public Customer(String userName, String password, String address) {
-		this.userName=userName;
-		this.password=password;
-		this.address = address;
-	}
 
 	public Customer() {
 
+	}
+
+	public Customer(String userName, String userEmail, String address, String password) {
+		this.address = address;
+		this.userName = userName;
+		this.password = password;
+		this.userEmail = userEmail;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	@Override
@@ -101,10 +104,15 @@ public class Customer {
 		}
 	}
 	//*******************MÓDÓSÍTANI KELL HOGY MEGHÍVJA A SAJÁT ADATBÁZIS METÓDUST***************************
-	public static void add(String username, String password, String address, String name) {
+	public static void register(String userName, String userEmail, String address, String password) throws Exception {
+		Customer customer = new Customer(userName, userEmail, address, password);
+		try (CustomerDAO cDAO= new JpaCustomerDAO();) {
+			cDAO.saveCustomer(customer);
+		}
+
 		System.out.println("A regisztrált adatok:");
-		System.out.println("Név: " + name);
-		System.out.println("Felhasználónév: " + username);
+		System.out.println("Név: " + userName);
+		System.out.println("Email: " + userEmail);
 		System.out.println("Jelszó: " + password);
 		System.out.println("Postázási cím: " + address);
 	}

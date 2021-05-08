@@ -11,10 +11,10 @@ import java.io.IOException;
 public class RegisterController {
 
 	@FXML
-	private TextField name;
+	private TextField userName;
 
 	@FXML
-	private TextField userName;
+	private TextField userEmail;
 
 	@FXML
 	private TextArea address;
@@ -50,27 +50,27 @@ public class RegisterController {
 	private Label invalidMatch;
 
 
-	public void handleAddButton(ActionEvent event) {
+	public void handleAddButton(ActionEvent event) throws Exception {
 		invalidName.setVisible(false);
 		invalidAddress.setVisible(false);
 		invalidEmail.setVisible(false);
 		invalidPassword.setVisible(false);
 		invalidMatch.setVisible(false);
 
-		if (name.getText().isEmpty()) {
+		if (userName.getText().isEmpty()) {
 			invalidName.setVisible(true);
 		}
 		if (address.getText().isEmpty()) {
 			invalidAddress.setVisible(true);
 		}
 
-		if (userName.getText().isEmpty()) {
+		if (userEmail.getText().isEmpty()) {
 			invalidEmail.setVisible(true);
 
 		}
 		if (password.getText().isEmpty()) {
 			invalidPassword.setVisible(true);
-		} else if (!Customer.validateEmail(userName.getText())) {
+		} else if (!Customer.validateEmail(userEmail.getText())) {
 			invalidEmail.setText("Invalid Email Address");
 			invalidEmail.setVisible(true);
 
@@ -94,7 +94,7 @@ public class RegisterController {
 				Alert alert = new Alert(Alert.AlertType.WARNING, "Agree to our terms and conditions to continue");
 				alert.showAndWait();
 			} else {
-				Customer.add(userName.getText(), verifyPassword.getText(), address.getText(), name.getText());
+				Customer.register(userName.getText(),userEmail.getText(), address.getText(), verifyPassword.getText());
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setHeaderText("You have been succesfully registered to Pontus.\n" + "Thank you!");
 				alert.showAndWait();

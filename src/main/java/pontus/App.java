@@ -31,12 +31,13 @@ public class App extends Application {
             //all_customers=cDAO.getCustomersAll();
             //all_products=pDAO.getProductsAll();
         //////////////////////////////////////////////////////////////////
-        Customer Pista = new Customer("Teszt Pista", "pistikerulez", "Nagyfalva");
+        /*Customer Pista = new Customer("Teszt Pista", "pistikerulez", "Nagyfalva");
         Admin Joska=new Admin("Jóska_baba83","körte234");
         Product Alma=new Product("12212","Zöld Alma",new BigDecimal(49.9),"kicsi");
         cDAO.saveCustomer(Pista);
         aDAO.saveAdmin(Joska);
         pDAO.saveProduct(Alma);
+         */
         }
 
         
