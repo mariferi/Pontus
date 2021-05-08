@@ -47,6 +47,8 @@ public class Customer {
 				"id=" + id +
 				", address='" + address + '\'' +
 				", userName='" + userName + '\'' +
+				", password='" + password + '\'' +
+				", userEmail='" + userEmail + '\'' +
 				'}';
 	}
 

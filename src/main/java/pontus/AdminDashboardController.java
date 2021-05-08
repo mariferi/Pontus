@@ -26,6 +26,8 @@ import java.util.List;
 
 public class AdminDashboardController {
 
+	CustomerDAO cDAO= new JpaCustomerDAO();
+
 	@FXML private TextField customerID;
 
 	@FXML private Label usernameLabel;
@@ -122,12 +124,10 @@ public class AdminDashboardController {
 
 
 	 */
-		try (CustomerDAO cDAO = new JpaCustomerDAO();) {
+
 			List<Customer> customers = new ArrayList<>();
 			customers = cDAO.getCustomersAll();
-			//FXCollections.observableArrayList(customers);
 
-			//new PropertyValueFactory<Customer, String>("name");
 			customerAddCol.setCellValueFactory(new PropertyValueFactory<>("address"));
 			customerEmailCol.setCellValueFactory(new PropertyValueFactory<>("userEmail"));
 			customerUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
@@ -156,6 +156,21 @@ public class AdminDashboardController {
  */
 
 		}
+
+
+	@FXML
+	void deleteCustomer(ActionEvent event) throws Exception {
+
+
+
+			//Customer customer = customerTableView.getSelectionModel().getSelectedItem();
+			//System.out.println(customer.toString());
+			//cDAO.deleteCustomer(customerTableView.getSelectionModel().getSelectedItem());
+			Customer customer = customerTableView.getSelectionModel().getSelectedItem();
+			customerTableView.getItems().remove(customer);
+			cDAO.deleteCustomer(customer);
+
+
 	}
 
 	@FXML
