@@ -65,17 +65,13 @@ public class LoginController {
 			all_admins = aDAO.getAdminsAll();
 
 			for (Admin admin :all_admins){
-				if(admin.getUserName().equals(userName)){//jo user
-					if (admin.getPassword().equals(pass)){//jo pass/jo admin
+				if(admin.getUserName().equals(userName)&& admin.getPassword().equals(pass)){//jo user
 						changeScene(event,"/fxml/AdminDashboard.fxml");
-					}
 				}
 			}//admin
 			for (Customer customer :all_customers){
-				if(customer.getUserName().equals(userName)){//jo user
-					if (customer.getPassword().equals(pass)){//jo pass
+				if(customer.getUserName().equals(userName)&& customer.getPassword().equals(pass)){//jo user
 						changeScene(event,"/fxml/CustomerDashboard.fxml");
-					}
 				}
 			}//cust
 		}//try
