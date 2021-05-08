@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LoginController {
 
@@ -43,7 +44,7 @@ public class LoginController {
 	}
 
 	public void changeScene(ActionEvent event, String fxml) throws IOException {
-		Parent dashboard = FXMLLoader.load(getClass().getResource(fxml));
+		Parent dashboard = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
 		Scene dashboardScene = new Scene(dashboard);
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		window.setScene(dashboardScene);
@@ -53,60 +54,31 @@ public class LoginController {
 	@FXML private ImageView loginIcon;
 	public void handleLoginButton(ActionEvent event) throws Exception {
 		//loginIcon.setVisible(true);
-		boolean userNameOk = false;
-		boolean userPassOk = false;
-		boolean isAdmin = false;
-
+		String userName = this.userName.getText();
+		String pass = this.pass.getText();
 		List<Customer> all_customers = new ArrayList<>();
 		List<Admin> all_admins = new ArrayList<>();
 
-		String userName = this.userName.getText();
-		String pass = this.pass.getText();
-
 		try (CustomerDAO cDAO= new JpaCustomerDAO();
 			 AdminDAO aDAO = new JpaAdminDAO();) {
-			all_customers=cDAO.getCustomersAll();
-			all_admins=aDAO.getAdminsAll();
-			for(var admin: all_admins) {
-				if(admin.getUserName().equals(userName)) {
-					userNameOk = true;
-					if(userNameOk) {
-						if (admin.getPassword().equals(pass)) {
-							userPassOk = true;
-							isAdmin = true;
-							//break;
-						}
+			all_customers = cDAO.getCustomersAll();
+			all_admins = aDAO.getAdminsAll();
+
+			for (Admin admin :all_admins){
+				if(admin.getUserName().equals(userName)){//jo user
+					if (admin.getPassword().equals(pass)){//jo pass/jo admin
+						changeScene(event,"/fxml/AdminDashboard.fxml");
 					}
 				}
-
-			}
-
-			if (!isAdmin) {
-				userNameOk = false;
-				userPassOk = false;
-				for (var customer : all_customers) {
-					if (customer.getUserName().equals(userName)) {
-						userNameOk = true;
-						if (userNameOk) {
-							if (customer.getPassword().equals(pass)) {
-								userPassOk = true;
-								//break;
-							}
-						}
+			}//admin
+			for (Customer customer :all_customers){
+				if(customer.getUserName().equals(userName)){//jo user
+					if (customer.getPassword().equals(pass)){//jo pass
+						changeScene(event,"/fxml/CustomerDashboard.fxml");
 					}
-
 				}
-			}
+			}//cust
 		}
-		/////////////////////////////////////////////
-
-		if(userNameOk && userPassOk && !isAdmin) {
-			changeScene(event,"/fxml/CustomerDashboard.fxml");
-		}
-		else if(isAdmin && userNameOk && userPassOk) {
-			changeScene(event,"/fxml/AdminDashboard.fxml");
-		}
-
 	}
 
 
