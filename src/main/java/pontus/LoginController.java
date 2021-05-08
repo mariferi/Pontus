@@ -13,6 +13,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginController {
 
@@ -49,39 +51,61 @@ public class LoginController {
 	}
 
 	@FXML private ImageView loginIcon;
-	public void handleLoginButton(ActionEvent event) throws IOException {
+	public void handleLoginButton(ActionEvent event) throws Exception {
 		//loginIcon.setVisible(true);
+		boolean userNameOk = false;
+		boolean userPassOk = false;
+		boolean isAdmin = false;
+
+		List<Customer> all_customers = new ArrayList<>();
+		List<Admin> all_admins = new ArrayList<>();
 
 		String userName = this.userName.getText();
 		String pass = this.pass.getText();
-		System.out.println("User name: " + userName);
-		System.out.println("Password: " + pass);
-		if(userName.equals("customer")) {
+
+		try (CustomerDAO cDAO= new JpaCustomerDAO();
+			 AdminDAO aDAO = new JpaAdminDAO();) {
+			all_customers=cDAO.getCustomersAll();
+			all_admins=aDAO.getAdminsAll();
+			for(var admin: all_admins) {
+				if(admin.getUserName().equals(userName)) {
+					userNameOk = true;
+					if(userNameOk) {
+						if (admin.getPassword().equals(pass)) {
+							userPassOk = true;
+							isAdmin = true;
+							//break;
+						}
+					}
+				}
+
+			}
+
+			if (!isAdmin) {
+				userNameOk = false;
+				userPassOk = false;
+				for (var customer : all_customers) {
+					if (customer.getUserName().equals(userName)) {
+						userNameOk = true;
+						if (userNameOk) {
+							if (customer.getPassword().equals(pass)) {
+								userPassOk = true;
+								//break;
+							}
+						}
+					}
+
+				}
+			}
+		}
+		/////////////////////////////////////////////
+
+		if(userNameOk && userPassOk && !isAdmin) {
 			changeScene(event,"/fxml/CustomerDashboard.fxml");
 		}
-		else if(userName.equals("admin")) {
+		else if(isAdmin && userNameOk && userPassOk) {
 			changeScene(event,"/fxml/AdminDashboard.fxml");
 		}
-		/*
-		String validation =  Account.validateLogin(userName,pass);
-		switch (validation) {
-			case "staff":{
-				changeScene(event,"AdminDashboard.fxml");
-				break;
-			}
-			case "customer": {
-				changeScene(event,"CustomerDashboard.fxml");
-				break;
-			}
-			default:
-				invalidLabel.setVisible(true);
-				Alert alert = new Alert(Alert.AlertType.ERROR, validation);
-				alert.setHeaderText("Connection Failure");
-				alert.showAndWait();
-				break;
-		}
-
-		 */
 
 	}
 
@@ -98,7 +122,7 @@ public class LoginController {
 	}
 
 	@FXML
-	public 	void onEnter(ActionEvent event) throws IOException {
+	public 	void onEnter(ActionEvent event) throws Exception {
 		handleLoginButton(event);
 	}
 
