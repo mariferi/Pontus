@@ -18,6 +18,10 @@ public class Product {
     private String category;
     private BigDecimal price;
 
+    public Product() {
+
+    }
+
 
     @Override
     public String toString() {
@@ -25,8 +29,9 @@ public class Product {
                 "id=" + id +
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
-                ", price=" + price +
                 ", size='" + size + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
                 '}';
     }
 
@@ -77,11 +82,11 @@ public class Product {
         this.id = id;
     }
 
-    public Product( String code,String name, BigDecimal price,String size){
-        this.name = name;
-        this.price = price;
-        this.size = size;
+    public Product(String code, String name, String size, String category, BigDecimal price) {
         this.code = code;
+        this.name = name;
+        this.size = size;
+        this.category = category;
+        this.price = price;
     }
-
 }

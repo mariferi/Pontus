@@ -35,11 +35,13 @@ public class App extends Application {
             //aDAO.saveAdmin(Joska);
         /*Customer Pista = new Customer("Teszt Pista", "pistikerulez", "Nagyfalva");
         Admin Joska=new Admin("Jóska_baba83","körte234");
-        Product Alma=new Product("12212","Zöld Alma",new BigDecimal(49.9),"kicsi");
+
         cDAO.saveCustomer(Pista);
         aDAO.saveAdmin(Joska);
-        pDAO.saveProduct(Alma);
+
          */
+            //Product Alma=new Product("12312", "alma", "10", "gyumolcs", new BigDecimal(3.14));
+            //pDAO.saveProduct(Alma);
         }
 
         
@@ -51,6 +53,7 @@ public class App extends Application {
         System.out.println("Password: ");
         ////////////////////////////////////////////////////////////////////
         launch(args);
+        stopDatabase();
     }
 
     private static Server s = new Server();

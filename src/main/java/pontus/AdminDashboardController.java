@@ -28,6 +28,7 @@ public class AdminDashboardController {
 
 	CustomerDAO cDAO= new JpaCustomerDAO();
 	AdminDAO aDAO = new JpaAdminDAO();
+	ProductDAO pDAO = new JpaProductDAO();
 
 	@FXML private TextField customerID;
 
@@ -41,6 +42,7 @@ public class AdminDashboardController {
 	@FXML private TableColumn<Product,String> productNameCol;
 	@FXML private TableColumn<Product,String> productPriceCol;
 	@FXML private TableColumn<Product,String> productSizeCol;
+	@FXML private TableColumn<Product,String> productCategoryCol;
 	@FXML private TextField productName;
 	@FXML private TextField productCode;
 	@FXML private TextField productSize;
@@ -71,15 +73,6 @@ public class AdminDashboardController {
 	@FXML
 	private TableColumn<?, ?> AdminPassCol;
 
-
-
-	@FXML private TableColumn<Cart,String> purchaseIDCol;
-	@FXML private TableColumn<Cart,String> purchaseNameCol;
-	@FXML private TableColumn<Cart,String> purchasePriceCol;
-	@FXML private TableColumn<Cart,String> purchaseDateCol;
-	@FXML private TableView<Cart> purchaseTableView;
-
-
 	@FXML private TextField addUserText;
 	@FXML private TextField addPassText;
 
@@ -87,25 +80,18 @@ public class AdminDashboardController {
 	@FXML private  Tab customerTab;
 	@FXML private  Tab productsTab;
 	@FXML private  Tab staffTab;
+	
 
-	@FXML private DatePicker datePicker;
-	@FXML private Button viewAll;
+	@FXML private ComboBox KategóriaBox;
 
-	public void handleDatePicker(){
-		LocalDate date = datePicker.getValue();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY/MM/dd");
-		String day = formatter.format(date);
-		customerID.setText(day);
-		handleViewTransactionButton();
+	ObservableList<String> KategóriaList=FXCollections.observableArrayList("Számítógépek","Televiziók","Laptopok","Mosógépek","Mikrohullámos sütők","Porszivók","Rádiók,Hifitornyok","Hűtőszekrények");
 
+	public void initialize(){
+		KategóriaBox.setValue("Kategória");
+		KategóriaBox.setItems(KategóriaList);
 	}
 
 
-
-	public void handleStaffUpdateButton(){
-
-		//staffTableView.setItems(Admin.getStaffListFromDB());
-	}
 	public void handleHomeButton(ActionEvent event) throws IOException {
 		Parent register = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
 		Scene registerScene = new Scene(register);
@@ -114,43 +100,19 @@ public class AdminDashboardController {
 		window.show();
 	}
 
-	public void initialize() throws Exception {
-
-	}
-
-	private void initializeTables() throws Exception {
-
-
-			/*
-		}
-/*
-
-		purchaseDateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
-		purchaseIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-		purchasePriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-		purchaseNameCol.setCellValueFactory(new PropertyValueFactory<>("cartName"));
-		purchaseTableView.setItems(Purchase.getListFromDB());
-
-
-		productCodeCol.setCellValueFactory(new PropertyValueFactory<>("code"));
-		productIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-		productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-		productPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-		productSizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
-		productTableView.setItems(Product.getListFromDB());
-
- */
-
-		}
 
 	@FXML
 	void handleAddAdminButton(ActionEvent event) {
-
+		Admin admin = new Admin(addUserText.getText(), addPassText.getText());
+		aDAO.saveAdmin(admin);
+		refreshAdmin(event);
 	}
 
 	@FXML
 	void handleDeleteAdminButton(ActionEvent event) {
-
+		Admin admin = AdminTableView.getSelectionModel().getSelectedItem();
+		AdminTableView.getItems().remove(admin);
+		aDAO.deleteAdmin(admin);
 	}
 	@FXML
 	void refreshAdmin(ActionEvent event) {
@@ -164,14 +126,12 @@ public class AdminDashboardController {
 
 	}
 
-
-
 	@FXML
 	void deleteCustomer(ActionEvent event) throws Exception {
 
-			Customer customer = customerTableView.getSelectionModel().getSelectedItem();
-			customerTableView.getItems().remove(customer);
-			cDAO.deleteCustomer(customer);
+		Customer customer = customerTableView.getSelectionModel().getSelectedItem();
+		customerTableView.getItems().remove(customer);
+		cDAO.deleteCustomer(customer);
 	}
 
 	@FXML
@@ -188,33 +148,36 @@ public class AdminDashboardController {
 	}
 
 	public void handleProductDelButton(){
-
+		Product product = productTableView.getSelectionModel().getSelectedItem();
+		productTableView.getItems().remove(product);
+		pDAO.deleteProduct(product);
+		handleProductUpdateButton();
 	}
-	public void handleViewTransactionButton(){
 
-		//purchaseTableView.setItems(Staff.viewTransaction(customerID.getText()));
-	}
-
-	public void handleViewReport() throws IOException {
-		//Admin.viewReport(customerID.getText());
-	}
 	public void handleProductUpdateButton(){
-		//productTableView.setItems(Product.getListFromDB());
+		List<Product> products = new ArrayList<>();
+		products = pDAO.getProductsAll();
+		productCodeCol.setCellValueFactory(new PropertyValueFactory<>("code"));
+		productIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+		productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+		productPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+		productSizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
+		productCategoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+		productTableView.setItems(FXCollections.observableArrayList(products));
 
 	}
-	public void handleViewAllButton(){
-		//purchaseTableView.setItems(Purchase.getListFromDB("all"));
-
+	public String choosenCategory() {
+		return KategóriaBox.getSelectionModel().getSelectedItem().toString();
 	}
+
 	public void handleProductAddButton(){
-		/*
-		Product product = new Product();
-		JpaProductDAO productDAO = new JpaProductDAO();
-		productDAO.saveProduct(product);
-		*/
-	}
 
-	public void handleDeleteButton(){
+		Product product = new Product(productCode.getText(), productName.getText(), productSize.getText(),
+				choosenCategory(), new BigDecimal(Integer.parseInt(productPrice.getText())));
+
+		pDAO.saveProduct(product);
+		handleProductUpdateButton();
 
 	}
+
 }
