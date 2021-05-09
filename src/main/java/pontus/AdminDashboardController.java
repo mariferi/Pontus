@@ -34,6 +34,7 @@ public class AdminDashboardController {
 	@FXML private Label usernameLabel;
 	@FXML private TableView<Customer> customerTableView;
 	@FXML private TableView<Product> productTableView;
+	@FXML private TableView<Admin> AdminTableView;
 
 	@FXML private TableColumn<Product,String> productIdCol;
 	@FXML private TableColumn<Product,String> productCodeCol;
@@ -89,9 +90,6 @@ public class AdminDashboardController {
 
 	@FXML private DatePicker datePicker;
 	@FXML private Button viewAll;
-
-	@FXML
-	private TableView<?> AdminTableView;
 
 	public void handleDatePicker(){
 		LocalDate date = datePicker.getValue();

@@ -1,13 +1,16 @@
 pontus\CustomerDAO.class
 pontus\Purchase.class
 pontus\JpaAdminDAO.class
+pontus\PaymentController.class
 pontus\Product.class
 pontus\App.class
 pontus\ProductDAO.class
 pontus\JpaCustomerDAO.class
 pontus\LoginController.class
 pontus\AdminDAO.class
+pontus\AdminDashboardController.class
 module-info.class
+pontus\JpaProductDAO.class
 pontus\Customer.class
 pontus\Admin.class
 pontus\CustomerDashboardController.class
