@@ -24,7 +24,7 @@ public class Admin {
 		this.password = password;
 	}
         
-        public Admin() {
+	public Admin() {
 	}
 
 	@Override

@@ -27,6 +27,7 @@ import java.util.List;
 public class AdminDashboardController {
 
 	CustomerDAO cDAO= new JpaCustomerDAO();
+	AdminDAO aDAO = new JpaAdminDAO();
 
 	@FXML private TextField customerID;
 
@@ -60,6 +61,16 @@ public class AdminDashboardController {
 	@FXML
 	private TableColumn<?, ?> customerPassCol;
 
+	@FXML
+	private TableColumn<?, ?> AdminIdCol;
+
+	@FXML
+	private TableColumn<?, ?> AdminUserNameCol;
+
+	@FXML
+	private TableColumn<?, ?> AdminPassCol;
+
+
 
 	@FXML private TableColumn<Cart,String> purchaseIDCol;
 	@FXML private TableColumn<Cart,String> purchaseNameCol;
@@ -78,6 +89,9 @@ public class AdminDashboardController {
 
 	@FXML private DatePicker datePicker;
 	@FXML private Button viewAll;
+
+	@FXML
+	private TableView<?> AdminTableView;
 
 	public void handleDatePicker(){
 		LocalDate date = datePicker.getValue();
@@ -101,39 +115,13 @@ public class AdminDashboardController {
 		window.setScene(registerScene);
 		window.show();
 	}
-	public void handleStaffAddButton() throws Exception {
-		Admin tmp = new Admin(addUserText.getText(),addPassText.getText());
-		try(AdminDAO aDAO = new JpaAdminDAO();){
-			aDAO.saveAdmin(tmp);
-		}
-		addUserText.clear();
-		addPassText.clear();
-		handleStaffUpdateButton();
-	}
 
 	public void initialize() throws Exception {
 
 	}
 
 	private void initializeTables() throws Exception {
-		/*
-		staffIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-		staffUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
-		staffPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
-		staffTableView.setItems(Admin.getStaffListFromDB());
 
-
-	 */
-
-			List<Customer> customers = new ArrayList<>();
-			customers = cDAO.getCustomersAll();
-
-			customerAddCol.setCellValueFactory(new PropertyValueFactory<>("address"));
-			customerEmailCol.setCellValueFactory(new PropertyValueFactory<>("userEmail"));
-			customerUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
-			customerPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
-			customerIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-			customerTableView.setItems(FXCollections.observableArrayList(customers));
 
 			/*
 		}
@@ -157,25 +145,48 @@ public class AdminDashboardController {
 
 		}
 
-
 	@FXML
-	void deleteCustomer(ActionEvent event) throws Exception {
-
-
-
-			//Customer customer = customerTableView.getSelectionModel().getSelectedItem();
-			//System.out.println(customer.toString());
-			//cDAO.deleteCustomer(customerTableView.getSelectionModel().getSelectedItem());
-			Customer customer = customerTableView.getSelectionModel().getSelectedItem();
-			customerTableView.getItems().remove(customer);
-			cDAO.deleteCustomer(customer);
-
+	void handleAddAdminButton(ActionEvent event) {
 
 	}
 
 	@FXML
-	void refreshCustormers(ActionEvent event) throws Exception {
-		initializeTables();
+	void handleDeleteAdminButton(ActionEvent event) {
+
+	}
+	@FXML
+	void refreshAdmin(ActionEvent event) {
+		List<Admin> adminList = new ArrayList<>();
+		adminList = aDAO.getAdminsAll();
+
+		AdminIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+		AdminUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
+		AdminPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
+		AdminTableView.setItems(FXCollections.observableArrayList(adminList));
+
+	}
+
+
+
+	@FXML
+	void deleteCustomer(ActionEvent event) throws Exception {
+
+			Customer customer = customerTableView.getSelectionModel().getSelectedItem();
+			customerTableView.getItems().remove(customer);
+			cDAO.deleteCustomer(customer);
+	}
+
+	@FXML
+	void refreshCustormers(ActionEvent event) {
+		List<Customer> customers = new ArrayList<>();
+		customers = cDAO.getCustomersAll();
+
+		customerAddCol.setCellValueFactory(new PropertyValueFactory<>("address"));
+		customerEmailCol.setCellValueFactory(new PropertyValueFactory<>("userEmail"));
+		customerUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
+		customerPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
+		customerIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+		customerTableView.setItems(FXCollections.observableArrayList(customers));
 	}
 
 	public void handleProductDelButton(){

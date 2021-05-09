@@ -54,16 +54,16 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="438.0">
                             <children>
-                                <TableView fx:id="staffTableView" cache="true" layoutX="14.0" layoutY="10.0" prefHeight="361.0" prefWidth="422.0" tableMenuButtonVisible="true">
+                                <TableView fx:id="AdminTableView" cache="true" layoutX="14.0" layoutY="10.0" prefHeight="361.0" prefWidth="422.0" tableMenuButtonVisible="true">
                                     <columns>
-                                        <TableColumn fx:id="staffIdCol" prefWidth="75.0" text="ID" />
-                                        <TableColumn fx:id="staffUserNameCol" prefWidth="162.0" text="Felhasználónév" />
-                                        <TableColumn fx:id="staffPassCol" prefWidth="174.0" text="Jelszó" />
+                                        <TableColumn fx:id="AdminIdCol" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="AdminUserNameCol" prefWidth="162.0" text="Felhasználónév" />
+                                        <TableColumn fx:id="AdminPassCol" prefWidth="174.0" text="Jelszó" />
                                     </columns>
                                 </TableView>
-                                <Button layoutX="462.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleStaffAddButton" prefHeight="28.0" prefWidth="99.0" text="Új" />
-                                <Button layoutX="580.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #ff4444;" text="Töröl" />
-                                <Button layoutX="512.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleStaffUpdateButton" prefHeight="82.0" prefWidth="139.0" text="Fríssit" />
+                                <Button layoutX="462.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleAddAdminButton" prefHeight="28.0" prefWidth="99.0" text="Új" />
+                                <Button layoutX="580.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleDeleteAdminButton" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #ff4444;" text="Töröl" />
+                                <Button layoutX="512.0" layoutY="233.0" mnemonicParsing="false" onAction="#refreshAdmin" prefHeight="82.0" prefWidth="139.0" text="Fríssit" />
                                 <TextField fx:id="addUserText" layoutX="462.0" layoutY="73.0" prefHeight="25.0" prefWidth="215.0" promptText="Username" />
                                 <TextField fx:id="addPassText" layoutX="462.0" layoutY="111.0" prefHeight="25.0" prefWidth="214.0" promptText="Password" />
                                 <TextField alignment="TOP_CENTER" layoutX="507.0" layoutY="349.0" prefHeight="25.0" prefWidth="213.0" promptText="Pontus műszaki bolt, admin felület" visible="false">
