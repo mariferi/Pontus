@@ -14,8 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
-
 import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -48,31 +46,14 @@ public class AdminDashboardController {
 	@FXML private TextField productSize;
 	@FXML private TextField productPrice;
 
-
-	@FXML
-	private TableColumn<?, ?> customerIdCol;
-
-	@FXML
-	private TableColumn<?, ?> customerEmailCol;
-
-	@FXML
-	private TableColumn<?, ?> customerAddCol;
-
-	@FXML
-	private TableColumn<?, ?> customerUserNameCol;
-
-	@FXML
-	private TableColumn<?, ?> customerPassCol;
-
-	@FXML
-	private TableColumn<?, ?> AdminIdCol;
-
-	@FXML
-	private TableColumn<?, ?> AdminUserNameCol;
-
-	@FXML
-	private TableColumn<?, ?> AdminPassCol;
-
+	@FXML private TableColumn<?, ?> customerIdCol;
+	@FXML private TableColumn<?, ?> customerEmailCol;
+	@FXML private TableColumn<?, ?> customerAddCol;
+	@FXML private TableColumn<?, ?> customerUserNameCol;
+	@FXML private TableColumn<?, ?> customerPassCol;
+	@FXML private TableColumn<?, ?> AdminIdCol;
+	@FXML private TableColumn<?, ?> AdminUserNameCol;
+	@FXML private TableColumn<?, ?> AdminPassCol;
 	@FXML private TextField addUserText;
 	@FXML private TextField addPassText;
 
@@ -80,11 +61,10 @@ public class AdminDashboardController {
 	@FXML private  Tab customerTab;
 	@FXML private  Tab productsTab;
 	@FXML private  Tab staffTab;
-	
-
 	@FXML private ComboBox KategóriaBox;
 
-	ObservableList<String> KategóriaList=FXCollections.observableArrayList("Számítógépek","Televiziók","Laptopok","Mosógépek","Mikrohullámos sütők","Porszivók","Rádiók,Hifitornyok","Hűtőszekrények");
+	ObservableList<String> KategóriaList=FXCollections.observableArrayList("Számítógépek","Televiziók","Laptopok","Mosógépek","Mikrohullámos sütők",
+                "Porszivók","Rádiók,Hifitornyok","Hűtőszekrények");
 
 	public void initialize(){
 		KategóriaBox.setValue("Kategória");
@@ -116,8 +96,7 @@ public class AdminDashboardController {
 	}
 	@FXML
 	void refreshAdmin(ActionEvent event) {
-		List<Admin> adminList = new ArrayList<>();
-		adminList = aDAO.getAdminsAll();
+		List<Admin> adminList = aDAO.getAdminsAll();
 
 		AdminIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		AdminUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
@@ -128,7 +107,6 @@ public class AdminDashboardController {
 
 	@FXML
 	void deleteCustomer(ActionEvent event) throws Exception {
-
 		Customer customer = customerTableView.getSelectionModel().getSelectedItem();
 		customerTableView.getItems().remove(customer);
 		cDAO.deleteCustomer(customer);
@@ -136,9 +114,8 @@ public class AdminDashboardController {
 
 	@FXML
 	void refreshCustormers(ActionEvent event) {
-		List<Customer> customers = new ArrayList<>();
-		customers = cDAO.getCustomersAll();
-
+		List<Customer> customers = cDAO.getCustomersAll();
+                
 		customerAddCol.setCellValueFactory(new PropertyValueFactory<>("address"));
 		customerEmailCol.setCellValueFactory(new PropertyValueFactory<>("userEmail"));
 		customerUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
@@ -155,8 +132,8 @@ public class AdminDashboardController {
 	}
 
 	public void handleProductUpdateButton(){
-		List<Product> products = new ArrayList<>();
-		products = pDAO.getProductsAll();
+		List<Product> products = pDAO.getProductsAll();
+                
 		productCodeCol.setCellValueFactory(new PropertyValueFactory<>("code"));
 		productIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
