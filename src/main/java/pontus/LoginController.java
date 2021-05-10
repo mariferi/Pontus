@@ -52,6 +52,7 @@ public class LoginController {
 	}
 
 	@FXML private ImageView loginIcon;
+	public Admin activeAdmin;
 	public void handleLoginButton(ActionEvent event) throws Exception {
 		//loginIcon.setVisible(true);
 		String userName = this.userName.getText();
@@ -65,18 +66,25 @@ public class LoginController {
 			all_admins = aDAO.getAdminsAll();
 
 			for (Admin admin :all_admins){
-				if(admin.getUserName().equals(userName)&& admin.getPassword().equals(pass)){//jo user
-						changeScene(event,"/fxml/AdminDashboard.fxml");
+				if(admin.getUserName().equals(userName)&& admin.getPassword().equals(pass)){//jo admin
+
+					activeAdmin = aDAO.getAdminbyID(admin.getId());
+					changeScene(event,"/fxml/AdminDashboard.fxml");
 				}
 			}//admin
 			for (Customer customer :all_customers){
 				if(customer.getUserName().equals(userName)&& customer.getPassword().equals(pass)){//jo user
+					Customer activeCustomer = cDAO.getCustomerbyID(customer.getId());
 						changeScene(event,"/fxml/CustomerDashboard.fxml");
 				}
 			}//cust
+
 		}//try
 	}
 
+	public Admin getActiveAdmin() {
+		return this.activeAdmin;
+	}
 
 	@FXML
 	public void handleRegisterButton(ActionEvent event) throws IOException {

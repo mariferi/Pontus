@@ -42,6 +42,7 @@ public class App extends Application {
          */
             //Product Alma=new Product("12312", "alma", "10", "gyumolcs", new BigDecimal(3.14));
             //pDAO.saveProduct(Alma);
+
         }
 
         

@@ -13,9 +13,9 @@ public class Admin {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;
-	private String userName;
-	private String password;
+	public Integer id;
+	public String userName;
+	public String password;
 	public static final String VALID_PASSWORD_REGEX = "(?=^.{8,}$)(?=(.*[^A-Za-z]){2,})^.*";
 	public static final String VALID_EMAIL_REGEX = "^(.+)@(.+)$";
 
@@ -25,6 +25,10 @@ public class Admin {
 	}
         
 	public Admin() {
+	}
+
+	public Admin retAdmin() {
+		return this;
 	}
 
 	@Override
