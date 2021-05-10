@@ -22,6 +22,8 @@ import java.util.List;
 
 public class CustomerDashboardController {
 
+
+	private static Customer activeCustomer;
 	@FXML private ImageView mainImg;
 	@FXML private ChoiceBox<String> productNameChoice;
 	@FXML private ChoiceBox<String> productSizeChoice;
@@ -31,7 +33,7 @@ public class CustomerDashboardController {
 	@FXML private TableColumn<Purchase,Integer> qtyCol;
 	@FXML private TableColumn<Purchase,BigDecimal> costCol;
 	@FXML private TableColumn<Purchase,BigDecimal> amountCol;
-	@FXML private Label username;
+	@FXML private Label customerName;
 	@FXML private Label customerIDLabel;
 	@FXML private Button checkoutBtn;
 	@FXML private Button removeBtn;
@@ -59,6 +61,13 @@ public class CustomerDashboardController {
 	@FXML private Label totalLabel;
 	private static String total;
 
+	public static void getActiveCustomer(Customer customer) {
+		activeCustomer = customer;
+	}
+
+	public void initialize() {
+		customerName.setText(activeCustomer.getUserName());
+	}
 
 	public void handleTabButtons(ActionEvent event) {
 		if (event.getSource() == store_btn) {

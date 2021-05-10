@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="540.0" prefWidth="734.0" style="-fx-background-color: #d7dcdd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pontus.AdminDashboardController">
+<AnchorPane prefHeight="540.0" prefWidth="734.0" style="-fx-background-color: #d7dcdd;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pontus.AdminDashboardController">
     <children>
         <Label layoutX="163.0" layoutY="29.0" prefHeight="62.0" prefWidth="422.0" text="Pontus műszaki shop" textFill="#727272">
             <font>
@@ -109,7 +109,7 @@
                 </Tab>
             </tabs>
         </TabPane>
-        <Label fx:id="usernameLabel" layoutX="586.0" layoutY="16.0" prefHeight="25.0" prefWidth="52.0" text="Admin" />
+        <Label fx:id="adminName" layoutX="586.0" layoutY="16.0" prefHeight="25.0" prefWidth="52.0" text="Admin" />
         <Hyperlink layoutX="631.0" layoutY="17.0" onAction="#handleHomeButton" text="Kijelentkezés" />
         <ImageView fitHeight="120.0" fitWidth="144.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>

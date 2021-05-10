@@ -9,29 +9,25 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.*;
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
-import pontus.LoginController.*;
 
 
-public class AdminDashboardController extends LoginController {
+public class AdminDashboardController {
 
+	private static Admin activeAdmin;
 	CustomerDAO cDAO= new JpaCustomerDAO();
 	AdminDAO aDAO = new JpaAdminDAO();
 	ProductDAO pDAO = new JpaProductDAO();
 
 	@FXML private TextField customerID;
 
-	@FXML private Label usernameLabel;
+	@FXML private Label adminName;
 	@FXML private TableView<Customer> customerTableView;
 	@FXML private TableView<Product> productTableView;
 	@FXML private TableView<Admin> AdminTableView;
@@ -58,17 +54,10 @@ public class AdminDashboardController extends LoginController {
 	@FXML private TextField addUserText;
 	@FXML private TextField addPassText;
 
-	@FXML private Label invalidRow;
-
 
 	@FXML private  Tab customerTab;
 	@FXML private  Tab productsTab;
 	@FXML private  Tab staffTab;
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 25853b69325ef6986059d1e65edac1329ac46558
 	@FXML private ComboBox KategóriaBox;
 
 	ObservableList<String> KategóriaList=FXCollections.observableArrayList("Számítógépek","Televiziók","Laptopok","Mosógépek","Mikrohullámos sütők",
@@ -77,6 +66,7 @@ public class AdminDashboardController extends LoginController {
 	public void initialize(){
 		KategóriaBox.setValue("Kategória");
 		KategóriaBox.setItems(KategóriaList);
+		adminName.setText(activeAdmin.getUserName());
 	}
 
 
@@ -104,20 +94,17 @@ public class AdminDashboardController extends LoginController {
 	}
 	@FXML
 	void refreshAdmin(ActionEvent event) {
-<<<<<<< HEAD
-		//LoginController lc = new LoginController();
-		System.out.println(activeAdmin.toString() + "-----------------------------------------------------");
-		List<Admin> adminList = new ArrayList<>();
-		adminList = aDAO.getAdminsAll();
-=======
 		List<Admin> adminList = aDAO.getAdminsAll();
->>>>>>> 25853b69325ef6986059d1e65edac1329ac46558
 
 		AdminIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		AdminUserNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
 		AdminPassCol.setCellValueFactory(new PropertyValueFactory<>("password"));
 		AdminTableView.setItems(FXCollections.observableArrayList(adminList));
 
+	}
+
+	public static void getActiveAdmin(Admin admin) {
+		activeAdmin = admin;
 	}
 
 	@FXML
@@ -163,23 +150,12 @@ public class AdminDashboardController extends LoginController {
 	}
 
 	public void handleProductAddButton(){
-		invalidRow.setVisible(false);
 
 		Product product = new Product(productCode.getText(), productName.getText(), productSize.getText(),
 				choosenCategory(), new BigDecimal(Integer.parseInt(productPrice.getText())));
-/*
-		if (productCode.getText().isEmpty() || productName.getText().isEmpty() ||
-				productSize.getText().isEmpty() || productPrice.getText().isEmpty()) {
-			invalidRow.setVisible(true);
-		}
-		*/
- 		if (product.getCode().isEmpty() || product.getSize().isEmpty() || product.getName().isEmpty()) {
- 			invalidRow.setVisible(true);
-		}
-		else {
-			pDAO.saveProduct(product);
-			handleProductUpdateButton();
-		}
+
+		pDAO.saveProduct(product);
+		handleProductUpdateButton();
 
 	}
 
