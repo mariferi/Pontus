@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -23,43 +24,117 @@ import java.util.List;
 public class CustomerDashboardController {
 
 
+	CustomerDAO cDAO= new JpaCustomerDAO();
+	ProductDAO pDAO= new JpaProductDAO();
+
 	private static Customer activeCustomer;
-	@FXML private ImageView mainImg;
-	@FXML private ChoiceBox<String> productNameChoice;
-	@FXML private ChoiceBox<String> productSizeChoice;
-	@FXML private Spinner<Integer> productQty;
-	@FXML private TableView<Purchase> cartTable;
-	@FXML private TableColumn<Purchase,String> itemCol;
-	@FXML private TableColumn<Purchase,Integer> qtyCol;
-	@FXML private TableColumn<Purchase,BigDecimal> costCol;
-	@FXML private TableColumn<Purchase,BigDecimal> amountCol;
-	@FXML private Label customerName;
-	@FXML private Label customerIDLabel;
-	@FXML private Button checkoutBtn;
-	@FXML private Button removeBtn;
-	//@FXML private TextArea enquiryMessage;
+	@FXML
+	private AnchorPane enquiry;
 
-	@FXML private Label modifyNameLabel;
-	@FXML private TextField modifyName;
-	@FXML private TextField oldPassword;
-	@FXML private TextField newPassword;
-	@FXML private TextField modifyEmail;
-	@FXML private Label modifyAddressLabel;
-	@FXML private Label modifyEmailLabel;
-	@FXML private TextArea modifyAddress;
+	@FXML
+	private Label customerName;
 
-	@FXML private TableView<Cart> purchaseHistory;
-	@FXML private TableColumn<Cart,String> purchaseIdCol;
-	@FXML private TableColumn<Cart,String> purchaseDayCol;
-	@FXML private TableColumn<Cart, String> purchaseAmountCol;
+	@FXML
+	private Button store_btn;
 
+	@FXML
+	private Button history_btn;
 
+	@FXML
+	private Button enquiry_btn;
 
-	@FXML private Button store_btn, history_btn, account_btn, enquiry_btn;
+	@FXML
+	private Button account_btn;
 
-	@FXML private Pane store_pane,history_pane,account_pane,enquiry_pane;
-	@FXML private Label totalLabel;
-	private static String total;
+	@FXML
+	private AnchorPane enquiry_pane;
+
+	@FXML
+	private TextArea enquiryMessage;
+
+	@FXML
+	private AnchorPane account_pane;
+
+	@FXML
+	private TextField modifyName;
+
+	@FXML
+	private TextArea modifyAddress;
+
+	@FXML
+	private PasswordField oldPassword;
+
+	@FXML
+	private Label modifyNameLabel;
+
+	@FXML
+	private Label modifyAddressLabel;
+
+	@FXML
+	private Label customerIDLabel;
+
+	@FXML
+	private Label modifyEmailLabel;
+
+	@FXML
+	private PasswordField newPassword;
+
+	@FXML
+	private AnchorPane history_pane;
+
+	@FXML
+	private TableView<?> purchaseHistory;
+
+	@FXML
+	private TableColumn<?, ?> purchaseIdCol;
+
+	@FXML
+	private TableColumn<?, ?> purchaseDayCol;
+
+	@FXML
+	private TableColumn<?, ?> purchaseAmountCol;
+
+	@FXML
+	private AnchorPane store_pane;
+
+	@FXML
+	private Spinner<?> productQty;
+
+	@FXML
+	private ImageView mainImg;
+
+	@FXML
+	private ChoiceBox<String> productNameChoice;
+
+	@FXML
+	private ChoiceBox<?> productSizeChoice;
+
+	@FXML
+	private TableView<?> cartTable;
+
+	@FXML
+	private TableColumn<?, ?> itemCol;
+
+	@FXML
+	private TableColumn<?, ?> qtyCol;
+
+	@FXML
+	private TableColumn<?, ?> costCol;
+
+	@FXML
+	private TableColumn<?, ?> amountCol;
+
+	@FXML
+	private Label totalLabel;
+
+	@FXML
+	private Button checkoutBtn;
+
+	@FXML
+	private Button removeBtn;
+
+	@FXML
+	private ImageView img1;
 
 	public static void getActiveCustomer(Customer customer) {
 		activeCustomer = customer;
@@ -67,7 +142,13 @@ public class CustomerDashboardController {
 
 	public void initialize() {
 		customerName.setText(activeCustomer.getUserName());
+		modifyNameLabel.setText(activeCustomer.getUserName());
+		modifyEmailLabel.setText(activeCustomer.getUserEmail());
+		modifyAddressLabel.setText(activeCustomer.getAddress());
+		customerIDLabel.setText(String.valueOf(activeCustomer.getId()));
 	}
+
+
 
 	public void handleTabButtons(ActionEvent event) {
 		if (event.getSource() == store_btn) {
@@ -167,10 +248,6 @@ public class CustomerDashboardController {
 
  */
 	}
-	public static String getTotal() {
-		return total;
-	}
-
 
 	public void handleRemoveButton(){
 
@@ -235,36 +312,17 @@ public class CustomerDashboardController {
 
 	}
 
-	public void changePassword(){
-		/*
-		if(oldPassword.getText().equals(Customer.getCustomer().getPassword())){
-			String pswrd = newPassword.getText();
-			if(Customer.validatePassword(pswrd)){
-				String qry =  "UPDATE customer SET password = '"+newPassword.getText()+"' WHERE id = '"
-						+Customer.getCustomer().getId()+"';";
-				//Application.executeQueryforUpdate(qry);
-
-				Alert alert  = new Alert(Alert.AlertType.INFORMATION);
-				alert.setHeaderText("Password successfully changed");
-				alert.showAndWait();
-
-			}else {
-				Alert alert = new Alert(Alert.AlertType.ERROR,
-						"Password must,\n#contain at least 2 non-alphabetic characters" +
-								"\n#be at least 8 characters");
-				alert.setHeaderText("Password does not meet the criteria");
-				alert.showAndWait();
+	public void changePassword() throws Exception {
+		String oldPassField = oldPassword.getText();
+		String newPassField = newPassword.getText();
+		String oldPassAct = activeCustomer.getPassword();
+		if (oldPassField.equals(oldPassAct)) {
+			try(CustomerDAO cDAO= new JpaCustomerDAO();){
+				Customer customer = cDAO.getCustomerbyID(activeCustomer.getId());
+				customer.setPassword(newPassField);
+				cDAO.updateCustomer(customer);
 			}
-
-		}else {
-			Alert alert  = new Alert(Alert.AlertType.ERROR);
-			alert.setHeaderText("Your old password does not match");
-			alert.showAndWait();
-			oldPassword.setText("");
-			newPassword.setText("");
 		}
-
-		 */
 	}
 
 	public void handleImg1(){

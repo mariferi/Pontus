@@ -75,7 +75,7 @@ public class PaymentController{
 		amountCol.setCellValueFactory(new PropertyValueFactory<>("purchaseAmount"));
 		sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
 		cartTable.setItems(Cart.getCartList());
-		totalLabel.setText(CustomerDashboardController.getTotal());
+		//totalLabel.setText(CustomerDashboardController.getTotal());
 	}
 
 	public void initialize(){
