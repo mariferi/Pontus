@@ -39,7 +39,7 @@ public class LoginController {
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.getIcons().add(new Image(new FileInputStream("src\\main\\resources\\Képek\\bejelentkező.jpg")));
 		window.setScene(dashboardScene);
-                window.setTitle("Pontus müszaki üzlet!");
+                window.setTitle("Pontus");
 		window.show();
 	}
 
@@ -60,17 +60,24 @@ public class LoginController {
 
 			for (Admin admin :all_admins){
 				if(admin.getUserName().equals(userName)&& admin.getPassword().equals(pass)){//jo admin
-
+					invalidLabel.setVisible(false);
 					activeAdmin = aDAO.getAdminbyID(admin.getId());
 					AdminDashboardController.getActiveAdmin(activeAdmin);
 					changeScene(event,"/fxml/AdminDashboard.fxml");
 				}
+				else {
+					invalidLabel.setVisible(true);
+				}
 			}//admin
 			for (Customer customer :all_customers){
 				if(customer.getUserName().equals(userName)&& customer.getPassword().equals(pass)){//jo user
+					invalidLabel.setVisible(false);
 					activeCustomer = cDAO.getCustomerbyID(customer.getId());
 					CustomerDashboardController.getActiveCustomer(activeCustomer);
 					changeScene(event,"/fxml/CustomerDashboard.fxml");
+				}
+				else {
+					invalidLabel.setVisible(true);
 				}
 			}//cust
 		}//try

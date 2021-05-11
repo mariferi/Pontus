@@ -32,11 +32,11 @@
                             <children>
                                 <TableView fx:id="customerTableView" layoutX="14.0" layoutY="12.0" prefHeight="358.0" prefWidth="518.0" tableMenuButtonVisible="true">
                                     <columns>
-                                        <TableColumn fx:id="customerIdCol" prefWidth="59.0" text="ID" />
-                                        <TableColumn fx:id="customerEmailCol" prefWidth="91.0" text="Email" />
+                                        <TableColumn fx:id="customerIdCol" prefWidth="32.0" text="ID" />
+                                        <TableColumn fx:id="customerEmailCol" prefWidth="118.39999008178711" text="Email" />
                                         <TableColumn fx:id="customerAddCol" prefWidth="115.0" text="Cím" />
-                                        <TableColumn fx:id="customerUserNameCol" prefWidth="96.0" text="Név" />
-                                        <TableColumn fx:id="customerPassCol" prefWidth="115.0" text="Jelsző" />
+                                        <TableColumn fx:id="customerUserNameCol" prefWidth="138.4000244140625" text="Név" />
+                                        <TableColumn fx:id="customerPassCol" prefWidth="101.5999755859375" text="Jelszó" />
                                     </columns>
                                 </TableView>
                                 <Button layoutX="556.0" layoutY="57.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #ff4444;" text="Töröl" />
@@ -97,10 +97,10 @@
                                 <TextField fx:id="productName" layoutX="605.0" layoutY="165.0" prefHeight="26.0" prefWidth="95.0" promptText="Name" />
                                 <TextField fx:id="productSize" layoutX="607.0" layoutY="243.0" prefHeight="26.0" prefWidth="92.0" promptText="Size (S)" />
                                 <TextField fx:id="productPrice" layoutX="607.0" layoutY="279.0" prefHeight="26.0" prefWidth="92.0" promptText="200.00" />
-                                <Label layoutX="553.0" layoutY="169.0" text="Name" />
-                                <Label layoutX="555.0" layoutY="209.0" text="Code" />
-                                <Label layoutX="558.0" layoutY="248.0" text="Size" />
-                                <Label layoutX="556.0" layoutY="283.0" text="Price" />
+                                <Label layoutX="553.0" layoutY="169.0" text="Név" />
+                                <Label layoutX="553.0" layoutY="209.0" text="Kód" />
+                                <Label layoutX="553.0" layoutY="247.0" text="Méret" />
+                                <Label layoutX="556.0" layoutY="283.0" text="Ár" />
                         <VBox layoutX="474.0" layoutY="110.0" />
                         <ComboBox fx:id="KategóriaBox" layoutX="554.0" layoutY="121.0" onAction="#choosenCategory" prefHeight="26.0" prefWidth="145.0" promptText="Kategória" />
                         <Label fx:id="invalidRow" layoutX="562.0" layoutY="147.0" text="Hiba! Nem lehet üres sor." textFill="#f20000" visible="false" />

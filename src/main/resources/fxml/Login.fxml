@@ -28,7 +28,7 @@
                             <effect>
                                 <DropShadow />
                             </effect></Button>
-                        <Label fx:id="invalidLabel" layoutX="41.0" layoutY="112.0" prefHeight="17.0" prefWidth="161.0" text="*Invalid Username/Password" textFill="#fc0000" visible="false" />
+                        <Label fx:id="invalidLabel" layoutX="41.0" layoutY="120.0" prefHeight="17.0" prefWidth="161.0" text="*Hibás felhasználónév/jelszó" textFill="#ff2020" visible="false" />
                     </children>
                 </AnchorPane>
                 <ImageView fitHeight="240.0" fitWidth="398.0" layoutX="35.0" layoutY="77.0" opacity="0.51" pickOnBounds="true" preserveRatio="true">
@@ -36,7 +36,7 @@
                         <Image url="@../Képek/bejelentkező.jpg" />
                     </image>
                 </ImageView>
-                <Button fx:id="register" layoutX="144.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="72.0" prefWidth="142.0" style="-fx-background-color: #2777f7;" text="Regisztrálció" textFill="WHITE">
+                <Button fx:id="register" layoutX="144.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="72.0" prefWidth="142.0" style="-fx-background-color: #2777f7;" text="Regisztráció" textFill="WHITE">
                     <effect>
                         <DropShadow />
                     </effect></Button>

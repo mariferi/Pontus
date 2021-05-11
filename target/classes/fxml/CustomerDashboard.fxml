@@ -273,7 +273,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <Label layoutX="102.0" layoutY="279.0" text="Mikrohullámos sütők">
+                  <Label layoutX="102.0" layoutY="279.0" text="Mikrohullámú sütők">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
