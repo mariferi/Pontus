@@ -1,6 +1,8 @@
 package pontus;
 
 import java.io.FileInputStream;
+
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,18 +15,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import javafx.scene.input.MouseEvent;
 
 
 public class CustomerDashboardController {
 
+	List<Product> cart = new ArrayList<>();
 
 	CustomerDAO cDAO= new JpaCustomerDAO();
 	ProductDAO pDAO= new JpaProductDAO();
@@ -57,7 +58,6 @@ public class CustomerDashboardController {
 	@FXML	private ImageView mainImg;
 	@FXML	private ChoiceBox<String> productNameChoice;
 	@FXML	private ChoiceBox<?> productSizeChoice;
-	@FXML	private TableView<?> cartTable;
 	@FXML	private TableColumn<?, ?> itemCol;
 	@FXML	private TableColumn<?, ?> qtyCol;
 	@FXML	private TableColumn<?, ?> costCol;
@@ -66,6 +66,27 @@ public class CustomerDashboardController {
 	@FXML	private Button checkoutBtn;
 	@FXML	private Button removeBtn;
 	@FXML	private ImageView img1;
+
+    @FXML private TableView<Product> productTableView;
+
+    @FXML private TableColumn<Product,String> productIdCol;
+    @FXML private TableColumn<Product,String> productCodeCol;
+    @FXML private TableColumn<Product,String> productNameCol;
+    @FXML private TableColumn<Product,String> productPriceCol;
+    @FXML private TableColumn<Product,String> productSizeCol;
+    @FXML private TableColumn<Product,String> productCategoryCol;
+
+	@FXML
+	private TableView<Product> cartTable;
+
+	@FXML
+	private TableColumn<Product,String> cartItemCol;
+
+	@FXML
+	private TableColumn<Product,String> cartCategoryCol;
+
+	@FXML
+	private TableColumn<Product,String> cartPriceCol;
 
 	public static void getActiveCustomer(Customer customer) {
 		activeCustomer = customer;
@@ -77,9 +98,30 @@ public class CustomerDashboardController {
 		modifyEmailLabel.setText(activeCustomer.getUserEmail());
 		modifyAddressLabel.setText(activeCustomer.getAddress());
 		customerIDLabel.setText(String.valueOf(activeCustomer.getId()));
+
+		refreshProducts();
 	}
 
+    public void refreshProducts() {
+        List<Product> products = pDAO.getProductsAll();
 
+        productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        productSizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
+        productCategoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+        productTableView.setItems(FXCollections.observableArrayList(products));
+    }
+
+    public void refreshProductsByCategory(String category) {
+
+		List<Product> products = pDAO.getProductsbyCategory(category);
+
+		productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+		productPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+		productSizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
+		productCategoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+		productTableView.setItems(FXCollections.observableArrayList(products));
+	}
 
 	public void handleTabButtons(ActionEvent event) {
 		if (event.getSource() == store_btn) {
@@ -94,43 +136,42 @@ public class CustomerDashboardController {
 	}
     @FXML
     void handlehutokep(MouseEvent event) {
-        System.out.println("Hűtő");
-       // mainImg.SetImage();
+        refreshProductsByCategory("Hűtőszekrények");
     }
 
     @FXML
     void handlelaptopkep(MouseEvent event) {
-
+        refreshProductsByCategory("Laptopok");
     }
 
     @FXML
     void handlemikrokep(MouseEvent event) {
-
+		refreshProductsByCategory("Mikrohullámos sütők");
     }
 
     @FXML
     void handlemosogepkep(MouseEvent event) {
-
+		refreshProductsByCategory("Mosógépek");
     }
 
     @FXML
     void handlepckep(MouseEvent event) {
-
+		refreshProductsByCategory("Számítógépek");
     }
 
     @FXML
     void handleporszivokep(MouseEvent event) {
-
+		refreshProductsByCategory("Porszivók");
     }
 
     @FXML
     void handleradiokep(MouseEvent event) {
-
+		refreshProductsByCategory("Rádiók,Hifitornyok");
     }
 
     @FXML
     void handletvkep(MouseEvent event) {
-
+		refreshProductsByCategory("Televiziók");
     }
 
 /*
@@ -199,51 +240,42 @@ public class CustomerDashboardController {
 */
 	}
 
-
-
-	private Cart cart = new Cart();
 	public void handleAddToCart(){
-/*
-		checkoutBtn.setDisable(false);
-		removeBtn.setDisable(false);
-		List<Product> inventory = Product.getListFromDB();
-		for (Product p:inventory) {
-			if (productNameChoice.getValue().equals(p.getName()) && productSizeChoice.getValue().equals(p.getSize())) {
-				int qty = (productQty.getValue());
-				Purchase item = new Purchase(p, qty);
-				Cart.addToCartList(item);
-			}
-		}
-		totalLabel.setText(""+cart.getCartTotal());
-		//setTable();
+		Product product = productTableView.getSelectionModel().getSelectedItem();
+		cart.add(product);
+		productTableView.getItems().remove(product);
+		cartTable(cart);
+		totalLabel.setText(cartSum(cart) + "Ft");
+	}
 
- */
+	public float cartSum(List<Product> products) {
+		float sum = 0;
+		for(Product prod: products) {
+			sum += Float.parseFloat(prod.getPrice().toString());
+		}
+		return sum;
+	}
+
+	public void cartTable(List<Product> selectedProduct) {
+		//List<Product> products = selectedProduct;
+
+		cartItemCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+		cartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+		cartCategoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+		cartTable.setItems(FXCollections.observableArrayList(selectedProduct));
 	}
 
 	public void handleRemoveButton(){
-
-		if(cartTable.getSelectionModel().getSelectedItem()==null){
-			return;
-		}
-		cart.removeFromCart(cartTable.getSelectionModel().getSelectedIndex());
-		//setTable();
-		totalLabel.setText(""+cart.getCartTotal());
-		if(cart.getCartTotal().equals(new BigDecimal("0"))){
-			checkoutBtn.setDisable(true);
-			removeBtn.setDisable(true);
-		}
-
+		Product product = cartTable.getSelectionModel().getSelectedItem();
+		cartTable.getItems().remove(product);
+		cart.remove(product);
+		totalLabel.setText(cartSum(cart) + "");
+		refreshProductsByCategory(product.getCategory());
 	}
 
 	public void handleCheckout() throws IOException {
-/*
-		total=totalLabel.getText();
-		cart.setPrice(total);
-		cart.setDate(cart.getDate());
-		cart.setId("00"+ Customer.getCustomer().getId());
-		cart.setCartName(""+Customer.getCustomer().getId());
-		cart.checkout();
-*/
+		PaymentController.getActiveCart(cart);
+
 		Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/Payment.fxml"));
 		Scene checkout = new Scene(dashboard);
 		Stage window = new Stage();
@@ -252,37 +284,8 @@ public class CustomerDashboardController {
 		window.setTitle("Fizetés ellenőrzés");
 		window.show();
 
-
 	}
 
-	public void handleUpdateDetailsButton(){
-	}
-	public void setAccountPane(){
-		/*
-		customerIDLabel.setText(Customer.getCustomer().getId()+"");
-		modifyName.setText(Customer.getCustomer().getName());
-		modifyAddress.setText(Customer.getCustomer().getAddress());
-		modifyEmail.setText(Customer.getCustomer().getUserName());
-		modifyNameLabel.setText(modifyName.getText());
-		modifyEmailLabel.setText(Customer.getCustomer().getUserName());
-		modifyAddressLabel.setText(modifyAddress.getText());
-*/
-	}
-
-	public void modifyAccount(){
-		/*
-		String name = modifyName.getText();
-		String address = modifyAddress.getText();
-		String email = modifyEmail.getText();
-		String id = Customer.getCustomer().getId().toString();
-		String qry =  "UPDATE customer SET name = '"+name+"', address = '"+address+"' WHERE id = '"+id+"';";
-		Application.executeQueryforUpdate(qry);
-		modifyNameLabel.setText(modifyName.getText());
-		modifyEmailLabel.setText(Customer.getCustomer().getUserName());
-		modifyAddressLabel.setText(modifyAddress.getText());
-*/
-
-	}
 
 	public void changePassword() throws Exception {
 		String oldPassField = oldPassword.getText();
@@ -297,43 +300,6 @@ public class CustomerDashboardController {
 		}
 	}
 
-	public void handleImg1(){
-		mainImg.setImage( new Image("resources/Képek/pc.jpg"));
-		productNameChoice.setValue("Számítógép");
-
-
-	}
-	public void handleImg2(){
-		mainImg.setImage( new Image("resources/Képek/tv.jpg"));
-		productNameChoice.setValue("Televizió");
-
-	}
-	public void handleImg3(){
-		mainImg.setImage( new Image("resources/Képek/laptop.jpg"));
-		productNameChoice.setValue("Laptop");
-	}
-	public void handleImg4(){
-		mainImg.setImage( new Image("resources/Képek/mosógép.jpg"));
-		productNameChoice.setValue("Mosógépek");
-
-	}
-	public void handleImg5(){
-		mainImg.setImage( new Image("resources/Képek/mikró.jpg"));
-		productNameChoice.setValue("Mikrohullámos sütők");
-	}
-	public void handleImg6(){
-		mainImg.setImage( new Image("resources/Képek/porsziv.jpg"));
-		productNameChoice.setValue("Porszivók");
-
-	}
-	public void handleImg7(){
-		mainImg.setImage( new Image("resources/Képek/rádió.jpg"));
-		productNameChoice.setValue("Radiók,Hifitornyok");
-
-	}    public void handleImg8(){;
-		mainImg.setImage( new Image("resources/Képek/hűtő.jpg"));
-		productNameChoice.setValue("Hűtőszekrények");
-        }
 	public void handleHomeLink(ActionEvent event) throws IOException {
 
 		Parent register = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));

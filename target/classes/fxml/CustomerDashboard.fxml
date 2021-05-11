@@ -2,11 +2,9 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
@@ -36,8 +34,8 @@
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <PasswordField fx:id="oldPassword" layoutX="316.0" layoutY="351.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adje meg régi jelszavát!" />
-                <Button layoutX="224.0" layoutY="475.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #28A6D3;" text="Jeszó megváltoztatás" textFill="WHITE" />
+                <PasswordField fx:id="oldPassword" layoutX="316.0" layoutY="351.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg régi jelszavát!" />
+                <Button layoutX="224.0" layoutY="475.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #28A6D3;" text="Jelszó megváltoztatás" textFill="WHITE" />
                 <Label fx:id="modifyNameLabel" layoutX="316.0" layoutY="155.0" prefHeight="28.0" prefWidth="216.0" text="YourName" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
@@ -101,14 +99,14 @@
                         <DropShadow />
                     </effect></Label>
                 <Hyperlink layoutX="825.0" layoutY="16.0" onAction="#handleHomeLink" text="Kijelentkezés" textFill="WHITE" />
-                <Label layoutX="471.0" layoutY="22.0" prefHeight="17.0" prefWidth="209.0" text="Üdvozöljük a Pontus müszaki üzletben!" textFill="WHITE">
+                <Label layoutX="471.0" layoutY="22.0" prefHeight="17.0" prefWidth="209.0" text="Üdvozöljük a Pontus műszaki üzletben!" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
                     </font>
                     <effect>
                         <DropShadow />
                     </effect></Label>
-                <Button fx:id="store_btn" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="116.0" style="-fx-background-color: #28A6D3 #28A6D3;" text="Bolt" textFill="WHITE">
+                <Button fx:id="store_btn" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="116.0" style="-fx-background-color: #28A6D3 #28A6D3;" text="    Áruház" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
                     </font>
@@ -153,14 +151,9 @@
         <AnchorPane fx:id="enquiry" layoutX="10.0" layoutY="48.0" prefHeight="601.0" prefWidth="903.0" style="-fx-background-color: #8F1D21;" />
         <AnchorPane fx:id="store_pane" layoutY="45.0" prefHeight="640.0" prefWidth="916.0" style="-fx-background-color: white;">
             <children>
-                <Pane layoutX="-9.0" prefHeight="640.0" prefWidth="278.0" style="-fx-background-color: #082656;">
+                <Pane layoutX="255.0" prefHeight="645.0" prefWidth="669.0" style="-fx-background-color: #082656;">
                     <children>
-                        <Spinner fx:id="productQty" editable="true" layoutX="177.0" layoutY="259.0" prefHeight="25.0" prefWidth="62.0">
-                            <effect>
-                                <InnerShadow />
-                            </effect>
-                  </Spinner>
-                        <Button layoutX="30.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleAddToCart" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Hozzáadás a kosárhoz" textFill="WHITE">
+                        <Button layoutX="206.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleAddToCart" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Hozzáadás a kosárhoz" textFill="WHITE">
                             <cursor>
                                 <Cursor fx:constant="OPEN_HAND" />
                             </cursor>
@@ -168,61 +161,27 @@
                                 <InnerShadow />
                             </effect>
                   </Button>
-                        <ImageView fx:id="mainImg" fitHeight="232.0" fitWidth="203.0" layoutX="37.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/pc.jpg" />
-                            </image>
-                            <effect>
-                                <InnerShadow />
-                            </effect>
-                        </ImageView>
-                        <ChoiceBox fx:id="productNameChoice" layoutX="84.0" layoutY="219.0" prefWidth="150.0">
-                            <effect>
-                                <InnerShadow />
-                            </effect>
-                  </ChoiceBox>
-                        <ChoiceBox fx:id="productSizeChoice" layoutX="71.0" layoutY="259.0" prefHeight="25.0" prefWidth="70.0">
-                            <effect>
-                                <InnerShadow />
-                            </effect>
-                  </ChoiceBox>
-                        <Label layoutX="11.0" layoutY="218.0" text="Termék:" textFill="WHITE">
-                            <font>
-                                <Font name="ATROX normal" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="143.0" layoutY="258.0" text="Db:" textFill="WHITE">
-                            <font>
-                                <Font name="ATROX normal" size="18.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="12.0" layoutY="258.0" text="Méret:" textFill="WHITE">
-                            <font>
-                                <Font name="ATROX normal" size="18.0" />
-                            </font>
-                        </Label>
-                        <TableView fx:id="cartTable" layoutX="17.0" layoutY="340.0" prefHeight="188.0" prefWidth="251.0">
+                        <TableView fx:id="cartTable" layoutX="28.0" layoutY="335.0" prefHeight="188.0" prefWidth="580.0">
                             <columns>
-                                <TableColumn fx:id="itemCol" prefWidth="105.0" text="Termék" />
-                                <TableColumn fx:id="qtyCol" minWidth="0.0" prefWidth="36.0" text="Db" />
-                                <TableColumn fx:id="costCol" minWidth="0.0" prefWidth="50.0" text="Ár" />
-                                <TableColumn fx:id="amountCol" minWidth="0.0" prefWidth="60.0" text="Összeg" />
+                                <TableColumn fx:id="cartItemCol" prefWidth="105.0" text="Termék" />
+                                <TableColumn fx:id="cartCategoryCol" minWidth="0.0" prefWidth="96.79995727539062" text="Kategória" />
+                                <TableColumn fx:id="cartPriceCol" minWidth="0.0" prefWidth="119.20001220703125" text="Ár" />
                             </columns>
                             <effect>
                                 <InnerShadow />
                             </effect>
                         </TableView>
-                        <Label layoutX="132.0" layoutY="528.0" prefHeight="27.0" prefWidth="80.0" text="Összesen:" textFill="WHITE">
+                        <Label layoutX="450.0" layoutY="537.0" prefHeight="27.0" prefWidth="80.0" text="Összesen:" textFill="WHITE">
                             <font>
                                 <Font name="ATROX normal" size="18.0" />
                             </font>
                         </Label>
-                        <Label fx:id="totalLabel" layoutX="216.0" layoutY="528.0" text="00.00" textFill="WHITE">
+                        <Label fx:id="totalLabel" layoutX="557.0" layoutY="537.0" text="00.00" textFill="WHITE">
                             <font>
                                 <Font name="ATROX normal" size="18.0" />
                             </font>
                         </Label>
-                        <Button fx:id="checkoutBtn" layoutX="31.0" layoutY="555.0" mnemonicParsing="false" onAction="#handleCheckout" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Ellenörzés">
+                        <Button fx:id="checkoutBtn" layoutX="206.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleCheckout" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Ellenörzés">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -230,7 +189,7 @@
                                 <InnerShadow />
                             </effect>
                   </Button>
-                        <Button fx:id="removeBtn" layoutX="17.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleRemoveButton" prefHeight="21.0" prefWidth="54.0" style="-fx-background-color: #D91E18;" text="Törlés" textFill="WHITE">
+                        <Button fx:id="removeBtn" layoutX="28.0" layoutY="539.0" mnemonicParsing="false" onAction="#handleRemoveButton" prefHeight="23.0" prefWidth="106.0" style="-fx-background-color: #D91E18;" text="Törlés a kosárból" textFill="WHITE">
                             <font>
                                 <Font size="10.0" />
                             </font>
@@ -241,127 +200,131 @@
                                 <InnerShadow />
                             </effect>
                         </Button>
+                  <TableView fx:id="productTableView" layoutX="28.0" layoutY="24.0" prefHeight="249.0" prefWidth="580.0" tableMenuButtonVisible="true">
+                     <columns>
+                        <TableColumn fx:id="productNameCol" prefWidth="189.5999755859375" text="Név" />
+                        <TableColumn fx:id="productSizeCol" prefWidth="111.19998168945312" text="Méret" />
+                        <TableColumn fx:id="productPriceCol" prefWidth="119.20001220703125" text="Ár" />
+                        <TableColumn fx:id="productCategoryCol" prefWidth="135.99993896484375" text="Kategória" />
+                     </columns>
+                  </TableView>
                     </children>
                     <effect>
                         <DropShadow />
                     </effect>
                 </Pane>
-                <AnchorPane layoutX="290.0" layoutY="14.0" prefHeight="626.0" prefWidth="603.0">
-                    <children>
-                        <Label layoutX="30.0" prefHeight="21.0" prefWidth="116.0" text="Számítógépek">
-                            <font>
-                                <Font name="Open Sans Semibold" size="15.0" />
-                            </font>
+                  <ImageView id="pckep" fx:id="pckep" fitHeight="75.0" fitWidth="54.0" layoutX="17.0" layoutY="5.0" onMouseClicked="#handlepckep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/pc.jpg" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
+                  <Label layoutX="96.0" layoutY="22.0" prefHeight="21.0" prefWidth="116.0" text="Számítógépek">
+                      <font>
+                          <Font name="Open Sans Semibold" size="15.0" />
+                      </font>
+            </Label>
+                  <ImageView id="tvkep" fx:id="tvkep" fitHeight="86.0" fitWidth="61.0" layoutX="17.0" layoutY="71.0" onMouseClicked="#handletvkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/tv.jpg" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
+                  <Label layoutX="100.0" layoutY="81.0" text="Televiziók">
+                      <font>
+                          <Font name="Open Sans Semibold" size="15.0" />
+                      </font>
+            </Label>
+                  <Label layoutX="104.0" layoutY="142.0" text="Laptopok">
+                      <font>
+                          <Font name="Open Sans Semibold" size="15.0" />
+                      </font>
+            </Label>
+                  <ImageView id="laptopkep" fx:id="laptopkep" fitHeight="67.0" fitWidth="72.0" layoutX="17.0" layoutY="119.0" onMouseClicked="#handlelaptopkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/laptop.jpg" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
+                  <ImageView id="mosogepkep" fx:id="mosogepkep" fitHeight="67.0" fitWidth="61.0" layoutX="24.0" layoutY="196.0" onMouseClicked="#handlemosogepkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/mosógép.jpg" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
+                  <Label layoutX="104.0" layoutY="216.0" text="Mosógépek">
+                      <font>
+                          <Font name="Open Sans Semibold" size="15.0" />
+                      </font>
+            </Label>
+                  <ImageView id="mikrokep" fx:id="mikrokep" fitHeight="61.0" fitWidth="61.0" layoutX="29.0" layoutY="269.0" onMouseClicked="#handlemikrokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/mikró.jpg" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
+                  <Label layoutX="102.0" layoutY="279.0" text="Mikrohullámos sütők">
+                      <font>
+                          <Font name="Open Sans Semibold" size="15.0" />
+                      </font>
+            </Label>
+                  <Label layoutX="104.0" layoutY="344.0" text="Porszivók">
+                      <font>
+                          <Font name="Open Sans Semibold" size="15.0" />
+                      </font>
+            </Label>
+                  <ImageView id="porszivokep" fx:id="porszivokep" fitHeight="54.0" fitWidth="54.0" layoutX="24.0" layoutY="328.0" onMouseClicked="#handleporszivokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/porsziv.jpg" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
+                  <Label layoutX="104.0" layoutY="407.0" text="Rádiók,Hifitornyok">
+                      <font>
+                          <Font name="Open Sans Semibold" size="15.0" />
+                      </font>
                   </Label>
-                        <ImageView id="pckep" fx:id="pckep" fitHeight="188.0" fitWidth="160.0" layoutX="1.0" layoutY="21.0" onMouseClicked="#handlepckep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/pc.jpg" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <ImageView id="laptopkep" fx:id="laptopkep" fitHeight="178.0" fitWidth="145.0" layoutX="417.0" layoutY="21.0" onMouseClicked="#handlelaptopkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/laptop.jpg" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <ImageView id="tvkep" fx:id="tvkep" fitHeight="146.0" fitWidth="172.0" layoutX="210.0" layoutY="21.0" onMouseClicked="#handletvkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/tv.jpg" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <ImageView id="porszivokep" fx:id="porszivokep" fitHeight="151.0" fitWidth="149.0" layoutX="417.0" layoutY="250.0" onMouseClicked="#handleporszivokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/porsziv.jpg" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <ImageView id="radiokep" fx:id="radiokep" fitHeight="178.0" fitWidth="148.0" layoutX="40.0" layoutY="433.0" onMouseClicked="#handleradiokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/rádio.jpg" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <ImageView id="mikrokep" fx:id="mikrokep" fitHeight="188.0" fitWidth="160.0" layoutX="216.0" layoutY="261.0" onMouseClicked="#handlemikrokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/mikró.jpg" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <ImageView id="mosogepkep" fx:id="mosogepkep" fitHeight="160.0" fitWidth="160.0" layoutX="14.0" layoutY="233.0" onMouseClicked="#handlemosogepkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/mosógép.jpg" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <ImageView fitHeight="121.0" fitWidth="200.0" layoutX="393.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/ikon/hzN9VJ4qBW5N.gif" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <Label layoutX="260.0" text="Televiziók">
-                            <font>
-                                <Font name="Open Sans Semibold" size="15.0" />
-                            </font>
+                  <ImageView id="radiokep" fx:id="radiokep" fitHeight="61.0" fitWidth="43.0" layoutX="29.0" layoutY="390.0" onMouseClicked="#handleradiokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/rádio.jpg" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
+                  <ImageView id="hutokep" fx:id="hutokep" fitHeight="67.0" fitWidth="43.0" layoutX="29.0" layoutY="458.0" onMouseClicked="#handlehutokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/hűtő.jpg" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
+                  <Label layoutX="101.0" layoutY="465.0" text="Hűtőszekrények">
+                      <font>
+                          <Font name="Open Sans Semibold" size="15.0" />
+                      </font>
                   </Label>
-                        <Label layoutX="442.0" layoutY="2.0" text="Laptopok">
-                            <font>
-                                <Font name="Open Sans Semibold" size="15.0" />
-                            </font>
-                  </Label>
-                        <Label layoutX="49.0" layoutY="209.0" text="Mosógépek">
-                            <font>
-                                <Font name="Open Sans Semibold" size="15.0" />
-                            </font>
-                  </Label>
-                        <ImageView id="hutokep" fx:id="hutokep" fitHeight="195.0" fitWidth="160.0" layoutX="237.0" layoutY="424.0" onMouseClicked="#handlehutokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
-                            <image>
-                                <Image url="@../Képek/hűtő.jpg" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                        <Label layoutX="237.0" layoutY="209.0" text="Mikrohullámos sütők">
-                            <font>
-                                <Font name="Open Sans Semibold" size="15.0" />
-                            </font>
-                  </Label>
-                        <Label layoutX="462.0" layoutY="209.0" text="Porszivók">
-                            <font>
-                                <Font name="Open Sans Semibold" size="15.0" />
-                            </font>
-                  </Label>
-                        <Label layoutX="49.0" layoutY="403.0" text="Rádiók,Hifitornyok">
-                            <font>
-                                <Font name="Open Sans Semibold" size="15.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="253.0" layoutY="403.0" text="Hűtőszekrények">
-                            <font>
-                                <Font name="Open Sans Semibold" size="15.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </AnchorPane>
+                  <ImageView fitHeight="104.0" fitWidth="150.0" layoutX="41.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                      <image>
+                          <Image url="@../Képek/ikon/hzN9VJ4qBW5N.gif" />
+                      </image>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </ImageView>
             </children>
         </AnchorPane>
     </children>

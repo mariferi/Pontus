@@ -5,9 +5,13 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.h2.tools.Server;
 
@@ -63,8 +67,12 @@ public class App extends Application {
         s.runTool("-tcp", "-web", "-ifNotExists");
     }
 
-    private static void stopDatabase()  {
+    public static void stopDatabase()  {
         s.shutdown();
+    }
+
+    public static void stopApplication() {
+
     }
     
 }
