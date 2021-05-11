@@ -251,8 +251,9 @@
                         <Label layoutX="30.0" prefHeight="21.0" prefWidth="116.0" text="Számítógépek">
                             <font>
                                 <Font name="Open Sans Semibold" size="15.0" />
-                            </font></Label>
-                        <ImageView fx:id="img1" fitHeight="188.0" fitWidth="160.0" layoutX="1.0" layoutY="21.0" onMouseClicked="#handleImg1" onMousePressed="#handleImg1" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                            </font>
+                  </Label>
+                        <ImageView id="pckep" fx:id="pckep" fitHeight="188.0" fitWidth="160.0" layoutX="1.0" layoutY="21.0" onMouseClicked="#handlepckep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/pc.jpg" />
                             </image>
@@ -260,7 +261,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <ImageView fx:id="2" fitHeight="178.0" fitWidth="145.0" layoutX="417.0" layoutY="21.0" onMousePressed="#handleImg3" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                        <ImageView id="laptopkep" fx:id="laptopkep" fitHeight="178.0" fitWidth="145.0" layoutX="417.0" layoutY="21.0" onMouseClicked="#handlelaptopkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/laptop.jpg" />
                             </image>
@@ -268,7 +269,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <ImageView fitHeight="146.0" fitWidth="172.0" layoutX="210.0" layoutY="21.0" onMousePressed="#handleImg2" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                        <ImageView id="tvkep" fx:id="tvkep" fitHeight="146.0" fitWidth="172.0" layoutX="210.0" layoutY="21.0" onMouseClicked="#handletvkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/tv.jpg" />
                             </image>
@@ -276,7 +277,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <ImageView fitHeight="151.0" fitWidth="149.0" layoutX="417.0" layoutY="250.0" onMouseReleased="#handleImg5" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                        <ImageView id="porszivokep" fx:id="porszivokep" fitHeight="151.0" fitWidth="149.0" layoutX="417.0" layoutY="250.0" onMouseClicked="#handleporszivokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/porsziv.jpg" />
                             </image>
@@ -284,7 +285,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <ImageView fitHeight="178.0" fitWidth="148.0" layoutX="58.0" layoutY="438.0" onMousePressed="#handleImg7" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                        <ImageView id="radiokep" fx:id="radiokep" fitHeight="178.0" fitWidth="148.0" layoutX="40.0" layoutY="433.0" onMouseClicked="#handleradiokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/rádio.jpg" />
                             </image>
@@ -292,7 +293,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <ImageView fitHeight="188.0" fitWidth="160.0" layoutX="216.0" layoutY="261.0" onMousePressed="#handleImg6" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                        <ImageView id="mikrokep" fx:id="mikrokep" fitHeight="188.0" fitWidth="160.0" layoutX="216.0" layoutY="261.0" onMouseClicked="#handlemikrokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/mikró.jpg" />
                             </image>
@@ -300,7 +301,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="1.0" layoutY="234.0" onMouseReleased="#handleImg4" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                        <ImageView id="mosogepkep" fx:id="mosogepkep" fitHeight="160.0" fitWidth="160.0" layoutX="14.0" layoutY="233.0" onMouseClicked="#handlemosogepkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/mosógép.jpg" />
                             </image>
@@ -319,16 +320,19 @@
                         <Label layoutX="260.0" text="Televiziók">
                             <font>
                                 <Font name="Open Sans Semibold" size="15.0" />
-                            </font></Label>
+                            </font>
+                  </Label>
                         <Label layoutX="442.0" layoutY="2.0" text="Laptopok">
                             <font>
                                 <Font name="Open Sans Semibold" size="15.0" />
-                            </font></Label>
+                            </font>
+                  </Label>
                         <Label layoutX="49.0" layoutY="209.0" text="Mosógépek">
                             <font>
                                 <Font name="Open Sans Semibold" size="15.0" />
-                            </font></Label>
-                        <ImageView fitHeight="195.0" fitWidth="160.0" layoutX="237.0" layoutY="424.0" onMousePressed="#handleImg8" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                            </font>
+                  </Label>
+                        <ImageView id="hutokep" fx:id="hutokep" fitHeight="195.0" fitWidth="160.0" layoutX="237.0" layoutY="424.0" onMouseClicked="#handlehutokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/hűtő.jpg" />
                             </image>
@@ -339,11 +343,13 @@
                         <Label layoutX="237.0" layoutY="209.0" text="Mikrohullámos sütők">
                             <font>
                                 <Font name="Open Sans Semibold" size="15.0" />
-                            </font></Label>
+                            </font>
+                  </Label>
                         <Label layoutX="462.0" layoutY="209.0" text="Porszivók">
                             <font>
                                 <Font name="Open Sans Semibold" size="15.0" />
-                            </font></Label>
+                            </font>
+                  </Label>
                         <Label layoutX="49.0" layoutY="403.0" text="Rádiók,Hifitornyok">
                             <font>
                                 <Font name="Open Sans Semibold" size="15.0" />

@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import javafx.scene.input.MouseEvent;
 
 
 public class CustomerDashboardController {
@@ -29,113 +30,42 @@ public class CustomerDashboardController {
 	ProductDAO pDAO= new JpaProductDAO();
 
 	private static Customer activeCustomer;
-	@FXML
-	private AnchorPane enquiry;
-
-	@FXML
-	private Label customerName;
-
-	@FXML
-	private Button store_btn;
-
-	@FXML
-	private Button history_btn;
-
-	@FXML
-	private Button enquiry_btn;
-
-	@FXML
-	private Button account_btn;
-
-	@FXML
-	private AnchorPane enquiry_pane;
-
-	@FXML
-	private TextArea enquiryMessage;
-
-	@FXML
-	private AnchorPane account_pane;
-
-	@FXML
-	private TextField modifyName;
-
-	@FXML
-	private TextArea modifyAddress;
-
-	@FXML
-	private PasswordField oldPassword;
-
-	@FXML
-	private Label modifyNameLabel;
-
-	@FXML
-	private Label modifyAddressLabel;
-
-	@FXML
-	private Label customerIDLabel;
-
-	@FXML
-	private Label modifyEmailLabel;
-
-	@FXML
-	private PasswordField newPassword;
-
-	@FXML
-	private AnchorPane history_pane;
-
-	@FXML
-	private TableView<?> purchaseHistory;
-
-	@FXML
-	private TableColumn<?, ?> purchaseIdCol;
-
-	@FXML
-	private TableColumn<?, ?> purchaseDayCol;
-
-	@FXML
-	private TableColumn<?, ?> purchaseAmountCol;
-
-	@FXML
-	private AnchorPane store_pane;
-
-	@FXML
-	private Spinner<?> productQty;
-
-	@FXML
-	private ImageView mainImg;
-
-	@FXML
-	private ChoiceBox<String> productNameChoice;
-
-	@FXML
-	private ChoiceBox<?> productSizeChoice;
-
-	@FXML
-	private TableView<?> cartTable;
-
-	@FXML
-	private TableColumn<?, ?> itemCol;
-
-	@FXML
-	private TableColumn<?, ?> qtyCol;
-
-	@FXML
-	private TableColumn<?, ?> costCol;
-
-	@FXML
-	private TableColumn<?, ?> amountCol;
-
-	@FXML
-	private Label totalLabel;
-
-	@FXML
-	private Button checkoutBtn;
-
-	@FXML
-	private Button removeBtn;
-
-	@FXML
-	private ImageView img1;
+	@FXML private AnchorPane enquiry;
+	@FXML	private Label customerName;
+	@FXML	private Button store_btn;
+	@FXML	private Button history_btn;
+	@FXML	private Button enquiry_btn;
+	@FXML	private Button account_btn;
+	@FXML	private AnchorPane enquiry_pane;
+	@FXML	private TextArea enquiryMessage;
+	@FXML	private AnchorPane account_pane;
+	@FXML	private TextField modifyName;
+	@FXML	private TextArea modifyAddress;
+	@FXML	private PasswordField oldPassword;
+	@FXML	private Label modifyNameLabel;
+	@FXML	private Label modifyAddressLabel;
+	@FXML	private Label customerIDLabel;
+	@FXML	private Label modifyEmailLabel;
+	@FXML	private PasswordField newPassword;
+	@FXML	private AnchorPane history_pane;
+	@FXML	private TableView<?> purchaseHistory;
+	@FXML	private TableColumn<?, ?> purchaseIdCol;
+	@FXML	private TableColumn<?, ?> purchaseDayCol;
+	@FXML	private TableColumn<?, ?> purchaseAmountCol;
+	@FXML	private AnchorPane store_pane;
+	@FXML	private Spinner<?> productQty;
+	@FXML	private ImageView mainImg;
+	@FXML	private ChoiceBox<String> productNameChoice;
+	@FXML	private ChoiceBox<?> productSizeChoice;
+	@FXML	private TableView<?> cartTable;
+	@FXML	private TableColumn<?, ?> itemCol;
+	@FXML	private TableColumn<?, ?> qtyCol;
+	@FXML	private TableColumn<?, ?> costCol;
+	@FXML	private TableColumn<?, ?> amountCol;
+	@FXML	private Label totalLabel;
+	@FXML	private Button checkoutBtn;
+	@FXML	private Button removeBtn;
+	@FXML	private ImageView img1;
 
 	public static void getActiveCustomer(Customer customer) {
 		activeCustomer = customer;
@@ -162,6 +92,45 @@ public class CustomerDashboardController {
 			enquiry_pane.toFront();
 		}
 	}
+    @FXML
+    void handlehutokep(MouseEvent event) {
+        System.out.println("Hűtő");
+    }
+
+    @FXML
+    void handlelaptopkep(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handlemikrokep(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handlemosogepkep(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handlepckep(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handleporszivokep(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handleradiokep(MouseEvent event) {
+
+    }
+
+    @FXML
+    void handletvkep(MouseEvent event) {
+
+    }
 
 /*
 	public void setTable(){
