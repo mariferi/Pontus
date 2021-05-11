@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,34 +28,14 @@ public class App extends Application {
     public static void main(String[] args) throws Exception {
         ////////////////  AdatBázis   ////////////////////////
         startDatabase();
-        try (CustomerDAO cDAO= new JpaCustomerDAO();
-             ProductDAO pDAO= new JpaProductDAO();
-             AdminDAO aDAO = new JpaAdminDAO();){
-            //all_customers=cDAO.getCustomersAll();
-            //all_products=pDAO.getProductsAll();
-        //////////////////////////////////////////////////////////////////
-            //Admin Joska=new Admin("admin","admin");
-            //aDAO.saveAdmin(Joska);
-        /*Customer Pista = new Customer("Teszt Pista", "pistikerulez", "Nagyfalva");
-        Admin Joska=new Admin("Jóska_baba83","körte234");
-
-        cDAO.saveCustomer(Pista);
-        aDAO.saveAdmin(Joska);
-
-         */
-            //Product Alma=new Product("12312", "alma", "10", "gyumolcs", new BigDecimal(3.14));
-            //pDAO.saveProduct(Alma);
-
-        }
-
         
-        //////////////////////////////////////////////////////////////////
+        /////////////   AdatBázis Info ////////////////////////////////////////
 
         System.out.println("Open your browser and navigate to http://localhost:8082/");
         System.out.println("JDBC URL: jdbc:h2:file:./src\\main\\resources\\mydb");
         System.out.println("User Name: sa");
         System.out.println("Password: ");
-        ////////////////////////////////////////////////////////////////////
+        ////////////////  JAVAFX    ///////////////////////////////////////
         launch(args);
         stopDatabase();
     }
@@ -69,10 +48,6 @@ public class App extends Application {
 
     public static void stopDatabase()  {
         s.shutdown();
-    }
-
-    public static void stopApplication() {
-
     }
     
 }

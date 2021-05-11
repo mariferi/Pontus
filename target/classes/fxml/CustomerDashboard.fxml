@@ -116,7 +116,7 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button fx:id="account_btn" layoutX="116.0" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="116.0" style="-fx-background-color: #28A6D3; -fx-border-radius: 0%;" text="Fiók" textFill="WHITE">
+                <Button fx:id="account_btn" layoutX="116.0" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="139.0" style="-fx-background-color: #28A6D3; -fx-border-radius: 0%;" text="Fiók" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
                     </font>

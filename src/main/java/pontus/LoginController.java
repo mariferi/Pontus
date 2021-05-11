@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,23 +20,12 @@ import javafx.scene.image.Image;
 
 public class LoginController {
 
-	@FXML
-	private AnchorPane ap;
-
-	@FXML
-	private TextField userName;
-
-	@FXML
-	private PasswordField pass;
-
-	@FXML
-	private Label invalidLabel;
-
-	@FXML
-	private Button register;
-
-	@FXML
-	private Label close;
+	@FXML	private AnchorPane ap;
+	@FXML	private TextField userName;
+	@FXML	private PasswordField pass;
+	@FXML	private Label invalidLabel;
+	@FXML	private Button register;
+	@FXML	private Label close;
 
 	@FXML
 	public void handleCloseButton(MouseEvent event) {
@@ -85,15 +73,10 @@ public class LoginController {
 					changeScene(event,"/fxml/CustomerDashboard.fxml");
 				}
 			}//cust
-
 		}//try
 	}
 
 
-
-	/*public Admin getActiveAdmin() {
-		return this.activeAdmin;
-	}*/
 
 	@FXML
 	public void handleRegisterButton(ActionEvent event) throws IOException {

@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -26,31 +25,25 @@ public class PaymentController{
 	@FXML private TextField cardNumber;
 	@FXML private TextField cvc;
 	@FXML private TextField exp;
-
-	@FXML
-	private TableView<Product> cartTable;
-
-	@FXML
-	private TableColumn<Product, String> itemCol;
-
-	@FXML
-	private TableColumn<Product, String> sizeCol;
-
-	@FXML
-	private TableColumn<Product, String> priceCol;
-
-	@FXML
-	private TableColumn<Product, String> categoryCol;
-
-
+	@FXML private TableView<Product> cartTable;
+	@FXML private TableColumn<Product, String> itemCol;
+	@FXML private TableColumn<Product, String> sizeCol;
+	@FXML private TableColumn<Product, String> priceCol;
+	@FXML private TableColumn<Product, String> categoryCol;
 	@FXML private Label totalLabel;
 	@FXML private Label invalid;
 
+        
 	public static List<Product> cart;
 	public static void getActiveCart(List<Product> carts) {
 		cart = carts;
 	}
+        
+        public void initialize(){
+		setTable();
+		totalLabel.setText(cartSum(cart) + "Ft");
 
+	}
 
 	public boolean validateCard() {
 		String cardRegx = "\\d{13,16}";
@@ -68,7 +61,7 @@ public class PaymentController{
 			alert.showAndWait();
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-
+                        //// Kilépés    /////
 			App.stopDatabase();
 			Platform.exit();
 			System.exit(0);
@@ -98,8 +91,6 @@ public class PaymentController{
 		return sum;
 	}
 	public void setTable(){
-
-
 		itemCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 		priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 		sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
@@ -107,10 +98,5 @@ public class PaymentController{
 		cartTable.setItems(FXCollections.observableArrayList(cart));
 	}
 
-	public void initialize(){
-		setTable();
-		totalLabel.setText(cartSum(cart) + "Ft");
-
-	}
 
 }
