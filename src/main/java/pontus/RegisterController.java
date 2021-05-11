@@ -10,44 +10,17 @@ import java.io.IOException;
 
 public class RegisterController {
 
-	@FXML
-	private TextField userName;
-
-	@FXML
-	private TextField userEmail;
-
-	@FXML
-	private TextArea address;
-
-	@FXML
-	private PasswordField password;
-
-	@FXML
-	private PasswordField verifyPassword;
-
-	@FXML
-	private CheckBox policy;
-
-	@FXML
-	private CheckBox weeklyNews;
-
-	@FXML
-	private CheckBox yearlyNews;
-
-	@FXML
-	private Label invalidName;
-
-	@FXML
-	private Label invalidEmail;
-
-	@FXML
-	private Label invalidAddress;
-
-	@FXML
-	private Label invalidPassword;
-
-	@FXML
-	private Label invalidMatch;
+	@FXML	private TextField userName;
+	@FXML	private TextField userEmail;
+	@FXML	private TextArea address;
+	@FXML	private PasswordField password;
+	@FXML	private PasswordField verifyPassword;
+	@FXML	private CheckBox policy;
+	@FXML	private Label invalidName;
+	@FXML	private Label invalidEmail;
+	@FXML	private Label invalidAddress;
+	@FXML	private Label invalidPassword;
+	@FXML	private Label invalidMatch;
 
 
 	public void handleAddButton(ActionEvent event) throws Exception {
@@ -71,15 +44,15 @@ public class RegisterController {
 		if (password.getText().isEmpty()) {
 			invalidPassword.setVisible(true);
 		} else if (!Customer.validateEmail(userEmail.getText())) {
-			invalidEmail.setText("Invalid Email Address");
+			invalidEmail.setText("Érvénytelen E-mail cím!");
 			invalidEmail.setVisible(true);
 
 		} else if (!Customer.validatePassword(password.getText())) {
-			invalidPassword.setText("Invalid Password");
+			invalidPassword.setText("Érvénytelen Jelszó!");
 			invalidPassword.setVisible(true);
 			Alert alert = new Alert(Alert.AlertType.ERROR,
-					" • Password must contain at least 2 non-alphabetic characters\n" +
-							" • Password must be at least 8 characters long");
+					" • A Jelszóban legalább 2db szám vagy bármilyen nem betű karakternek is lennie kell!\n" +
+							" • A Jelszónak minimum 8 karakternek kell lennie!");
 			alert.showAndWait();
 		} else if (!password.getText().equals(verifyPassword.getText())) {
 			invalidMatch.setVisible(true);
@@ -91,12 +64,12 @@ public class RegisterController {
 			invalidMatch.setVisible(false);
 
 			if (!policy.isSelected()) {
-				Alert alert = new Alert(Alert.AlertType.WARNING, "Agree to our terms and conditions to continue");
+				Alert alert = new Alert(Alert.AlertType.WARNING, "Fogadja el Felhasználási feltételeinket");
 				alert.showAndWait();
 			} else {
 				Customer.register(userName.getText(),userEmail.getText(), address.getText(), verifyPassword.getText());
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-				alert.setHeaderText("You have been succesfully registered to Pontus.\n" + "Thank you!");
+				alert.setHeaderText("Sikeresen regisztrált a Pontus shop-ba.\n" + "Üdvözöljük!");
 				alert.showAndWait();
 				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 				stage.close();

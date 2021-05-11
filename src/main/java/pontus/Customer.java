@@ -106,7 +106,7 @@ public class Customer {
 			} else return "Wrong Username OR Password";
 		}
 	}
-	//*******************MÓDÓSÍTANI KELL HOGY MEGHÍVJA A SAJÁT ADATBÁZIS METÓDUST***************************
+
 	public static void register(String userName, String userEmail, String address, String password) throws Exception {
 		Customer customer = new Customer(userName, userEmail, address, password);
 		try (CustomerDAO cDAO= new JpaCustomerDAO();) {

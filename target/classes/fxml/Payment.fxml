@@ -56,7 +56,7 @@
                 <Font size="21.0" />
             </font>
         </Label>
-        <Label fx:id="invalid" layoutX="36.0" layoutY="335.0" text="Invalid Card. Please enter valid details" textFill="#ee0000" visible="false" />
+        <Label fx:id="invalid" layoutX="36.0" layoutY="335.0" text="Érvénytelen Kártya. Kérem adjon meg valós adatokat." textFill="#ee0000" visible="false" />
         <ImageView fitHeight="108.0" fitWidth="123.0" layoutX="589.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../Képek/ikon/post-purchase-dribbble-animated-400x300.gif" />

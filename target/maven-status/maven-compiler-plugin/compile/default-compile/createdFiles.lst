@@ -1,5 +1,4 @@
 pontus\CustomerDAO.class
-pontus\Purchase.class
 pontus\JpaAdminDAO.class
 pontus\PaymentController.class
 pontus\Product.class
@@ -14,5 +13,4 @@ pontus\JpaProductDAO.class
 pontus\Customer.class
 pontus\Admin.class
 pontus\CustomerDashboardController.class
-pontus\Cart.class
 pontus\RegisterController.class

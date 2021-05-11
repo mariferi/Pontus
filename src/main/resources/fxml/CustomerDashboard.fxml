@@ -89,7 +89,7 @@
             </ImageView>
             </children>
         </AnchorPane>
-        <AnchorPane layoutY="-6.0" prefHeight="54.0" prefWidth="916.0" style="-fx-background-color: #082656;">
+        <AnchorPane layoutY="-6.0" prefHeight="54.0" prefWidth="925.0" style="-fx-background-color: #082656;">
             <children>
                 <Label fx:id="customerName" layoutX="680.0" layoutY="22.0" text="Customer 1" textFill="WHITE">
                     <font>
@@ -151,7 +151,7 @@
         <AnchorPane fx:id="enquiry" layoutX="10.0" layoutY="48.0" prefHeight="601.0" prefWidth="903.0" style="-fx-background-color: #8F1D21;" />
         <AnchorPane fx:id="store_pane" layoutY="45.0" prefHeight="640.0" prefWidth="916.0" style="-fx-background-color: white;">
             <children>
-                <Pane layoutX="255.0" prefHeight="645.0" prefWidth="669.0" style="-fx-background-color: #082656;">
+                <Pane layoutX="255.0" prefHeight="646.0" prefWidth="670.0" style="-fx-background-color: #082656;">
                     <children>
                         <Button layoutX="206.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleAddToCart" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Hozzáadás a kosárhoz" textFill="WHITE">
                             <cursor>
@@ -181,7 +181,7 @@
                                 <Font name="ATROX normal" size="18.0" />
                             </font>
                         </Label>
-                        <Button fx:id="checkoutBtn" layoutX="206.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleCheckout" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Ellenörzés">
+                        <Button fx:id="checkoutBtn" layoutX="206.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleCheckout" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Ellenörzés és Fizetés">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>

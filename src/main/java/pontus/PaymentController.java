@@ -42,7 +42,6 @@ public class PaymentController{
         public void initialize(){
 		setTable();
 		totalLabel.setText(cartSum(cart) + "Ft");
-
 	}
 
 	public boolean validateCard() {
@@ -83,7 +82,7 @@ public class PaymentController{
 		}
 	}
 
-	public float cartSum(List<Product> products) {
+	public static float cartSum(List<Product> products) {
 		float sum = 0;
 		for(Product prod: products) {
 			sum += Float.parseFloat(prod.getPrice().toString());
