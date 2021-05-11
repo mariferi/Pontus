@@ -309,7 +309,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <ImageView fitHeight="121.0" fitWidth="200.0" layoutX="393.0" layoutY="437.0" onMousePressed="#handleImg9" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                        <ImageView fitHeight="121.0" fitWidth="200.0" layoutX="393.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                             <image>
                                 <Image url="@../Képek/ikon/hzN9VJ4qBW5N.gif" />
                             </image>

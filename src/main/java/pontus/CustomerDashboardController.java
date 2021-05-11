@@ -95,6 +95,7 @@ public class CustomerDashboardController {
     @FXML
     void handlehutokep(MouseEvent event) {
         System.out.println("Hűtő");
+       // mainImg.SetImage();
     }
 
     @FXML
@@ -332,10 +333,7 @@ public class CustomerDashboardController {
 	}    public void handleImg8(){;
 		mainImg.setImage( new Image("resources/Képek/hűtő.jpg"));
 		productNameChoice.setValue("Hűtőszekrények");
-	}    public void handleImg9(){
-		//   mainImg.setImage( new Image("Store/productPics/9.jpg"));
-
-	}
+        }
 	public void handleHomeLink(ActionEvent event) throws IOException {
 
 		Parent register = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
