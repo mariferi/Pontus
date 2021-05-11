@@ -67,6 +67,9 @@ public class AdminDashboardController {
 		KategóriaBox.setValue("Kategória");
 		KategóriaBox.setItems(KategóriaList);
 		adminName.setText(activeAdmin.getUserName());
+                handleProductUpdateButton();
+                init_refreshCustormers();
+                init_refreshAdmin();
 	}
 
 
@@ -94,6 +97,10 @@ public class AdminDashboardController {
 	}
 	@FXML
 	void refreshAdmin(ActionEvent event) {
+		init_refreshAdmin();
+
+	}
+        void init_refreshAdmin() {
 		List<Admin> adminList = aDAO.getAdminsAll();
 
 		AdminIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -116,6 +123,9 @@ public class AdminDashboardController {
 
 	@FXML
 	void refreshCustormers(ActionEvent event) {
+		init_refreshCustormers();
+	}
+        void init_refreshCustormers() {
 		List<Customer> customers = cDAO.getCustomersAll();
                 
 		customerAddCol.setCellValueFactory(new PropertyValueFactory<>("address"));

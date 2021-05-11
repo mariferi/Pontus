@@ -82,7 +82,6 @@ public class LoginController {
 				if(customer.getUserName().equals(userName)&& customer.getPassword().equals(pass)){//jo user
 					activeCustomer = cDAO.getCustomerbyID(customer.getId());
 					CustomerDashboardController.getActiveCustomer(activeCustomer);
-					Customer activeCustomer = cDAO.getCustomerbyID(customer.getId());
 					changeScene(event,"/fxml/CustomerDashboard.fxml");
 				}
 			}//cust
