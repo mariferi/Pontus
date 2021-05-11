@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -15,33 +14,33 @@
 
 <AnchorPane prefHeight="428.0" prefWidth="622.0" style="-fx-background-color: #082656;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pontus.RegisterController">
     <children>
-        <Button layoutX="91.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="37.0" prefWidth="139.0" style="    -fx-background-color:         #090a0c,         linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),         linear-gradient(#20262b, #191d22),         radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));     -fx-background-radius: 5,4,3,5;     -fx-background-insets: 0,1,2,0;     -fx-text-fill: white;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Regisztrálció" textFill="WHITE" />
-        <TextField fx:id="userName" layoutX="120.0" layoutY="95.0" promptText="Példa" />
-        <TextField fx:id="userEmail" layoutX="120.0" layoutY="131.0" promptText="Példa@email.com" />
-        <Label layoutX="49.0" layoutY="99.0" prefHeight="17.0" prefWidth="57.0" text=" Név:" textFill="WHITE">
+        <Button layoutX="99.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="37.0" prefWidth="139.0" style="    -fx-background-color:         #090a0c,         linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),         linear-gradient(#20262b, #191d22),         radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));     -fx-background-radius: 5,4,3,5;     -fx-background-insets: 0,1,2,0;     -fx-text-fill: white;     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Regisztrálció" textFill="WHITE" />
+        <TextField fx:id="userName" layoutX="120.0" layoutY="63.0" promptText="Példa" />
+        <TextField fx:id="userEmail" layoutX="120.0" layoutY="112.0" promptText="Példa@email.com" />
+        <Label layoutX="49.0" layoutY="67.0" prefHeight="17.0" prefWidth="57.0" text=" Név:" textFill="WHITE">
             <font>
                 <Font name="Open Sans Semibold" size="12.0" />
             </font></Label>
-        <Label layoutX="51.0" layoutY="135.0" prefHeight="17.0" prefWidth="53.0" text="Email:" textFill="WHITE">
+        <Label layoutX="51.0" layoutY="116.0" prefHeight="17.0" prefWidth="53.0" text="Email:" textFill="WHITE">
             <font>
                 <Font name="Open Sans Semibold" size="12.0" />
             </font></Label>
-        <Label layoutX="53.0" layoutY="179.0" prefHeight="17.0" prefWidth="34.0" text="Cím:" textFill="WHITE">
+        <Label layoutX="53.0" layoutY="163.0" prefHeight="17.0" prefWidth="34.0" text="Cím:" textFill="WHITE">
             <font>
                 <Font name="Open Sans Semibold" size="12.0" />
             </font></Label>
-        <TextArea fx:id="address" layoutX="120.0" layoutY="180.0" prefHeight="59.0" prefWidth="149.0" promptText="4031 Debcen, Kis Iskola 6 " />
-        <PasswordField fx:id="password" layoutX="120.0" layoutY="290.0" promptText="Password" />
+        <TextArea fx:id="address" layoutX="120.0" layoutY="163.0" prefHeight="59.0" prefWidth="149.0" promptText="4031 Debcen, Kis Iskola 6 " />
+        <PasswordField fx:id="password" layoutX="120.0" layoutY="299.0" promptText="Password" />
         <PasswordField fx:id="verifyPassword" layoutX="120.0" layoutY="250.0" promptText="Password" />
         <Label layoutX="53.0" layoutY="254.0" text="Jelszó:" textFill="WHITE">
             <font>
                 <Font name="Open Sans Semibold" size="12.0" />
             </font></Label>
-        <Label layoutX="53.0" layoutY="294.0" text="Jelszó újra:" textFill="WHITE">
+        <Label layoutX="49.0" layoutY="303.0" text=" Jelszó újra:" textFill="WHITE">
             <font>
                 <Font name="Open Sans Semibold" size="12.0" />
             </font></Label>
-        <CheckBox fx:id="policy" layoutX="53.0" layoutY="330.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="230.0" text="Elfogadom a felhasználói feltételeket." textFill="WHITE">
+        <CheckBox fx:id="policy" layoutX="54.0" layoutY="349.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="230.0" text="Elfogadom a felhasználói feltételeket." textFill="WHITE">
             <font>
                 <Font name="Open Sans Semibold" size="12.0" />
             </font></CheckBox>
@@ -60,12 +59,11 @@
                 <Image url="@../Képek/ikon/dancing_icon.gif" />
             </image>
         </ImageView>
-        <Label fx:id="invalidName" layoutX="157.0" layoutY="14.0" text="This field is required*" textFill="#ee0000" visible="false" />
-        <Label fx:id="invalidEmail" layoutX="157.0" layoutY="58.0" text="This field is required*" textFill="#ee0000" visible="false" />
-        <Label fx:id="invalidAddress" layoutX="154.0" layoutY="107.0" text="This field is required*" textFill="#ee0000" visible="false" />
-        <Label fx:id="invalidPassword" layoutX="154.0" layoutY="184.0" text="This field is required*" textFill="#ee0000" visible="false" />
-        <Label fx:id="invalidMatch" layoutX="157.0" layoutY="227.0" text="Password do not match" textFill="#ee0000" visible="false" />
-      <Accordion />
+        <Label fx:id="invalidName" layoutX="120.0" layoutY="38.0" prefHeight="25.0" prefWidth="149.0" text="This field is required*" textFill="#ee0000" visible="false" />
+        <Label fx:id="invalidEmail" layoutX="120.0" layoutY="86.0" prefHeight="25.0" prefWidth="149.0" text="This field is required*" textFill="#ee0000" visible="false" />
+        <Label fx:id="invalidAddress" layoutX="117.0" layoutY="141.0" prefHeight="25.0" prefWidth="149.0" text="This field is required*" textFill="#ee0000" visible="false" />
+        <Label fx:id="invalidPassword" layoutX="117.0" layoutY="225.0" prefHeight="25.0" prefWidth="149.0" text="This field is required*" textFill="#ee0000" visible="false" />
+        <Label fx:id="invalidMatch" layoutX="120.0" layoutY="273.0" prefHeight="25.0" prefWidth="149.0" text="Password do not match" textFill="#ee0000" visible="false" />
       <Label layoutX="51.0" layoutY="10.0" prefHeight="43.0" prefWidth="272.0" text="Regisztrálj a Ponstus üzletbe!" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="18.0" />

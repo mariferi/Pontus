@@ -1,5 +1,6 @@
 package pontus;
 
+import java.io.FileInputStream;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javafx.scene.image.Image;
 
 public class LoginController {
 
@@ -47,6 +49,7 @@ public class LoginController {
 		Parent dashboard = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
 		Scene dashboardScene = new Scene(dashboard);
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.getIcons().add(new Image(new FileInputStream("src\\main\\resources\\Képek\\bejelentkező.jpg")));
 		window.setScene(dashboardScene);
 		window.show();
 	}
@@ -97,6 +100,7 @@ public class LoginController {
 		Parent register = FXMLLoader.load(getClass().getResource("/fxml/Register.fxml"));
 		Scene registerScene = new Scene(register);
 		Stage window = new Stage();
+                window.getIcons().add(new Image(new FileInputStream("src\\main\\resources\\Képek\\bejelentkező.jpg")));
 		window.setScene(registerScene);
 		window.setTitle("Regisztráció");
 		//window.getIcons().add(new Image("pontus/Image/logo.jpg"));

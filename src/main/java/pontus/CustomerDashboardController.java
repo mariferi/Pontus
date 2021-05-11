@@ -1,5 +1,6 @@
 package pontus;
 
+import java.io.FileInputStream;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -276,8 +277,9 @@ public class CustomerDashboardController {
 		Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/Payment.fxml"));
 		Scene checkout = new Scene(dashboard);
 		Stage window = new Stage();
+                window.getIcons().add(new Image(new FileInputStream("src\\main\\resources\\Képek\\bejelentkező.jpg")));
 		window.setScene(checkout);
-		window.setTitle("Confirm Payment");
+		window.setTitle("Fizetés ellenőrzés");
 		window.show();
 
 
