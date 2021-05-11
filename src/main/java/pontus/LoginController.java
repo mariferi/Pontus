@@ -51,6 +51,7 @@ public class LoginController {
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.getIcons().add(new Image(new FileInputStream("src\\main\\resources\\Képek\\bejelentkező.jpg")));
 		window.setScene(dashboardScene);
+                window.setTitle("Pontus müszaki üzlet!");
 		window.show();
 	}
 
