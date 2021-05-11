@@ -19,6 +19,78 @@
 
 <AnchorPane focusTraversable="true" prefHeight="631.0" prefWidth="897.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pontus.CustomerDashboardController">
     <children>
+        <AnchorPane fx:id="account_pane" layoutY="45.0" prefHeight="633.0" prefWidth="916.0" style="-fx-background-color: #1F3A93;">
+            <children>
+                <Label layoutX="127.0" layoutY="155.0" text="Név:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="130.0" layoutY="272.0" text="Lakcím:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="127.0" layoutY="349.0" text="Jelszó:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="oldPassword" layoutX="316.0" layoutY="351.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adje meg régi jelszavát!" />
+                <Button layoutX="224.0" layoutY="475.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #28A6D3;" text="Jeszó megváltoztatás" textFill="WHITE" />
+                <Label fx:id="modifyNameLabel" layoutX="316.0" layoutY="155.0" prefHeight="28.0" prefWidth="145.0" text="YourName" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="121.0" layoutY="112.0" text=" Felhasználó azonositó:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label fx:id="modifyAddressLabel" layoutX="319.0" layoutY="272.0" prefHeight="28.0" prefWidth="179.0" text="YourAdd" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label fx:id="customerIDLabel" layoutX="316.0" layoutY="112.0" text="1002949" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="227.0" layoutY="112.0" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="127.0" layoutY="193.0" prefHeight="28.0" prefWidth="179.0" text="Email:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label fx:id="modifyEmailLabel" layoutX="319.0" layoutY="193.0" prefHeight="28.0" prefWidth="139.0" text="YourEmail" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="newPassword" layoutX="316.0" layoutY="413.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg új jelszavát!" />
+                <Label layoutX="127.0" layoutY="411.0" text="Új jelszó: " textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+            <ImageView fitHeight="160.0" fitWidth="251.0" layoutX="589.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Képek/logo.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="149.0" fitWidth="225.0" layoutX="610.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Képek/ikon/post-purchase-dribbble-animated-400x300.gif" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
         <AnchorPane fx:id="enquiry" layoutX="10.0" layoutY="48.0" prefHeight="601.0" prefWidth="903.0" style="-fx-background-color: #8F1D21;" />
         <AnchorPane layoutY="-6.0" prefHeight="54.0" prefWidth="916.0" style="-fx-background-color: #082656;">
             <children>
@@ -30,7 +102,7 @@
                         <DropShadow />
                     </effect></Label>
                 <Hyperlink layoutX="825.0" layoutY="16.0" onAction="#handleHomeLink" text="Kijelentkezés" textFill="WHITE" />
-                <Label layoutX="604.0" layoutY="22.0" text="Üdvozöljük!" textFill="WHITE">
+                <Label layoutX="471.0" layoutY="22.0" prefHeight="17.0" prefWidth="209.0" text="Üdvozöljük a Pontus müszaki üzletben!" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
                     </font>
@@ -77,68 +149,6 @@
                         <Image url="@../Képek/ikon/photo.png" />
                     </image>
                 </ImageView>
-            </children>
-        </AnchorPane>
-        <AnchorPane fx:id="account_pane" layoutY="45.0" prefHeight="613.0" prefWidth="913.0" style="-fx-background-color: #1F3A93;">
-            <children>
-                <Label layoutX="198.0" layoutY="70.0" text="Név:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="130.0" layoutY="272.0" text="Lakcím:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="127.0" layoutY="349.0" text="Jelszó:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <PasswordField fx:id="oldPassword" layoutX="337.0" layoutY="349.0" prefHeight="25.0" prefWidth="203.0" promptText="Enter Your old password" />
-                <Button layoutX="338.0" layoutY="472.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #00b894;" text="Jeszó megváltoztatás" textFill="WHITE" />
-                <Label fx:id="modifyNameLabel" layoutX="358.0" layoutY="70.0" text="YourName" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="198.0" layoutY="28.0" text="Customer ID : " textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label fx:id="modifyAddressLabel" layoutX="336.0" layoutY="274.0" text="YourAdd" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label fx:id="customerIDLabel" layoutX="338.0" layoutY="28.0" text="1002949" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="227.0" layoutY="112.0" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="127.0" layoutY="193.0" prefHeight="28.0" prefWidth="179.0" text="Email:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label fx:id="modifyEmailLabel" layoutX="291.0" layoutY="192.0" text="YourEmail" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <PasswordField fx:id="newPassword" layoutX="338.0" layoutY="412.0" prefHeight="25.0" prefWidth="203.0" promptText="Enter new password" />
-                <Label layoutX="127.0" layoutY="411.0" text="Új jelszó: " textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="store_pane" layoutY="45.0" prefHeight="600.0" prefWidth="913.0" style="-fx-background-color: white;">
