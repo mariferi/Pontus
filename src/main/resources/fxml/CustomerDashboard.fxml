@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -18,7 +19,7 @@
 
 <AnchorPane focusTraversable="true" prefHeight="631.0" prefWidth="897.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pontus.CustomerDashboardController">
     <children>
-        <AnchorPane fx:id="account_pane" layoutY="43.0" prefHeight="639.0" prefWidth="916.0" style="-fx-background-color: #1F3A93;">
+        <AnchorPane fx:id="account_pane" layoutY="43.0" prefHeight="651.0" prefWidth="924.0" style="-fx-background-color: #1F3A93;">
             <children>
                 <Label layoutX="127.0" layoutY="155.0" text="Név:" textFill="WHITE">
                     <font>
@@ -104,7 +105,7 @@
             <TextField fx:id="newAdressLabel" layoutX="312.0" layoutY="357.0" prefHeight="26.0" prefWidth="203.0" promptText="Kérjük adja meg új címét!" />
             </children>
         </AnchorPane>
-        <AnchorPane layoutY="-6.0" prefHeight="54.0" prefWidth="916.0" style="-fx-background-color: #082656;">
+        <AnchorPane layoutY="-6.0" prefHeight="54.0" prefWidth="924.0" style="-fx-background-color: #082656;">
             <children>
                 <Label fx:id="customerName" layoutX="680.0" layoutY="22.0" text="Customer 1" textFill="WHITE">
                     <font>
@@ -113,7 +114,7 @@
                     <effect>
                         <DropShadow />
                     </effect></Label>
-                <Hyperlink layoutX="825.0" layoutY="16.0" onAction="#handleHomeLink" text="Kijelentkezés" textFill="WHITE" />
+                <Hyperlink layoutX="833.0" layoutY="15.0" onAction="#handleHomeLink" text="Kijelentkezés" textFill="WHITE" />
                 <Label layoutX="471.0" layoutY="22.0" prefHeight="17.0" prefWidth="209.0" text="Üdvozöljük a Pontus műszaki üzletben!" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
@@ -121,7 +122,7 @@
                     <effect>
                         <DropShadow />
                     </effect></Label>
-                <Button fx:id="store_btn" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="116.0" style="-fx-background-color: #28A6D3 #28A6D3;" text="    Áruház" textFill="WHITE">
+                <Button fx:id="store_btn" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="133.0" style="-fx-background-color: #28A6D3 #28A6D3;" text="    Áruház" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
                     </font>
@@ -131,7 +132,7 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button fx:id="account_btn" layoutX="116.0" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="116.0" style="-fx-background-color: #28A6D3; -fx-border-radius: 0%;" text="Fiók" textFill="WHITE">
+                <Button fx:id="account_btn" layoutX="129.0" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="127.0" style="-fx-background-color: #28A6D3; -fx-border-radius: 0%;" text="Fiók" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
                     </font>
@@ -146,12 +147,12 @@
                         <Image url="@../Képek/ikon/Shop-Store-Icon-5.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="123.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="35.0" fitWidth="28.0" layoutX="140.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../Képek/ikon/img_568657.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="799.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="804.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../Képek/ikon/18183.png" />
                     </image>
@@ -164,9 +165,9 @@
             </children>
         </AnchorPane>
         <AnchorPane fx:id="enquiry" layoutX="10.0" layoutY="48.0" prefHeight="601.0" prefWidth="903.0" style="-fx-background-color: #8F1D21;" />
-        <AnchorPane fx:id="store_pane" layoutY="45.0" prefHeight="640.0" prefWidth="916.0" style="-fx-background-color: white;">
+        <AnchorPane fx:id="store_pane" layoutY="45.0" prefHeight="650.0" prefWidth="924.0" style="-fx-background-color: white;">
             <children>
-                <Pane layoutX="255.0" prefHeight="645.0" prefWidth="669.0" style="-fx-background-color: #082656;">
+                <Pane layoutX="255.0" prefHeight="650.0" prefWidth="669.0" style="-fx-background-color: #082656;">
                     <children>
                         <Button layoutX="206.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleAddToCart" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Hozzáadás a kosárhoz" textFill="WHITE">
                             <cursor>
@@ -196,7 +197,7 @@
                                 <Font name="ATROX normal" size="18.0" />
                             </font>
                         </Label>
-                        <Button fx:id="checkoutBtn" layoutX="206.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleCheckout" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Ellenörzés és fizetés">
+                        <Button fx:id="checkoutBtn" layoutX="206.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleCheckout" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Ellenörzés és fizetés" textFill="WHITE">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -217,18 +218,19 @@
                         </Button>
                   <TableView fx:id="productTableView" layoutX="28.0" layoutY="24.0" prefHeight="249.0" prefWidth="580.0" tableMenuButtonVisible="true">
                      <columns>
-                        <TableColumn fx:id="productNameCol" prefWidth="259.9999694824219" text="Név" />
-                        <TableColumn fx:id="productSizeCol" prefWidth="71.199951171875" text="Méret" />
-                        <TableColumn fx:id="productPriceCol" prefWidth="76.00006103515625" text="Ár" />
-                        <TableColumn fx:id="productCategoryCol" prefWidth="156.0" text="Kategória" />
+                        <TableColumn fx:id="productNameCol" prefWidth="283.0" text="Név" />
+                        <TableColumn fx:id="productSizeCol" prefWidth="73.0" text="Méret" />
+                        <TableColumn fx:id="productPriceCol" prefWidth="78.0" text="Ár" />
+                        <TableColumn fx:id="productCategoryCol" prefWidth="131.0" text="Kategória" />
                      </columns>
                   </TableView>
+                  <Separator layoutY="-1.0" orientation="VERTICAL" prefHeight="651.0" prefWidth="5.0" />
                     </children>
                     <effect>
                         <DropShadow />
                     </effect>
                 </Pane>
-                  <ImageView id="pckep" fx:id="pckep" fitHeight="75.0" fitWidth="54.0" layoutX="17.0" layoutY="5.0" onMouseClicked="#handlepckep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="pckep" fx:id="pckep" fitHeight="54.0" fitWidth="43.0" layoutX="26.0" layoutY="11.0" onMouseClicked="#handlepckep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/pc.jpg" />
                       </image>
@@ -241,7 +243,7 @@
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
             </Label>
-                  <ImageView id="tvkep" fx:id="tvkep" fitHeight="86.0" fitWidth="61.0" layoutX="17.0" layoutY="71.0" onMouseClicked="#handletvkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="tvkep" fx:id="tvkep" fitHeight="86.0" fitWidth="61.0" layoutX="21.0" layoutY="71.0" onMouseClicked="#handletvkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/tv.jpg" />
                       </image>
@@ -259,7 +261,7 @@
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
             </Label>
-                  <ImageView id="laptopkep" fx:id="laptopkep" fitHeight="67.0" fitWidth="72.0" layoutX="17.0" layoutY="119.0" onMouseClicked="#handlelaptopkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="laptopkep" fx:id="laptopkep" fitHeight="54.0" fitWidth="54.0" layoutX="24.0" layoutY="126.0" onMouseClicked="#handlelaptopkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/laptop.jpg" />
                       </image>
@@ -267,7 +269,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <ImageView id="mosogepkep" fx:id="mosogepkep" fitHeight="67.0" fitWidth="61.0" layoutX="24.0" layoutY="196.0" onMouseClicked="#handlemosogepkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="mosogepkep" fx:id="mosogepkep" fitHeight="54.0" fitWidth="43.0" layoutX="29.0" layoutY="205.0" onMouseClicked="#handlemosogepkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/mosógép.jpg" />
                       </image>
@@ -280,7 +282,7 @@
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
             </Label>
-                  <ImageView id="mikrokep" fx:id="mikrokep" fitHeight="61.0" fitWidth="61.0" layoutX="29.0" layoutY="269.0" onMouseClicked="#handlemikrokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="mikrokep" fx:id="mikrokep" fitHeight="41.0" fitWidth="54.0" layoutX="29.0" layoutY="269.0" onMouseClicked="#handlemikrokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/mikró.jpg" />
                       </image>
@@ -298,7 +300,7 @@
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
             </Label>
-                  <ImageView id="porszivokep" fx:id="porszivokep" fitHeight="54.0" fitWidth="54.0" layoutX="24.0" layoutY="328.0" onMouseClicked="#handleporszivokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="porszivokep" fx:id="porszivokep" fitHeight="43.0" fitWidth="43.0" layoutX="35.0" layoutY="333.0" onMouseClicked="#handleporszivokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/porsziv.jpg" />
                       </image>
@@ -319,7 +321,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <ImageView id="hutokep" fx:id="hutokep" fitHeight="67.0" fitWidth="43.0" layoutX="29.0" layoutY="458.0" onMouseClicked="#handlehutokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="hutokep" fx:id="hutokep" fitHeight="43.0" fitWidth="43.0" layoutX="39.0" layoutY="454.0" onMouseClicked="#handlehutokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/hűtő.jpg" />
                       </image>
@@ -332,7 +334,7 @@
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
                   </Label>
-                  <ImageView fitHeight="104.0" fitWidth="150.0" layoutX="41.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView fitHeight="105.0" fitWidth="179.0" layoutX="39.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/ikon/hzN9VJ4qBW5N.gif" />
                       </image>
@@ -340,6 +342,15 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
+            <Separator layoutX="-4.0" layoutY="54.0" prefHeight="17.0" prefWidth="260.0" />
+            <Separator layoutX="-4.0" layoutY="125.0" prefHeight="3.0" prefWidth="260.0" />
+            <Separator layoutX="4.0" layoutY="188.0" prefHeight="3.0" prefWidth="252.0" />
+            <Separator layoutX="-5.0" layoutY="257.0" prefHeight="3.0" prefWidth="260.0" />
+            <Separator layoutX="-4.0" layoutY="321.0" prefHeight="11.0" prefWidth="260.0" />
+            <Separator layoutX="-4.0" layoutY="381.0" prefHeight="11.0" prefWidth="260.0" />
+            <Separator layoutX="-5.0" layoutY="443.0" prefHeight="3.0" prefWidth="260.0" />
+            <Separator layoutX="-4.0" layoutY="507.0" prefHeight="3.0" prefWidth="260.0" />
+            <Separator layoutX="-18.0" layoutY="-1.0" prefHeight="3.0" prefWidth="276.0" />
             </children>
         </AnchorPane>
     </children>
