@@ -141,7 +141,7 @@ public class CustomerDashboardController {
 		cart.add(product);
 		productTableView.getItems().remove(product);
 		cartTable(cart);
-		totalLabel.setText(cartSum(cart) + "Ft");
+		totalLabel.setText(cartSum(cart) + " Ft");
 	}
 
 	public float cartSum(List<Product> products) {
@@ -168,15 +168,16 @@ public class CustomerDashboardController {
 	}
 
 	public void handleCheckout() throws IOException {
-		PaymentController.getActiveCart(cart);
-		Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/Payment.fxml"));
-		Scene checkout = new Scene(dashboard);
-		Stage window = new Stage();
-		window.getIcons().add(new Image(new FileInputStream("src\\main\\resources\\Képek\\bejelentkező.jpg")));
-		window.setScene(checkout);
-		window.setTitle("Fizetés ellenőrzés");
-		window.show();
-
+		if (!cart.isEmpty()) {
+			PaymentController.getActiveCart(cart);
+			Parent dashboard = FXMLLoader.load(getClass().getResource("/fxml/Payment.fxml"));
+			Scene checkout = new Scene(dashboard);
+			Stage window = new Stage();
+			window.getIcons().add(new Image(new FileInputStream("src\\main\\resources\\Képek\\bejelentkező.jpg")));
+			window.setScene(checkout);
+			window.setTitle("Fizetés ellenőrzés");
+			window.show();
+		}
 	}
 
 

@@ -41,7 +41,7 @@ public class PaymentController{
         
         public void initialize(){
 		setTable();
-		totalLabel.setText(cartSum(cart) + "Ft");
+		totalLabel.setText(cartSum(cart) + " Ft");
 	}
 
 	public boolean validateCard() {
