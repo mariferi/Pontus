@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
@@ -17,6 +18,78 @@
 
 <AnchorPane focusTraversable="true" prefHeight="631.0" prefWidth="897.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pontus.CustomerDashboardController">
     <children>
+        <AnchorPane fx:id="account_pane" layoutY="43.0" prefHeight="653.0" prefWidth="925.0" style="-fx-background-color: #1F3A93;">
+            <children>
+                <Label layoutX="127.0" layoutY="155.0" text="Név:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="130.0" layoutY="272.0" text="Lakcím:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="127.0" layoutY="349.0" text="Jelszó:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="oldPassword" layoutX="316.0" layoutY="351.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg régi jelszavát!" />
+                <Button layoutX="224.0" layoutY="475.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #28A6D3;" text="Jelszó megváltoztatás" textFill="WHITE" />
+                <Label fx:id="modifyNameLabel" layoutX="316.0" layoutY="155.0" prefHeight="28.0" prefWidth="216.0" text="YourName" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="121.0" layoutY="112.0" text=" Felhasználó azonositó:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label fx:id="modifyAddressLabel" alignment="TOP_LEFT" layoutX="316.0" layoutY="272.0" prefHeight="67.0" prefWidth="203.0" text="YourAdd" textFill="WHITE" wrapText="true">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label fx:id="customerIDLabel" layoutX="316.0" layoutY="112.0" text="1002949" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="227.0" layoutY="112.0" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label layoutX="127.0" layoutY="193.0" prefHeight="28.0" prefWidth="179.0" text="Email:" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <Label fx:id="modifyEmailLabel" layoutX="319.0" layoutY="193.0" prefHeight="28.0" prefWidth="209.0" text="YourEmail" textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="newPassword" layoutX="316.0" layoutY="413.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg új jelszavát!" />
+                <Label layoutX="127.0" layoutY="411.0" text="Új jelszó: " textFill="WHITE">
+                    <font>
+                        <Font name="Open Sans Semibold" size="19.0" />
+                    </font>
+                </Label>
+            <ImageView fitHeight="160.0" fitWidth="251.0" layoutX="589.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Képek/logo.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="149.0" fitWidth="225.0" layoutX="610.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Képek/ikon/post-purchase-dribbble-animated-400x300.gif" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
         <AnchorPane layoutY="-6.0" prefHeight="54.0" prefWidth="925.0" style="-fx-background-color: #082656;">
             <children>
                 <Label fx:id="customerName" layoutX="680.0" layoutY="22.0" text="Customer 1" textFill="WHITE">
@@ -34,7 +107,7 @@
                     <effect>
                         <DropShadow />
                     </effect></Label>
-                <Button fx:id="store_btn" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="116.0" style="-fx-background-color: #28A6D3 #28A6D3;" text="    Áruház" textFill="WHITE">
+                <Button fx:id="store_btn" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="123.0" style="-fx-background-color: #28A6D3 #28A6D3;" text="    Áruház" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
                     </font>
@@ -44,7 +117,7 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button fx:id="account_btn" layoutX="116.0" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="139.0" style="-fx-background-color: #28A6D3; -fx-border-radius: 0%;" text="Fiók" textFill="WHITE">
+                <Button fx:id="account_btn" layoutX="122.0" mnemonicParsing="false" onAction="#handleTabButtons" prefHeight="54.0" prefWidth="133.0" style="-fx-background-color: #28A6D3; -fx-border-radius: 0%;" text="Fiók" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="12.0" />
                     </font>
@@ -59,7 +132,7 @@
                         <Image url="@../Képek/ikon/Shop-Store-Icon-5.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="123.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="133.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../Képek/ikon/img_568657.png" />
                     </image>
@@ -136,6 +209,7 @@
                         <TableColumn fx:id="productCategoryCol" prefWidth="135.99993896484375" text="Kategória" />
                      </columns>
                   </TableView>
+                  <Separator layoutX="-3.0" layoutY="3.0" orientation="VERTICAL" prefHeight="646.0" prefWidth="0.0" />
                     </children>
                     <effect>
                         <DropShadow />
@@ -149,7 +223,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <Label layoutX="96.0" layoutY="22.0" prefHeight="21.0" prefWidth="116.0" text="Számítógépek">
+                  <Label id="pckep" fx:id="pckep" layoutX="96.0" layoutY="22.0" onMouseClicked="#handlepckep" prefHeight="21.0" prefWidth="116.0" text="Számítógépek">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
@@ -180,7 +254,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <ImageView id="mosogepkep" fx:id="mosogepkep" fitHeight="67.0" fitWidth="61.0" layoutX="24.0" layoutY="196.0" onMouseClicked="#handlemosogepkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="mosogepkep" fx:id="mosogepkep" fitHeight="54.0" fitWidth="61.0" layoutX="24.0" layoutY="196.0" onMouseClicked="#handlemosogepkep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/mosógép.jpg" />
                       </image>
@@ -232,7 +306,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <ImageView id="hutokep" fx:id="hutokep" fitHeight="67.0" fitWidth="43.0" layoutX="29.0" layoutY="458.0" onMouseClicked="#handlehutokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
+                  <ImageView id="hutokep" fx:id="hutokep" fitHeight="54.0" fitWidth="43.0" layoutX="30.0" layoutY="449.0" onMouseClicked="#handlehutokep" pickOnBounds="true" preserveRatio="true" styleClass="thumb">
                       <image>
                           <Image url="@../Képek/hűtő.jpg" />
                       </image>
@@ -253,78 +327,14 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-            </children>
-        </AnchorPane>
-        <AnchorPane fx:id="account_pane" layoutY="43.0" prefHeight="639.0" prefWidth="916.0" style="-fx-background-color: #1F3A93;">
-            <children>
-                <Label layoutX="127.0" layoutY="155.0" text="Név:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="130.0" layoutY="272.0" text="Lakcím:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="127.0" layoutY="349.0" text="Jelszó:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <PasswordField fx:id="oldPassword" layoutX="316.0" layoutY="351.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg régi jelszavát!" />
-                <Button layoutX="224.0" layoutY="475.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #28A6D3;" text="Jelszó megváltoztatás" textFill="WHITE" />
-                <Label fx:id="modifyNameLabel" layoutX="316.0" layoutY="155.0" prefHeight="28.0" prefWidth="216.0" text="YourName" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="121.0" layoutY="112.0" text=" Felhasználó azonositó:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label fx:id="modifyAddressLabel" alignment="TOP_LEFT" layoutX="316.0" layoutY="272.0" prefHeight="67.0" prefWidth="203.0" text="YourAdd" textFill="WHITE" wrapText="true">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label fx:id="customerIDLabel" layoutX="316.0" layoutY="112.0" text="1002949" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="227.0" layoutY="112.0" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label layoutX="127.0" layoutY="193.0" prefHeight="28.0" prefWidth="179.0" text="Email:" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <Label fx:id="modifyEmailLabel" layoutX="319.0" layoutY="193.0" prefHeight="28.0" prefWidth="209.0" text="YourEmail" textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-                <PasswordField fx:id="newPassword" layoutX="316.0" layoutY="413.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg új jelszavát!" />
-                <Label layoutX="127.0" layoutY="411.0" text="Új jelszó: " textFill="WHITE">
-                    <font>
-                        <Font name="Open Sans Semibold" size="19.0" />
-                    </font>
-                </Label>
-            <ImageView fitHeight="160.0" fitWidth="251.0" layoutX="589.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Képek/logo.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="149.0" fitWidth="225.0" layoutX="610.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Képek/ikon/post-purchase-dribbble-animated-400x300.gif" />
-               </image>
-            </ImageView>
+            <Separator layoutX="-6.0" layoutY="57.0" prefHeight="5.0" prefWidth="256.0" />
+            <Separator layoutX="-6.0" layoutY="117.0" prefHeight="5.0" prefWidth="256.0" />
+            <Separator layoutX="4.0" layoutY="185.0" prefHeight="5.0" prefWidth="248.0" />
+            <Separator layoutX="-2.0" layoutY="257.0" prefHeight="5.0" prefWidth="256.0" />
+            <Separator layoutX="2.0" layoutY="322.0" prefHeight="5.0" prefWidth="248.0" />
+            <Separator layoutX="4.0" layoutY="389.0" prefHeight="3.0" prefWidth="248.0" />
+            <Separator layoutX="-6.0" layoutY="442.0" prefHeight="5.0" prefWidth="256.0" />
+            <Separator layoutX="-6.0" layoutY="511.0" prefHeight="3.0" prefWidth="256.0" />
             </children>
         </AnchorPane>
     </children>

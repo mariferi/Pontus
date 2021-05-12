@@ -8,9 +8,11 @@ module pontus {
     requires javafx.graphics;
     requires com.h2database;
     requires java.persistence;
-
+   
 
     opens pontus to javafx.fxml, javafx.controls, javafx.graphics, javafx.base;
     exports pontus;
-    requires junit;
+    
+     requires junit;
+    
 }

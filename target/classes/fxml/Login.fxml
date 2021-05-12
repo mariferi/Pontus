@@ -36,7 +36,7 @@
                         <Image url="@../Képek/bejelentkező.jpg" />
                     </image>
                 </ImageView>
-                <Button fx:id="register" layoutX="144.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="72.0" prefWidth="142.0" style="-fx-background-color: #2777f7;" text="Regisztrálció" textFill="WHITE">
+                <Button fx:id="register" layoutX="144.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="72.0" prefWidth="142.0" style="-fx-background-color: #2777f7;" text="Regisztráció" textFill="WHITE">
                     <effect>
                         <DropShadow />
                     </effect></Button>
