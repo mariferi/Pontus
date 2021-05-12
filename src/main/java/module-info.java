@@ -13,6 +13,6 @@ module pontus {
     opens pontus to javafx.fxml, javafx.controls, javafx.graphics, javafx.base;
     exports pontus;
     
-     requires junit;
+    requires junit;
     
 }
