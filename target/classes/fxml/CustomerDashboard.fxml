@@ -164,9 +164,9 @@
                   </Button>
                         <TableView fx:id="cartTable" layoutX="28.0" layoutY="335.0" prefHeight="188.0" prefWidth="580.0">
                             <columns>
-                                <TableColumn fx:id="cartItemCol" prefWidth="105.0" text="Termék" />
-                                <TableColumn fx:id="cartCategoryCol" minWidth="0.0" prefWidth="96.79995727539062" text="Kategória" />
-                                <TableColumn fx:id="cartPriceCol" minWidth="0.0" prefWidth="119.20001220703125" text="Ár" />
+                                <TableColumn fx:id="cartItemCol" prefWidth="325.0" text="Termék" />
+                                <TableColumn fx:id="cartCategoryCol" minWidth="0.0" prefWidth="133.0" text="Kategória" />
+                                <TableColumn fx:id="cartPriceCol" minWidth="0.0" prefWidth="121.0" text="Ár" />
                             </columns>
                             <effect>
                                 <InnerShadow />
@@ -203,13 +203,13 @@
                         </Button>
                   <TableView fx:id="productTableView" layoutX="28.0" layoutY="24.0" prefHeight="249.0" prefWidth="580.0" tableMenuButtonVisible="true">
                      <columns>
-                        <TableColumn fx:id="productNameCol" prefWidth="189.5999755859375" text="Név" />
-                        <TableColumn fx:id="productSizeCol" prefWidth="111.19998168945312" text="Méret" />
-                        <TableColumn fx:id="productPriceCol" prefWidth="119.20001220703125" text="Ár" />
-                        <TableColumn fx:id="productCategoryCol" prefWidth="135.99993896484375" text="Kategória" />
+                        <TableColumn fx:id="productNameCol" prefWidth="225.0" text="Név" />
+                        <TableColumn fx:id="productSizeCol" prefWidth="77.0" text="Méret" />
+                        <TableColumn fx:id="productPriceCol" prefWidth="135.0" text="Ár" />
+                        <TableColumn fx:id="productCategoryCol" prefWidth="142.0" text="Kategória" />
                      </columns>
                   </TableView>
-                  <Separator layoutX="-3.0" layoutY="3.0" orientation="VERTICAL" prefHeight="646.0" prefWidth="0.0" />
+                  <Separator layoutX="-3.0" layoutY="3.0" orientation="VERTICAL" prefHeight="646.0" prefWidth="6.0" />
                     </children>
                     <effect>
                         <DropShadow />
