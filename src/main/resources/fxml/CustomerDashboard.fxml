@@ -236,12 +236,12 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <Label layoutX="100.0" layoutY="81.0" text="Televiziók">
+                  <Label fx:id="tvkep" layoutX="100.0" layoutY="81.0" onMouseClicked="#handletvkep" text="Televiziók">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
             </Label>
-                  <Label layoutX="104.0" layoutY="142.0" text="Laptopok">
+                  <Label fx:id="laptopkep" layoutX="104.0" layoutY="142.0" onMouseClicked="#handlelaptopkep" text="Laptopok">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
@@ -262,7 +262,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <Label layoutX="104.0" layoutY="216.0" text="Mosógépek">
+                  <Label fx:id="mosogepkep" layoutX="104.0" layoutY="216.0" onMouseClicked="#handlemosogepkep" text="Mosógépek">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
@@ -275,12 +275,12 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <Label layoutX="102.0" layoutY="279.0" text="Mikrohullámú sütők">
+                  <Label fx:id="mikrokep" layoutX="102.0" layoutY="279.0" onMouseClicked="#handlemikrokep" text="Mikrohullámú sütők">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
             </Label>
-                  <Label layoutX="104.0" layoutY="344.0" text="Porszivók">
+                  <Label fx:id="porszivokep" layoutX="104.0" layoutY="344.0" onMouseClicked="#handleporszivokep" text="Porszivók">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
@@ -293,7 +293,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <Label layoutX="104.0" layoutY="407.0" text="Rádiók,Hifitornyok">
+                  <Label fx:id="radiokep" layoutX="104.0" layoutY="407.0" onMouseClicked="#handleradiokep" text="Rádiók,Hifitornyok">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
@@ -314,7 +314,7 @@
                           <Cursor fx:constant="HAND" />
                       </cursor>
                   </ImageView>
-                  <Label layoutX="101.0" layoutY="465.0" text="Hűtőszekrények">
+                  <Label fx:id="hutokep" layoutX="101.0" layoutY="465.0" onMouseClicked="#handlehutokep" text="Hűtőszekrények">
                       <font>
                           <Font name="Open Sans Semibold" size="15.0" />
                       </font>
