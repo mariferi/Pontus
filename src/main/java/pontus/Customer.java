@@ -112,12 +112,6 @@ public class Customer {
 		try (CustomerDAO cDAO= new JpaCustomerDAO();) {
 			cDAO.saveCustomer(customer);
 		}
-
-		System.out.println("A regisztrált adatok:");
-		System.out.println("Név: " + userName);
-		System.out.println("Email: " + userEmail);
-		System.out.println("Jelszó: " + password);
-		System.out.println("Postázási cím: " + address);
 	}
 	//**************************************************************************************************
 

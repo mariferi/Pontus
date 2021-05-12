@@ -51,8 +51,7 @@ public class RegisterController {
 			invalidPassword.setText("Érvénytelen Jelszó!");
 			invalidPassword.setVisible(true);
 			Alert alert = new Alert(Alert.AlertType.ERROR,
-					" • A Jelszóban legalább 2db szám vagy bármilyen nem betű karakternek is lennie kell!\n" +
-							" • A Jelszónak minimum 8 karakternek kell lennie!");
+					" • A Jelszóban legalább 8 karakter valamint 2db szám vagy\nbármilyen nem betű karakternek is lennie kell!");
 			alert.showAndWait();
 		} else if (!password.getText().equals(verifyPassword.getText())) {
 			invalidMatch.setVisible(true);

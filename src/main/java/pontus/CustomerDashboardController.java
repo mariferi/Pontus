@@ -53,6 +53,15 @@ public class CustomerDashboardController {
 	@FXML	private TableColumn<Product,String> cartCategoryCol;
 	@FXML	private TableColumn<Product,String> cartPriceCol;
 
+	@FXML
+	private Label invalidPasswordLabel;
+	@FXML
+	private TextField newEmail;
+	@FXML
+	private Label invalidEmailLabel;
+	@FXML
+	private TextField newAdressLabel;
+
 	public static void getActiveCustomer(Customer customer) {
 		activeCustomer = customer;
 	}
@@ -91,6 +100,7 @@ public class CustomerDashboardController {
 		if (event.getSource() == store_btn) {
 			store_pane.toFront();
 		} else if (event.getSource() == account_btn) {
+			initialize();
 			account_pane.toFront();
 		}
 	}
@@ -182,17 +192,56 @@ public class CustomerDashboardController {
 
 
 	public void changePassword() throws Exception {
+		invalidEmailLabel.setVisible(false);
+		invalidPasswordLabel.setVisible(false);
 		String oldPassField = oldPassword.getText();
 		String newPassField = newPassword.getText();
 		String oldPassAct = activeCustomer.getPassword();
 		if (oldPassField.equals(oldPassAct)) {
-			try(CustomerDAO cDAO= new JpaCustomerDAO();){
-				Customer customer = cDAO.getCustomerbyID(activeCustomer.getId());
-				customer.setPassword(newPassField);
-				cDAO.updateCustomer(customer);
+			try (CustomerDAO cDAO = new JpaCustomerDAO();) {
+				if (!newPassword.getText().isEmpty()) {
+					if (Customer.validatePassword(newPassField)) {
+						invalidPasswordLabel.setVisible(false);
+
+						Customer customer = cDAO.getCustomerbyID(activeCustomer.getId());
+						customer.setPassword(newPassField);
+						cDAO.updateCustomer(customer);
+						Alert alert = new Alert(Alert.AlertType.INFORMATION, "Sikeres jelszó változtatás!");
+						alert.showAndWait();
+					}
+				 	else {
+						Alert alert = new Alert(Alert.AlertType.ERROR,
+								" • A Jelszóban legalább 8 karakter valamint 2db szám vagy\nbármilyen nem betű karakternek is lennie kell!");
+						alert.showAndWait();
+					}
+				}
+				if (!newEmail.getText().isEmpty()) {
+					if (Customer.validateEmail(newEmail.getText())) {
+						invalidEmailLabel.setVisible(false);
+						Customer customer = cDAO.getCustomerbyID(activeCustomer.getId());
+						customer.setUserEmail(newEmail.getText());
+						cDAO.updateCustomer(customer);
+						Alert alert = new Alert(Alert.AlertType.INFORMATION, "Sikeres email változtatás!");
+						alert.showAndWait();
+					}
+					else {
+						invalidEmailLabel.setVisible(true);
+					}
+				}
+				if (!newAdressLabel.getText().isEmpty()) {
+					Customer customer = cDAO.getCustomerbyID(activeCustomer.getId());
+					customer.setAddress(newAdressLabel.getText());
+					cDAO.updateCustomer(customer);
+					Alert alert = new Alert(Alert.AlertType.INFORMATION, "A cím sikeresen megváltoztatva!");
+					alert.showAndWait();
+				}
 			}
 		}
+		else {
+			invalidPasswordLabel.setVisible(true);
+		}
 	}
+
 
 	public void handleHomeLink(ActionEvent event) throws IOException {
 		Parent register = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));

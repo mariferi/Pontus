@@ -55,7 +55,7 @@
                         <Font name="Helsinki" size="26.0" />
                     </font>
                 </Label>
-                <Label layoutX="561.0" layoutY="363.0" text="Pontus_App_Alpha001" textFill="#3f82ff" />
+                <Label layoutX="561.0" layoutY="363.0" text="Pontus_Version_1.0" textFill="#3f82ff" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
             </children>
         </AnchorPane>

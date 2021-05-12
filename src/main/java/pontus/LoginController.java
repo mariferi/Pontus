@@ -65,9 +65,6 @@ public class LoginController {
 					AdminDashboardController.getActiveAdmin(activeAdmin);
 					changeScene(event,"/fxml/AdminDashboard.fxml");
 				}
-				else {
-					invalidLabel.setVisible(true);
-				}
 			}//admin
 			for (Customer customer :all_customers){
 				if(customer.getUserName().equals(userName)&& customer.getPassword().equals(pass)){//jo user

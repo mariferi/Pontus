@@ -7,6 +7,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
@@ -24,18 +25,18 @@
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="130.0" layoutY="272.0" text="Lakcím:" textFill="WHITE">
+                <Label layoutX="125.0" layoutY="282.0" text="Lakcím:" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="127.0" layoutY="349.0" text="Jelszó:" textFill="WHITE">
+                <Label layoutX="121.0" layoutY="411.0" text=" Régi jelszó:" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <PasswordField fx:id="oldPassword" layoutX="316.0" layoutY="351.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg régi jelszavát!" />
-                <Button layoutX="224.0" layoutY="475.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #28A6D3;" text="Jelszó megváltoztatás" textFill="WHITE" />
+                <PasswordField fx:id="oldPassword" layoutX="312.0" layoutY="412.0" prefHeight="26.0" prefWidth="203.0" promptText="Kérjük adja meg régi jelszavát!" />
+                <Button layoutX="224.0" layoutY="505.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="54.0" prefWidth="190.0" style="-fx-background-color: #28A6D3;" text="Új adatok mentése" textFill="WHITE" />
                 <Label fx:id="modifyNameLabel" layoutX="316.0" layoutY="155.0" prefHeight="28.0" prefWidth="216.0" text="YourName" textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
@@ -46,7 +47,7 @@
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <Label fx:id="modifyAddressLabel" alignment="TOP_LEFT" layoutX="316.0" layoutY="272.0" prefHeight="67.0" prefWidth="203.0" text="YourAdd" textFill="WHITE" wrapText="true">
+                <Label fx:id="modifyAddressLabel" alignment="TOP_LEFT" layoutX="316.0" layoutY="282.0" prefHeight="75.0" prefWidth="203.0" text="YourAdd" textFill="WHITE" wrapText="true">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
@@ -71,8 +72,8 @@
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
                 </Label>
-                <PasswordField fx:id="newPassword" layoutX="316.0" layoutY="413.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg új jelszavát!" />
-                <Label layoutX="127.0" layoutY="411.0" text="Új jelszó: " textFill="WHITE">
+                <PasswordField fx:id="newPassword" layoutX="312.0" layoutY="454.0" prefHeight="25.0" prefWidth="203.0" promptText="Kérjük adja meg új jelszavát!" />
+                <Label layoutX="125.0" layoutY="452.0" text="Új jelszó: " textFill="WHITE">
                     <font>
                         <Font name="Open Sans Semibold" size="19.0" />
                     </font>
@@ -87,6 +88,20 @@
                   <Image url="@../Képek/ikon/post-purchase-dribbble-animated-400x300.gif" />
                </image>
             </ImageView>
+            <Label fx:id="invalidPasswordLabel" layoutX="318.0" layoutY="385.0" text="Hibás jelszó*" textFill="#ff3737" visible="false" />
+            <Label layoutX="124.0" layoutY="248.0" text="Új email" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="newEmail" layoutX="312.0" layoutY="249.0" prefHeight="26.0" prefWidth="203.0" promptText="Kérjük adja meg új email címét" />
+            <Label fx:id="invalidEmailLabel" layoutX="319.0" layoutY="230.0" text="Hibás email cím*" textFill="#f22525" visible="false" />
+            <Label layoutX="126.0" layoutY="356.0" text="Új lakcím" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="newAdressLabel" layoutX="312.0" layoutY="357.0" prefHeight="26.0" prefWidth="203.0" promptText="Kérjük adja meg új címét!" />
             </children>
         </AnchorPane>
         <AnchorPane layoutY="-6.0" prefHeight="54.0" prefWidth="916.0" style="-fx-background-color: #082656;">
@@ -181,7 +196,7 @@
                                 <Font name="ATROX normal" size="18.0" />
                             </font>
                         </Label>
-                        <Button fx:id="checkoutBtn" layoutX="206.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleCheckout" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Ellenörzés">
+                        <Button fx:id="checkoutBtn" layoutX="206.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleCheckout" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #28A6D3;" text="Ellenörzés és fizetés">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
